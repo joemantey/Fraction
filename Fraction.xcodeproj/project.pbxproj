@@ -1,0 +1,450 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3870E7211BB9904D0080A2A9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3870E7201BB9904D0080A2A9 /* main.m */; };
+		3870E7241BB9904D0080A2A9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3870E7231BB9904D0080A2A9 /* AppDelegate.m */; };
+		3870E7271BB9904D0080A2A9 /* Fraction.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3870E7251BB9904D0080A2A9 /* Fraction.xcdatamodeld */; };
+		3870E72A1BB9904D0080A2A9 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3870E7291BB9904D0080A2A9 /* ViewController.m */; };
+		3870E72D1BB9904D0080A2A9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3870E72B1BB9904D0080A2A9 /* Main.storyboard */; };
+		3870E72F1BB9904D0080A2A9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3870E72E1BB9904D0080A2A9 /* Images.xcassets */; };
+		3870E7321BB9904D0080A2A9 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3870E7301BB9904D0080A2A9 /* LaunchScreen.xib */; };
+		3870E73E1BB9904D0080A2A9 /* FractionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3870E73D1BB9904D0080A2A9 /* FractionTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3870E7381BB9904D0080A2A9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3870E7131BB9904D0080A2A9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3870E71A1BB9904D0080A2A9;
+			remoteInfo = Fraction;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		3870E71B1BB9904D0080A2A9 /* Fraction.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fraction.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3870E71F1BB9904D0080A2A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3870E7201BB9904D0080A2A9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		3870E7221BB9904D0080A2A9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		3870E7231BB9904D0080A2A9 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		3870E7261BB9904D0080A2A9 /* Fraction.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Fraction.xcdatamodel; sourceTree = "<group>"; };
+		3870E7281BB9904D0080A2A9 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		3870E7291BB9904D0080A2A9 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		3870E72C1BB9904D0080A2A9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		3870E72E1BB9904D0080A2A9 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		3870E7311BB9904D0080A2A9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		3870E7371BB9904D0080A2A9 /* FractionTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FractionTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3870E73C1BB9904D0080A2A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3870E73D1BB9904D0080A2A9 /* FractionTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FractionTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3870E7181BB9904D0080A2A9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3870E7341BB9904D0080A2A9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3870E7121BB9904D0080A2A9 = {
+			isa = PBXGroup;
+			children = (
+				3870E71D1BB9904D0080A2A9 /* Fraction */,
+				3870E73A1BB9904D0080A2A9 /* FractionTests */,
+				3870E71C1BB9904D0080A2A9 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3870E71C1BB9904D0080A2A9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3870E71B1BB9904D0080A2A9 /* Fraction.app */,
+				3870E7371BB9904D0080A2A9 /* FractionTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3870E71D1BB9904D0080A2A9 /* Fraction */ = {
+			isa = PBXGroup;
+			children = (
+				3870E7221BB9904D0080A2A9 /* AppDelegate.h */,
+				3870E7231BB9904D0080A2A9 /* AppDelegate.m */,
+				3870E7281BB9904D0080A2A9 /* ViewController.h */,
+				3870E7291BB9904D0080A2A9 /* ViewController.m */,
+				3870E72B1BB9904D0080A2A9 /* Main.storyboard */,
+				3870E72E1BB9904D0080A2A9 /* Images.xcassets */,
+				3870E7301BB9904D0080A2A9 /* LaunchScreen.xib */,
+				3870E7251BB9904D0080A2A9 /* Fraction.xcdatamodeld */,
+				3870E71E1BB9904D0080A2A9 /* Supporting Files */,
+			);
+			path = Fraction;
+			sourceTree = "<group>";
+		};
+		3870E71E1BB9904D0080A2A9 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3870E71F1BB9904D0080A2A9 /* Info.plist */,
+				3870E7201BB9904D0080A2A9 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3870E73A1BB9904D0080A2A9 /* FractionTests */ = {
+			isa = PBXGroup;
+			children = (
+				3870E73D1BB9904D0080A2A9 /* FractionTests.m */,
+				3870E73B1BB9904D0080A2A9 /* Supporting Files */,
+			);
+			path = FractionTests;
+			sourceTree = "<group>";
+		};
+		3870E73B1BB9904D0080A2A9 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3870E73C1BB9904D0080A2A9 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3870E71A1BB9904D0080A2A9 /* Fraction */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3870E7411BB9904D0080A2A9 /* Build configuration list for PBXNativeTarget "Fraction" */;
+			buildPhases = (
+				3870E7171BB9904D0080A2A9 /* Sources */,
+				3870E7181BB9904D0080A2A9 /* Frameworks */,
+				3870E7191BB9904D0080A2A9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Fraction;
+			productName = Fraction;
+			productReference = 3870E71B1BB9904D0080A2A9 /* Fraction.app */;
+			productType = "com.apple.product-type.application";
+		};
+		3870E7361BB9904D0080A2A9 /* FractionTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3870E7441BB9904D0080A2A9 /* Build configuration list for PBXNativeTarget "FractionTests" */;
+			buildPhases = (
+				3870E7331BB9904D0080A2A9 /* Sources */,
+				3870E7341BB9904D0080A2A9 /* Frameworks */,
+				3870E7351BB9904D0080A2A9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3870E7391BB9904D0080A2A9 /* PBXTargetDependency */,
+			);
+			name = FractionTests;
+			productName = FractionTests;
+			productReference = 3870E7371BB9904D0080A2A9 /* FractionTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3870E7131BB9904D0080A2A9 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0640;
+				ORGANIZATIONNAME = "Yosimite Labs | Joseph Smalls-Mantey";
+				TargetAttributes = {
+					3870E71A1BB9904D0080A2A9 = {
+						CreatedOnToolsVersion = 6.4;
+					};
+					3870E7361BB9904D0080A2A9 = {
+						CreatedOnToolsVersion = 6.4;
+						TestTargetID = 3870E71A1BB9904D0080A2A9;
+					};
+				};
+			};
+			buildConfigurationList = 3870E7161BB9904D0080A2A9 /* Build configuration list for PBXProject "Fraction" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 3870E7121BB9904D0080A2A9;
+			productRefGroup = 3870E71C1BB9904D0080A2A9 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3870E71A1BB9904D0080A2A9 /* Fraction */,
+				3870E7361BB9904D0080A2A9 /* FractionTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3870E7191BB9904D0080A2A9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3870E72D1BB9904D0080A2A9 /* Main.storyboard in Resources */,
+				3870E7321BB9904D0080A2A9 /* LaunchScreen.xib in Resources */,
+				3870E72F1BB9904D0080A2A9 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3870E7351BB9904D0080A2A9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3870E7171BB9904D0080A2A9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3870E7241BB9904D0080A2A9 /* AppDelegate.m in Sources */,
+				3870E7211BB9904D0080A2A9 /* main.m in Sources */,
+				3870E72A1BB9904D0080A2A9 /* ViewController.m in Sources */,
+				3870E7271BB9904D0080A2A9 /* Fraction.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3870E7331BB9904D0080A2A9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3870E73E1BB9904D0080A2A9 /* FractionTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3870E7391BB9904D0080A2A9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3870E71A1BB9904D0080A2A9 /* Fraction */;
+			targetProxy = 3870E7381BB9904D0080A2A9 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		3870E72B1BB9904D0080A2A9 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3870E72C1BB9904D0080A2A9 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		3870E7301BB9904D0080A2A9 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3870E7311BB9904D0080A2A9 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		3870E73F1BB9904D0080A2A9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		3870E7401BB9904D0080A2A9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3870E7421BB9904D0080A2A9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Fraction/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		3870E7431BB9904D0080A2A9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Fraction/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		3870E7451BB9904D0080A2A9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = FractionTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Fraction.app/Fraction";
+			};
+			name = Debug;
+		};
+		3870E7461BB9904D0080A2A9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = FractionTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Fraction.app/Fraction";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3870E7161BB9904D0080A2A9 /* Build configuration list for PBXProject "Fraction" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3870E73F1BB9904D0080A2A9 /* Debug */,
+				3870E7401BB9904D0080A2A9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3870E7411BB9904D0080A2A9 /* Build configuration list for PBXNativeTarget "Fraction" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3870E7421BB9904D0080A2A9 /* Debug */,
+				3870E7431BB9904D0080A2A9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		3870E7441BB9904D0080A2A9 /* Build configuration list for PBXNativeTarget "FractionTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3870E7451BB9904D0080A2A9 /* Debug */,
+				3870E7461BB9904D0080A2A9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		3870E7251BB9904D0080A2A9 /* Fraction.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				3870E7261BB9904D0080A2A9 /* Fraction.xcdatamodel */,
+			);
+			currentVersion = 3870E7261BB9904D0080A2A9 /* Fraction.xcdatamodel */;
+			path = Fraction.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 3870E7131BB9904D0080A2A9 /* Project object */;
+}
