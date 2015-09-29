@@ -8,6 +8,10 @@
 
 #import "AppDelegate.h"
 
+#import "JSConstants.h"
+
+#import <Venmo-iOS-SDK/Venmo.h>
+
 @interface AppDelegate ()
 
 @end
@@ -16,7 +20,10 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    
+    //Start Venmo API
+    [Venmo startWithAppId:VENMO_API_APP_ID secret:VENMO_API_APP_SECRET name:@"Fraction"];
+    
     return YES;
 }
 

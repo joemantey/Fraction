@@ -1,0 +1,1 @@
+PODS_FRACTION_SSKEYCHAIN_OTHER_LDFLAGS = -framework "Foundation" -framework "Security"
