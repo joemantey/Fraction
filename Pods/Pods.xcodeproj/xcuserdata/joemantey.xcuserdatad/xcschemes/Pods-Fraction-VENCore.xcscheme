@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A5AC420870F56F2C3482D06E"
+               BlueprintIdentifier = "96C7E7049FD75604DB603AC5"
                BuildableName = "libPods-Fraction-VENCore.a"
                BlueprintName = "Pods-Fraction-VENCore"
                ReferencedContainer = "container:Pods.xcodeproj">
