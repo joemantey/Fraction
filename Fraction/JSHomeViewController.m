@@ -9,7 +9,10 @@
 #import "JSHomeViewController.h"
 #import <QuartzCore/QuartzCore.h>
 
+#include <stdlib.h>
+
 @interface JSHomeViewController ()
+@property (weak, nonatomic) IBOutlet UILabel *welcomeLabel;
 
 @end
 
@@ -19,6 +22,7 @@
     [super viewDidLoad];
     [self clearNavigationBar];
     [self setBackgroundColor];
+    [self setWelcomeMessage];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -26,10 +30,20 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)setWelcomeMessage{
+    
+    NSArray *welcomeMessageArray = @[@"Hi! What would you like to do?",
+                                     @"Welcome back!",
+                                     @"Hey there. How can I help?"];
+    
+    int random = arc4random_uniform(2);
+    
+    self.welcomeLabel.text = [welcomeMessageArray objectAtIndex:random];
+}
 
 - (void)setBackgroundColor{
     
-    UIColor *startColor = [UIColor colorWithRed:0.084 green:0.552 blue:0.760 alpha:1.000];
+    UIColor *startColor = [UIColor colorWithRed:0.091 green:0.598 blue:0.822 alpha:1.000];
     UIColor *endColor = [UIColor colorWithRed:0.047 green:0.233 blue:0.364 alpha:1.000];
     
     CAGradientLayer *gradient = [CAGradientLayer layer];

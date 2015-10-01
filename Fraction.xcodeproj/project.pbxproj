@@ -15,10 +15,14 @@
 		3870E72F1BB9904D0080A2A9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3870E72E1BB9904D0080A2A9 /* Images.xcassets */; };
 		3870E7321BB9904D0080A2A9 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3870E7301BB9904D0080A2A9 /* LaunchScreen.xib */; };
 		3870E73E1BB9904D0080A2A9 /* FractionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3870E73D1BB9904D0080A2A9 /* FractionTests.m */; };
-		387EBE9C1BBC2B3400878BB7 /* JSHomeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 387EBE9B1BBC2B3400878BB7 /* JSHomeTableViewController.m */; };
 		38BF44161BB9FDA300E65D71 /* JSVenmoAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 38BF44151BB9FDA300E65D71 /* JSVenmoAPIClient.m */; };
 		38BF44191BB9FDD700E65D71 /* JSDataStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 38BF44181BB9FDD700E65D71 /* JSDataStore.m */; };
 		38BF441C1BB9FDF200E65D71 /* JSConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 38BF441B1BB9FDF200E65D71 /* JSConstants.m */; };
+		38D5B9541BBCA791009C6245 /* JSRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D5B9531BBCA791009C6245 /* JSRootViewController.m */; settings = {ASSET_TAGS = (); }; };
+		38D5B95C1BBCAB94009C6245 /* RECommonFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D5B9571BBCAB94009C6245 /* RECommonFunctions.m */; settings = {ASSET_TAGS = (); }; };
+		38D5B95D1BBCAB94009C6245 /* RESideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D5B9591BBCAB94009C6245 /* RESideMenu.m */; settings = {ASSET_TAGS = (); }; };
+		38D5B95E1BBCAB94009C6245 /* UIViewController+RESideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D5B95B1BBCAB94009C6245 /* UIViewController+RESideMenu.m */; settings = {ASSET_TAGS = (); }; };
+		38D5B9631BBDBECC009C6245 /* JSMenuTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D5B9621BBDBECC009C6245 /* JSMenuTableViewController.m */; settings = {ASSET_TAGS = (); }; };
 		9E38D75CA61D9FE0B3FAACEF /* libPods-Fraction.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A5D42B87C272015837AE9C3E /* libPods-Fraction.a */; };
 /* End PBXBuildFile section */
 
@@ -48,14 +52,22 @@
 		3870E7371BB9904D0080A2A9 /* FractionTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FractionTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3870E73C1BB9904D0080A2A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3870E73D1BB9904D0080A2A9 /* FractionTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FractionTests.m; sourceTree = "<group>"; };
-		387EBE9A1BBC2B3400878BB7 /* JSHomeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSHomeTableViewController.h; sourceTree = "<group>"; };
-		387EBE9B1BBC2B3400878BB7 /* JSHomeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSHomeTableViewController.m; sourceTree = "<group>"; };
 		38BF44141BB9FDA300E65D71 /* JSVenmoAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSVenmoAPIClient.h; sourceTree = "<group>"; };
 		38BF44151BB9FDA300E65D71 /* JSVenmoAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSVenmoAPIClient.m; sourceTree = "<group>"; };
 		38BF44171BB9FDD700E65D71 /* JSDataStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSDataStore.h; sourceTree = "<group>"; };
 		38BF44181BB9FDD700E65D71 /* JSDataStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSDataStore.m; sourceTree = "<group>"; };
 		38BF441A1BB9FDF200E65D71 /* JSConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSConstants.h; sourceTree = "<group>"; };
 		38BF441B1BB9FDF200E65D71 /* JSConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSConstants.m; sourceTree = "<group>"; };
+		38D5B9521BBCA791009C6245 /* JSRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSRootViewController.h; sourceTree = "<group>"; };
+		38D5B9531BBCA791009C6245 /* JSRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSRootViewController.m; sourceTree = "<group>"; };
+		38D5B9561BBCAB94009C6245 /* RECommonFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RECommonFunctions.h; sourceTree = "<group>"; };
+		38D5B9571BBCAB94009C6245 /* RECommonFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RECommonFunctions.m; sourceTree = "<group>"; };
+		38D5B9581BBCAB94009C6245 /* RESideMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RESideMenu.h; sourceTree = "<group>"; };
+		38D5B9591BBCAB94009C6245 /* RESideMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RESideMenu.m; sourceTree = "<group>"; };
+		38D5B95A1BBCAB94009C6245 /* UIViewController+RESideMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+RESideMenu.h"; sourceTree = "<group>"; };
+		38D5B95B1BBCAB94009C6245 /* UIViewController+RESideMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+RESideMenu.m"; sourceTree = "<group>"; };
+		38D5B9611BBDBECC009C6245 /* JSMenuTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSMenuTableViewController.h; sourceTree = "<group>"; };
+		38D5B9621BBDBECC009C6245 /* JSMenuTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSMenuTableViewController.m; sourceTree = "<group>"; };
 		713BCC3CBCED7FC5B22ABBA3 /* Pods-Fraction.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fraction.release.xcconfig"; path = "Pods/Target Support Files/Pods-Fraction/Pods-Fraction.release.xcconfig"; sourceTree = "<group>"; };
 		A5D42B87C272015837AE9C3E /* libPods-Fraction.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Fraction.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -170,10 +182,10 @@
 		3870E7491BB9907B0080A2A9 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				387EBE9A1BBC2B3400878BB7 /* JSHomeTableViewController.h */,
-				387EBE9B1BBC2B3400878BB7 /* JSHomeTableViewController.m */,
-				3856DBE91BBC6FD1005AA1E3 /* JSHomeViewController.h */,
-				3856DBEA1BBC6FD1005AA1E3 /* JSHomeViewController.m */,
+				38D5B95F1BBCABA3009C6245 /* Home View */,
+				38D5B9601BBCABB9009C6245 /* Root View Controller */,
+				38D5B9611BBDBECC009C6245 /* JSMenuTableViewController.h */,
+				38D5B9621BBDBECC009C6245 /* JSMenuTableViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -204,6 +216,38 @@
 				38BF441B1BB9FDF200E65D71 /* JSConstants.m */,
 			);
 			name = Constants;
+			sourceTree = "<group>";
+		};
+		38D5B9551BBCAB94009C6245 /* RESideMenu */ = {
+			isa = PBXGroup;
+			children = (
+				38D5B9561BBCAB94009C6245 /* RECommonFunctions.h */,
+				38D5B9571BBCAB94009C6245 /* RECommonFunctions.m */,
+				38D5B9581BBCAB94009C6245 /* RESideMenu.h */,
+				38D5B9591BBCAB94009C6245 /* RESideMenu.m */,
+				38D5B95A1BBCAB94009C6245 /* UIViewController+RESideMenu.h */,
+				38D5B95B1BBCAB94009C6245 /* UIViewController+RESideMenu.m */,
+			);
+			path = RESideMenu;
+			sourceTree = "<group>";
+		};
+		38D5B95F1BBCABA3009C6245 /* Home View */ = {
+			isa = PBXGroup;
+			children = (
+				3856DBE91BBC6FD1005AA1E3 /* JSHomeViewController.h */,
+				3856DBEA1BBC6FD1005AA1E3 /* JSHomeViewController.m */,
+			);
+			name = "Home View";
+			sourceTree = "<group>";
+		};
+		38D5B9601BBCABB9009C6245 /* Root View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				38D5B9521BBCA791009C6245 /* JSRootViewController.h */,
+				38D5B9531BBCA791009C6245 /* JSRootViewController.m */,
+				38D5B9551BBCAB94009C6245 /* RESideMenu */,
+			);
+			name = "Root View Controller";
 			sourceTree = "<group>";
 		};
 		8DFCD8B5FE354C7DAE4A94DC /* Frameworks */ = {
@@ -350,13 +394,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				3870E7241BB9904D0080A2A9 /* AppDelegate.m in Sources */,
+				38D5B95C1BBCAB94009C6245 /* RECommonFunctions.m in Sources */,
+				38D5B9541BBCA791009C6245 /* JSRootViewController.m in Sources */,
 				3870E7211BB9904D0080A2A9 /* main.m in Sources */,
+				38D5B9631BBDBECC009C6245 /* JSMenuTableViewController.m in Sources */,
 				38BF44161BB9FDA300E65D71 /* JSVenmoAPIClient.m in Sources */,
-				387EBE9C1BBC2B3400878BB7 /* JSHomeTableViewController.m in Sources */,
 				38BF44191BB9FDD700E65D71 /* JSDataStore.m in Sources */,
 				38BF441C1BB9FDF200E65D71 /* JSConstants.m in Sources */,
 				3856DBEB1BBC6FD1005AA1E3 /* JSHomeViewController.m in Sources */,
+				38D5B95D1BBCAB94009C6245 /* RESideMenu.m in Sources */,
 				3870E7271BB9904D0080A2A9 /* Fraction.xcdatamodeld in Sources */,
+				38D5B95E1BBCAB94009C6245 /* UIViewController+RESideMenu.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
