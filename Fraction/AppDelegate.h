@@ -9,7 +9,10 @@
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+#import "RESideMenu/RESideMenu.h"
+
+
+@interface AppDelegate : UIResponder <UIApplicationDelegate, RESideMenuDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 

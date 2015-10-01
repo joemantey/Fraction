@@ -8,6 +8,10 @@
 
 #import "AppDelegate.h"
 
+#import "JSHomeViewController.h"
+#import "JSMenuTableViewController.h"
+#import "JSRootViewController.h"
+
 #import "JSConstants.h"
 
 #import <Venmo-iOS-SDK/Venmo.h>
@@ -24,6 +28,9 @@
     //Start Venmo API
     [Venmo startWithAppId:VENMO_API_APP_ID secret:VENMO_API_APP_SECRET name:@"Fraction"];
     
+    
+    //Initiate SideMenu
+    [self initiateRESsideMenu];
     return YES;
 }
 
@@ -49,6 +56,56 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     // Saves changes in the application's managed object context before the application terminates.
     [self saveContext];
+}
+#pragma mark RESideMenu Delegate
+
+-(void)initiateRESsideMenu{
+    
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UINavigationController *navigationController  = [storyboard instantiateViewControllerWithIdentifier:@"contentViewController"];
+    JSMenuTableViewController *leftMenuViewController = [storyboard instantiateViewControllerWithIdentifier:@"leftMenuViewController"];
+//    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:[[JSHomeViewController alloc] init]];
+    
+//    JSMenuTableViewController *leftMenuViewController = [[JSMenuTableViewController alloc] init];
+    
+    RESideMenu *sideMenuViewController = [[RESideMenu alloc] initWithContentViewController:navigationController
+                                                                    leftMenuViewController:leftMenuViewController
+                                                                   rightMenuViewController:nil];
+    sideMenuViewController.backgroundImage = [UIImage imageNamed:@"Stars"];
+    sideMenuViewController.menuPreferredStatusBarStyle = 1; // UIStatusBarStyleLightContent
+    sideMenuViewController.delegate = self;
+    sideMenuViewController.contentViewShadowColor = [UIColor blackColor];
+    sideMenuViewController.contentViewShadowOffset = CGSizeMake(0, 0);
+    sideMenuViewController.contentViewShadowOpacity = 0.6;
+    sideMenuViewController.contentViewShadowRadius = 12;
+    sideMenuViewController.contentViewShadowEnabled = YES;
+    self.window.rootViewController = sideMenuViewController;
+    
+    self.window.backgroundColor = [UIColor whiteColor];
+    [self.window makeKeyAndVisible];
+
+}
+
+- (void)sideMenu:(RESideMenu *)sideMenu willShowMenuViewController:(UIViewController *)menuViewController
+{
+    NSLog(@"willShowMenuViewController: %@", NSStringFromClass([menuViewController class]));
+}
+
+- (void)sideMenu:(RESideMenu *)sideMenu didShowMenuViewController:(UIViewController *)menuViewController
+{
+    NSLog(@"didShowMenuViewController: %@", NSStringFromClass([menuViewController class]));
+}
+
+- (void)sideMenu:(RESideMenu *)sideMenu willHideMenuViewController:(UIViewController *)menuViewController
+{
+    NSLog(@"willHideMenuViewController: %@", NSStringFromClass([menuViewController class]));
+}
+
+- (void)sideMenu:(RESideMenu *)sideMenu didHideMenuViewController:(UIViewController *)menuViewController
+{
+    NSLog(@"didHideMenuViewController: %@", NSStringFromClass([menuViewController class]));
 }
 
 #pragma mark - Core Data stack

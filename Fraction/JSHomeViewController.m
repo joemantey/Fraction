@@ -13,6 +13,7 @@
 
 @interface JSHomeViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *welcomeLabel;
+- (IBAction)didTapMenuButton:(id)sender;
 
 @end
 
@@ -23,6 +24,8 @@
     [self clearNavigationBar];
     [self setBackgroundColor];
     [self setWelcomeMessage];
+    
+    self.navigationItem.leftBarButtonItem.action = @selector(presentLeftMenuViewController:);
 }
 
 - (void)didReceiveMemoryWarning {
@@ -77,4 +80,7 @@
 }
 */
 
+- (IBAction)didTapMenuButton:(id)sender {
+    
+}
 @end
