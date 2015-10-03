@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ywY-hW-lAH">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="GfR-BU-kYi">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
@@ -545,6 +545,7 @@
                                                             </state>
                                                         </button>
                                                     </subviews>
+                                                    <color key="backgroundColor" red="0.56843209773936176" green="0.56843209773936176" blue="0.56843209773936176" alpha="0.14999999999999999" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstItem="n7g-wb-JmJ" firstAttribute="top" secondItem="8Yv-Oo-4H2" secondAttribute="top" id="TfY-sx-xkY"/>
                                                         <constraint firstAttribute="trailing" secondItem="n7g-wb-JmJ" secondAttribute="trailing" id="XsU-Hh-m8w"/>
@@ -552,7 +553,9 @@
                                                         <constraint firstAttribute="bottom" secondItem="n7g-wb-JmJ" secondAttribute="bottom" id="k11-ia-XgC"/>
                                                     </constraints>
                                                 </view>
-                                                <blurEffect style="light"/>
+                                                <vibrancyEffect>
+                                                    <blurEffect style="dark"/>
+                                                </vibrancyEffect>
                                             </visualEffectView>
                                             <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UZY-pz-XJZ">
                                                 <rect key="frame" x="0.0" y="96" width="600" height="94"/>
@@ -568,6 +571,7 @@
                                                             </state>
                                                         </button>
                                                     </subviews>
+                                                    <color key="backgroundColor" red="0.56843209770000003" green="0.56843209770000003" blue="0.56843209770000003" alpha="0.14999999999999999" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstItem="72x-of-sx9" firstAttribute="leading" secondItem="tXH-bl-P4r" secondAttribute="leading" id="Mbc-pt-VLK"/>
                                                         <constraint firstAttribute="bottom" secondItem="72x-of-sx9" secondAttribute="bottom" id="WzW-Y1-P8i"/>
@@ -575,7 +579,9 @@
                                                         <constraint firstItem="72x-of-sx9" firstAttribute="top" secondItem="tXH-bl-P4r" secondAttribute="top" id="zjI-LO-ZIc"/>
                                                     </constraints>
                                                 </view>
-                                                <blurEffect style="light"/>
+                                                <vibrancyEffect>
+                                                    <blurEffect style="dark"/>
+                                                </vibrancyEffect>
                                             </visualEffectView>
                                             <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ic8-Dl-lxo">
                                                 <rect key="frame" x="0.0" y="191" width="600" height="95"/>
@@ -591,6 +597,7 @@
                                                             </state>
                                                         </button>
                                                     </subviews>
+                                                    <color key="backgroundColor" red="0.56843209770000003" green="0.56843209770000003" blue="0.56843209770000003" alpha="0.14999999999999999" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstItem="yZa-vP-VYA" firstAttribute="leading" secondItem="aeT-va-9zO" secondAttribute="leading" id="6ik-KF-gll"/>
                                                         <constraint firstAttribute="bottom" secondItem="yZa-vP-VYA" secondAttribute="bottom" id="WfK-ff-Y3e"/>
@@ -598,7 +605,9 @@
                                                         <constraint firstAttribute="trailing" secondItem="yZa-vP-VYA" secondAttribute="trailing" id="wkG-8u-Man"/>
                                                     </constraints>
                                                 </view>
-                                                <blurEffect style="light"/>
+                                                <vibrancyEffect>
+                                                    <blurEffect style="dark"/>
+                                                </vibrancyEffect>
                                             </visualEffectView>
                                             <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a93-ub-uPw">
                                                 <rect key="frame" x="0.0" y="287" width="600" height="99"/>
@@ -614,6 +623,7 @@
                                                             </state>
                                                         </button>
                                                     </subviews>
+                                                    <color key="backgroundColor" red="0.56843209770000003" green="0.56843209770000003" blue="0.56843209770000003" alpha="0.14999999999999999" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="trailing" secondItem="lo0-ST-AkR" secondAttribute="trailing" id="10E-Tw-m3a"/>
                                                         <constraint firstItem="lo0-ST-AkR" firstAttribute="leading" secondItem="OZf-1I-Bkr" secondAttribute="leading" id="16Z-nO-P8N"/>
@@ -621,7 +631,9 @@
                                                         <constraint firstItem="lo0-ST-AkR" firstAttribute="top" secondItem="OZf-1I-Bkr" secondAttribute="top" id="Mhb-nT-eu4"/>
                                                     </constraints>
                                                 </view>
-                                                <blurEffect style="light"/>
+                                                <vibrancyEffect>
+                                                    <blurEffect style="dark"/>
+                                                </vibrancyEffect>
                                             </visualEffectView>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -702,6 +714,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bl8-KF-3Ko" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1493" y="-70"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="3ag-UW-AaV">
+            <objects>
+                <viewController id="37R-rp-8b0" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="vjg-RO-Jsi"/>
+                        <viewControllerLayoutGuide type="bottom" id="LF3-nT-U35"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="fg9-Ib-m7A">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lwZ-pD-BrV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2546" y="-28"/>
         </scene>
         <!--Menu Table View Controller-->
         <scene sceneID="s4H-Jp-2bL">
