@@ -20,9 +20,13 @@
 @property (weak, nonatomic) IBOutlet UITextField *amountTextView;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *privacySegementedControl;
 @property (weak, nonatomic) IBOutlet UITextView *noteTextView;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *backButton;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *submitButton;
 
 - (IBAction)didSelectPayCharge:(id)sender;
 - (IBAction)didSelectPrivacy:(id)sender;
+- (IBAction)didTapBackButton:(id)sender;
+- (IBAction)didTapSubmitButton:(id)sender;
 
 @end
 
@@ -31,6 +35,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self clearNavigationBar];
+    [self roundCorners];
+    [self setBackgroundColor];
 
 }
 
@@ -40,8 +46,6 @@
 }
 
 - (void)clearNavigationBar{
-    
-    
     self.navigationItem.leftBarButtonItem.imageInsets = UIEdgeInsetsMake(12, 0, 12, 24);
     
     [self.navigationController.navigationBar setBackgroundImage:[UIImage new]
@@ -52,6 +56,35 @@
     self.navigationController.view.backgroundColor      = [UIColor clearColor];
 }
 
+
+- (void)setBackgroundColor{
+    
+    UIColor *startColor         = [UIColor colorWithRed:0.091 green:0.598 blue:0.822 alpha:1.000];
+    UIColor *endColor           = [UIColor colorWithRed:0.047 green:0.233 blue:0.364 alpha:1.000];
+    CAGradientLayer*gradient    = [CAGradientLayer layer];
+    gradient.frame              = self.view.bounds;
+    gradient.colors             = [NSArray arrayWithObjects:(id)[startColor CGColor], (id)[endColor CGColor], nil];
+    
+}
+
+- (void)roundCorners{
+    
+    self.nameTextView.layer.cornerRadius    = 8;
+    self.nameTextView.layer.borderWidth     = 1;
+    self.nameTextView.layer.borderColor     = [[UIColor whiteColor]CGColor];
+    self.nameTextView.clipsToBounds         = YES;
+    
+    self.amountTextView.layer.cornerRadius  = 8;
+    self.amountTextView.layer.borderWidth   = 1;
+    self.amountTextView.layer.borderColor   = [[UIColor whiteColor]CGColor];
+    self.amountTextView.clipsToBounds       = YES;
+    
+    self.noteTextView.layer.cornerRadius    = 8;
+    self.noteTextView.layer.borderWidth     = 1;
+    self.noteTextView.layer.borderColor     = [[UIColor whiteColor]CGColor];
+    self.noteTextView.clipsToBounds         = YES;
+    
+}
 /*
 #pragma mark - Navigation
 
@@ -65,5 +98,10 @@
 - (IBAction)didSelectPayCharge:(id)sender {
 }
 - (IBAction)didSelectPrivacy:(id)sender {
+}
+
+- (IBAction)didTapBackButton:(id)sender {
+}
+- (IBAction)didTapSubmitButton:(id)sender {
 }
 @end
