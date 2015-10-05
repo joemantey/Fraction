@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3856DBEB1BBC6FD1005AA1E3 /* JSHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3856DBEA1BBC6FD1005AA1E3 /* JSHomeViewController.m */; settings = {ASSET_TAGS = (); }; };
+		384477091BC2EBD80096553C /* TransactionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 384477081BC2EBD80096553C /* TransactionViewController.m */; };
+		3856DBEB1BBC6FD1005AA1E3 /* JSHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3856DBEA1BBC6FD1005AA1E3 /* JSHomeViewController.m */; };
 		3870E7211BB9904D0080A2A9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3870E7201BB9904D0080A2A9 /* main.m */; };
 		3870E7241BB9904D0080A2A9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3870E7231BB9904D0080A2A9 /* AppDelegate.m */; };
 		3870E7271BB9904D0080A2A9 /* Fraction.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3870E7251BB9904D0080A2A9 /* Fraction.xcdatamodeld */; };
@@ -18,11 +19,11 @@
 		38BF44161BB9FDA300E65D71 /* JSVenmoAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 38BF44151BB9FDA300E65D71 /* JSVenmoAPIClient.m */; };
 		38BF44191BB9FDD700E65D71 /* JSDataStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 38BF44181BB9FDD700E65D71 /* JSDataStore.m */; };
 		38BF441C1BB9FDF200E65D71 /* JSConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 38BF441B1BB9FDF200E65D71 /* JSConstants.m */; };
-		38D5B9541BBCA791009C6245 /* JSRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D5B9531BBCA791009C6245 /* JSRootViewController.m */; settings = {ASSET_TAGS = (); }; };
-		38D5B95C1BBCAB94009C6245 /* RECommonFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D5B9571BBCAB94009C6245 /* RECommonFunctions.m */; settings = {ASSET_TAGS = (); }; };
-		38D5B95D1BBCAB94009C6245 /* RESideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D5B9591BBCAB94009C6245 /* RESideMenu.m */; settings = {ASSET_TAGS = (); }; };
-		38D5B95E1BBCAB94009C6245 /* UIViewController+RESideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D5B95B1BBCAB94009C6245 /* UIViewController+RESideMenu.m */; settings = {ASSET_TAGS = (); }; };
-		38D5B9631BBDBECC009C6245 /* JSMenuTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D5B9621BBDBECC009C6245 /* JSMenuTableViewController.m */; settings = {ASSET_TAGS = (); }; };
+		38D5B9541BBCA791009C6245 /* JSRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D5B9531BBCA791009C6245 /* JSRootViewController.m */; };
+		38D5B95C1BBCAB94009C6245 /* RECommonFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D5B9571BBCAB94009C6245 /* RECommonFunctions.m */; };
+		38D5B95D1BBCAB94009C6245 /* RESideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D5B9591BBCAB94009C6245 /* RESideMenu.m */; };
+		38D5B95E1BBCAB94009C6245 /* UIViewController+RESideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D5B95B1BBCAB94009C6245 /* UIViewController+RESideMenu.m */; };
+		38D5B9631BBDBECC009C6245 /* JSMenuTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D5B9621BBDBECC009C6245 /* JSMenuTableViewController.m */; };
 		9E38D75CA61D9FE0B3FAACEF /* libPods-Fraction.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A5D42B87C272015837AE9C3E /* libPods-Fraction.a */; };
 /* End PBXBuildFile section */
 
@@ -38,6 +39,8 @@
 
 /* Begin PBXFileReference section */
 		1B64CAE54B6FB1BC5CCDE4DC /* Pods-Fraction.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fraction.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Fraction/Pods-Fraction.debug.xcconfig"; sourceTree = "<group>"; };
+		384477071BC2EBD80096553C /* TransactionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransactionViewController.h; sourceTree = "<group>"; };
+		384477081BC2EBD80096553C /* TransactionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransactionViewController.m; sourceTree = "<group>"; };
 		3856DBE91BBC6FD1005AA1E3 /* JSHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSHomeViewController.h; sourceTree = "<group>"; };
 		3856DBEA1BBC6FD1005AA1E3 /* JSHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSHomeViewController.m; sourceTree = "<group>"; };
 		3870E71B1BB9904D0080A2A9 /* Fraction.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fraction.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -91,6 +94,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		384477061BC2EB460096553C /* Transaction */ = {
+			isa = PBXGroup;
+			children = (
+				384477071BC2EBD80096553C /* TransactionViewController.h */,
+				384477081BC2EBD80096553C /* TransactionViewController.m */,
+			);
+			name = Transaction;
+			sourceTree = "<group>";
+		};
 		3865BAE3966298613DE79FF7 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -182,8 +194,9 @@
 		3870E7491BB9907B0080A2A9 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				38D5B95F1BBCABA3009C6245 /* Home View */,
-				38D5B9601BBCABB9009C6245 /* Root View Controller */,
+				384477061BC2EB460096553C /* Transaction */,
+				38D5B95F1BBCABA3009C6245 /* Home  */,
+				38D5B9601BBCABB9009C6245 /* Root  */,
 				38D5B9611BBDBECC009C6245 /* JSMenuTableViewController.h */,
 				38D5B9621BBDBECC009C6245 /* JSMenuTableViewController.m */,
 			);
@@ -231,23 +244,23 @@
 			path = RESideMenu;
 			sourceTree = "<group>";
 		};
-		38D5B95F1BBCABA3009C6245 /* Home View */ = {
+		38D5B95F1BBCABA3009C6245 /* Home  */ = {
 			isa = PBXGroup;
 			children = (
 				3856DBE91BBC6FD1005AA1E3 /* JSHomeViewController.h */,
 				3856DBEA1BBC6FD1005AA1E3 /* JSHomeViewController.m */,
 			);
-			name = "Home View";
+			name = "Home ";
 			sourceTree = "<group>";
 		};
-		38D5B9601BBCABB9009C6245 /* Root View Controller */ = {
+		38D5B9601BBCABB9009C6245 /* Root  */ = {
 			isa = PBXGroup;
 			children = (
 				38D5B9521BBCA791009C6245 /* JSRootViewController.h */,
 				38D5B9531BBCA791009C6245 /* JSRootViewController.m */,
 				38D5B9551BBCAB94009C6245 /* RESideMenu */,
 			);
-			name = "Root View Controller";
+			name = "Root ";
 			sourceTree = "<group>";
 		};
 		8DFCD8B5FE354C7DAE4A94DC /* Frameworks */ = {
@@ -399,6 +412,7 @@
 				3870E7211BB9904D0080A2A9 /* main.m in Sources */,
 				38D5B9631BBDBECC009C6245 /* JSMenuTableViewController.m in Sources */,
 				38BF44161BB9FDA300E65D71 /* JSVenmoAPIClient.m in Sources */,
+				384477091BC2EBD80096553C /* TransactionViewController.m in Sources */,
 				38BF44191BB9FDD700E65D71 /* JSDataStore.m in Sources */,
 				38BF441C1BB9FDF200E65D71 /* JSConstants.m in Sources */,
 				3856DBEB1BBC6FD1005AA1E3 /* JSHomeViewController.m in Sources */,
