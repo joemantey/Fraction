@@ -48,6 +48,18 @@
 #define COCOAPODS_VERSION_MINOR_AFNetworking_UIKit 6
 #define COCOAPODS_VERSION_PATCH_AFNetworking_UIKit 0
 
+// APAddressBook
+#define COCOAPODS_POD_AVAILABLE_APAddressBook
+#define COCOAPODS_VERSION_MAJOR_APAddressBook 0
+#define COCOAPODS_VERSION_MINOR_APAddressBook 2
+#define COCOAPODS_VERSION_PATCH_APAddressBook 0
+
+// APAddressBook/Core
+#define COCOAPODS_POD_AVAILABLE_APAddressBook_Core
+#define COCOAPODS_VERSION_MAJOR_APAddressBook_Core 0
+#define COCOAPODS_VERSION_MINOR_APAddressBook_Core 2
+#define COCOAPODS_VERSION_PATCH_APAddressBook_Core 0
+
 // CMDQueryStringSerialization
 #define COCOAPODS_POD_AVAILABLE_CMDQueryStringSerialization
 #define COCOAPODS_VERSION_MAJOR_CMDQueryStringSerialization 0

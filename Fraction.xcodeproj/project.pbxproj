@@ -16,6 +16,7 @@
 		3870E72F1BB9904D0080A2A9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3870E72E1BB9904D0080A2A9 /* Images.xcassets */; };
 		3870E7321BB9904D0080A2A9 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3870E7301BB9904D0080A2A9 /* LaunchScreen.xib */; };
 		3870E73E1BB9904D0080A2A9 /* FractionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3870E73D1BB9904D0080A2A9 /* FractionTests.m */; };
+		38B818801BC56754006AD704 /* SignInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38B8187F1BC56754006AD704 /* SignInViewController.m */; };
 		38BF44161BB9FDA300E65D71 /* JSVenmoAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 38BF44151BB9FDA300E65D71 /* JSVenmoAPIClient.m */; };
 		38BF44191BB9FDD700E65D71 /* JSDataStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 38BF44181BB9FDD700E65D71 /* JSDataStore.m */; };
 		38BF441C1BB9FDF200E65D71 /* JSConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 38BF441B1BB9FDF200E65D71 /* JSConstants.m */; };
@@ -55,6 +56,8 @@
 		3870E7371BB9904D0080A2A9 /* FractionTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FractionTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3870E73C1BB9904D0080A2A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3870E73D1BB9904D0080A2A9 /* FractionTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FractionTests.m; sourceTree = "<group>"; };
+		38B8187E1BC56754006AD704 /* SignInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignInViewController.h; sourceTree = "<group>"; };
+		38B8187F1BC56754006AD704 /* SignInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignInViewController.m; sourceTree = "<group>"; };
 		38BF44141BB9FDA300E65D71 /* JSVenmoAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSVenmoAPIClient.h; sourceTree = "<group>"; };
 		38BF44151BB9FDA300E65D71 /* JSVenmoAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSVenmoAPIClient.m; sourceTree = "<group>"; };
 		38BF44171BB9FDD700E65D71 /* JSDataStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSDataStore.h; sourceTree = "<group>"; };
@@ -194,6 +197,7 @@
 		3870E7491BB9907B0080A2A9 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				38B8187D1BC56508006AD704 /* Sign In */,
 				384477061BC2EB460096553C /* Transaction */,
 				38D5B95F1BBCABA3009C6245 /* Home  */,
 				38D5B9601BBCABB9009C6245 /* Root  */,
@@ -211,6 +215,15 @@
 				38BF44181BB9FDD700E65D71 /* JSDataStore.m */,
 			);
 			name = "Data Store";
+			sourceTree = "<group>";
+		};
+		38B8187D1BC56508006AD704 /* Sign In */ = {
+			isa = PBXGroup;
+			children = (
+				38B8187E1BC56754006AD704 /* SignInViewController.h */,
+				38B8187F1BC56754006AD704 /* SignInViewController.m */,
+			);
+			name = "Sign In";
 			sourceTree = "<group>";
 		};
 		38BF44131BB9FD1C00E65D71 /* API Clients */ = {
@@ -406,6 +419,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				38B818801BC56754006AD704 /* SignInViewController.m in Sources */,
 				3870E7241BB9904D0080A2A9 /* AppDelegate.m in Sources */,
 				38D5B95C1BBCAB94009C6245 /* RECommonFunctions.m in Sources */,
 				38D5B9541BBCA791009C6245 /* JSRootViewController.m in Sources */,

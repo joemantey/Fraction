@@ -4,11 +4,9 @@
 target 'Fraction' do
 
 pod "AFNetworking", "~> 2.0"
-pod 'Venmo-iOS-SDK', '~>1.3’
+pod "Venmo-iOS-SDK", "~>1.3"
+pod 'APAddressBook'
 
 end
 
-target 'FractionTests' do
-
-end
 

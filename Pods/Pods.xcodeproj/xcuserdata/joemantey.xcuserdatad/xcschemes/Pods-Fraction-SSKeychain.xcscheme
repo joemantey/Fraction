@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "BCF737C8F38D625FE669DB69"
+               BlueprintIdentifier = "3762B9DA810224D81E9A1175"
                BuildableName = "libPods-Fraction-SSKeychain.a"
                BlueprintName = "Pods-Fraction-SSKeychain"
                ReferencedContainer = "container:Pods.xcodeproj">

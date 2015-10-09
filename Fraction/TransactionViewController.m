@@ -7,9 +7,10 @@
 //
 
 #import "TransactionViewController.h"
+#import <Venmo-iOS-SDK/Venmo.h>
 
 
-@interface TransactionViewController ()
+@interface TransactionViewController () <UITextViewDelegate>
 
 @property (nonatomic) BOOL nameTextViewValid;
 @property (nonatomic) BOOL amountTextViewValid;
@@ -22,11 +23,17 @@
 @property (weak, nonatomic) IBOutlet UITextView *noteTextView;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *backButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *submitButton;
+@property (weak, nonatomic) IBOutlet UIButton *completeTransactionButton;
 
 - (IBAction)didSelectPayCharge:(id)sender;
 - (IBAction)didSelectPrivacy:(id)sender;
 - (IBAction)didTapBackButton:(id)sender;
 - (IBAction)didTapSubmitButton:(id)sender;
+- (IBAction)didTapCompleteTransactionButton:(id)sender;
+- (IBAction)didFinishEditingNameField:(id)sender;
+
+
+- (IBAction)didFinishEditingAmount:(id)sender;
 
 @end
 
@@ -35,7 +42,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self clearNavigationBar];
-    [self roundCorners];
+    [self setUpViewsAndButtons];
     [self setBackgroundColor];
 
 }
@@ -59,20 +66,22 @@
 
 - (void)setBackgroundColor{
     
-    UIColor *startColor         = [UIColor colorWithRed:0.091 green:0.598 blue:0.822 alpha:1.000];
-    UIColor *endColor           = [UIColor colorWithRed:0.047 green:0.233 blue:0.364 alpha:1.000];
+    UIColor *startColor         = [UIColor colorWithRed:0.108 green:0.649 blue:0.683 alpha:1.000];
+    UIColor *endColor           = [UIColor colorWithRed:0.108 green:0.649 blue:0.683 alpha:1.000];
     CAGradientLayer*gradient    = [CAGradientLayer layer];
-    gradient.frame              = self.view.bounds;
+    gradient.frame              =  self.view.bounds;
     gradient.colors             = [NSArray arrayWithObjects:(id)[startColor CGColor], (id)[endColor CGColor], nil];
-    
+    [self.view.layer insertSublayer:gradient atIndex:0];
+
 }
 
-- (void)roundCorners{
+- (void)setUpViewsAndButtons{
     
     self.nameTextView.layer.cornerRadius    = 8;
     self.nameTextView.layer.borderWidth     = 1;
     self.nameTextView.layer.borderColor     = [[UIColor whiteColor]CGColor];
     self.nameTextView.clipsToBounds         = YES;
+    [self.nameTextView becomeFirstResponder];
     
     self.amountTextView.layer.cornerRadius  = 8;
     self.amountTextView.layer.borderWidth   = 1;
@@ -83,7 +92,111 @@
     self.noteTextView.layer.borderWidth     = 1;
     self.noteTextView.layer.borderColor     = [[UIColor whiteColor]CGColor];
     self.noteTextView.clipsToBounds         = YES;
+    self.noteTextView.delegate              = self;
     
+    self.completeTransactionButton.layer.cornerRadius    = 8;
+    self.completeTransactionButton.layer.borderWidth     = 1;
+    self.completeTransactionButton.layer.borderColor     = [[UIColor whiteColor]CGColor];
+    self.completeTransactionButton.clipsToBounds         = YES;
+    [self.completeTransactionButton setTitle:@"Please complete all fields" forState:UIControlStateNormal];
+    self.completeTransactionButton.userInteractionEnabled= NO;
+}
+
+- (BOOL)checkNameFieldIsNotEmpty{
+    
+    if ([self.nameTextView.text length] > 0){
+       
+        self.nameTextViewValid = YES;
+        return YES;
+    }
+    else{
+        
+        self.nameTextViewValid = NO;
+        return NO;
+    }
+    
+}
+
+
+- (BOOL)checkIfAmountFieldIsCompletedCorrectly{
+    
+    if ([self.amountTextView.text length] > 0){
+        
+        self.amountTextViewValid = YES;
+        return YES;
+    }
+    else{
+        
+        self.amountTextViewValid = NO;
+        return NO;
+    }
+}
+
+- (BOOL)checkIfNoteFieldIsNotEmpty{
+    
+    if ([self.noteTextView.text length] > 0){
+        
+        self.noteTextViewValid = YES;
+        return YES;
+    }
+    else{
+        
+        self.noteTextViewValid = NO;
+        return NO;
+    }
+}
+
+
+- (BOOL)checkIfAllFieldsAreComplete{
+    
+    [self checkIfAmountFieldIsCompletedCorrectly];
+    [self checkIfNoteFieldIsNotEmpty];
+    [self checkNameFieldIsNotEmpty];
+    
+    if (self.noteTextViewValid   == YES &&
+        self.amountTextViewValid == YES &&
+        self.nameTextViewValid   == YES) {
+        
+        self.completeTransactionButton.backgroundColor   =  [UIColor whiteColor];
+        self.completeTransactionButton.layer.borderColor = [[UIColor whiteColor]CGColor];
+
+        [self.completeTransactionButton setTitleColor:[UIColor colorWithRed:0.108 green:0.649 blue:0.683 alpha:1.000]
+                                             forState:UIControlStateNormal];
+        
+        [self.completeTransactionButton setTitle:@"Complete transaction" forState:UIControlStateNormal];
+        
+        return YES;
+    }
+    else{
+        
+        
+        self.completeTransactionButton.backgroundColor   =  [UIColor colorWithWhite:1 alpha:0.25];
+        self.completeTransactionButton.layer.borderColor = [[UIColor whiteColor]CGColor];
+        
+        [self.completeTransactionButton setTitleColor:[UIColor whiteColor]
+                                             forState:UIControlStateNormal];
+        
+        [self.completeTransactionButton setTitle:@"Please complete all fields" forState:UIControlStateNormal];
+        
+        return NO;
+    }
+}
+
+#pragma mark UITextView Delegate
+
+-(void)textViewDidBeginEditing:(UITextView *)textView{
+
+    [self checkIfAllFieldsAreComplete];
+}
+
+
+-(void)textViewDidChange:(UITextView *)textView{
+    [self checkIfAllFieldsAreComplete];
+}
+
+
+-(void)textViewDidEndEditing:(UITextView *)textView{
+    [self checkIfAllFieldsAreComplete];
 }
 /*
 #pragma mark - Navigation
@@ -96,11 +209,39 @@
 */
 
 - (IBAction)didSelectPayCharge:(id)sender {
-}
-- (IBAction)didSelectPrivacy:(id)sender {
+    
+    [self checkIfAllFieldsAreComplete];
 }
 
+
+- (IBAction)didSelectPrivacy:(id)sender {
+    
+    [self checkIfAllFieldsAreComplete];
+}
+
+
+- (IBAction)didTapCompleteTransactionButton:(id)sender {
+    
+    [self checkIfAllFieldsAreComplete];
+}
+
+
+- (IBAction)didFinishEditingNameField:(id)sender {
+    
+    [self checkIfAllFieldsAreComplete];
+}
+
+
+- (IBAction)didFinishEditingAmount:(id)sender {
+    
+    [self checkIfAllFieldsAreComplete];
+}
+
+
+
 - (IBAction)didTapBackButton:(id)sender {
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 - (IBAction)didTapSubmitButton:(id)sender {
 }
