@@ -8,7 +8,6 @@
 
 #import "JSContactSearchViewController.h"
 
-#import <RHAddressBook/AddressBook.h>
 
 @interface JSContactSearchViewController ()<UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate>
 
@@ -39,18 +38,6 @@
 
 - (void)setUpAdressBook{
     
-    self.addressBook = [[RHAddressBook alloc]init];
-    
-    if ([RHAddressBook authorizationStatus] != RHAuthorizationStatusAuthorized ){
-        
-        [self.addressBook  requestAuthorizationWithCompletion:^(bool granted, NSError *error) {
-            
-            [self fethAddressBook];
-        }];
-        
-        //get notification when there is a change to the addressBook
-        [[NSNotificationCenter defaultCenter]  addObserver:self selector:@selector(addressBookChanged) name:RHAddressBookExternalChangeNotification object:nil];
-    }
 }
 
 - (void)addressBookChanged{
@@ -60,19 +47,7 @@
 
 - (void)fethAddressBook{
    
-    [self setAddressBook:self.addressBook];
     
-    NSArray *addressBookToSort              = [self.addressBook people];
-    NSMutableArray *personWithPhoneNumbers  = [[NSMutableArray alloc]init];
-    
-    for (RHPerson *person in addressBookToSort) {
-        
-        if (person.phoneNumbers.count > 1) {
-            [personWithPhoneNumbers addObject:person];
-        }
-    }
-    
-    [self.peopleArray arrayByAddingObjectsFromArray:personWithPhoneNumbers];
 }
 
 
@@ -90,19 +65,8 @@
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     
-    RHPerson *person = self.searchResultArray[indexPath.row ];
-    
-    cell.textLabel.text         = person.name;
-    
-    
-    RHMultiStringValue *phonesMultiValue = [person phoneNumbers];
-    
-    
-    if
-    NSString *phoneNumber =  [phonesMultiValue valueForKey:RHPersonPhoneIPhoneLabel];
-    NSString *phoneNumbers  = [person.phoneNumbers valueAtIndex:0];
-    
-    
+       
+    return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
