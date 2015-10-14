@@ -9,12 +9,12 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-Fraction-APAddressBook.xcscheme</key>
+		<key>Pods-Fraction-CMDQueryStringSerialization.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-Fraction-CMDQueryStringSerialization.xcscheme</key>
+		<key>Pods-Fraction-RHAddressBook.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -42,37 +42,37 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>016BC2021E9084769965E982</key>
+		<key>0012FDD998D5F4B30D348CB4</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>1602860BEE9FB1753059E4D4</key>
+		<key>24427B61B6EB6F447451751B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>305861D498B4DC9AAC9A0283</key>
+		<key>6DD9D123D75851CBEF9B2633</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>3762B9DA810224D81E9A1175</key>
+		<key>797966CBF987D4E959BCF591</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6B471A27CD8A9AD7EE014DA4</key>
+		<key>BD156AF7680754C1AD739A64</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7D14966F8337A0966C6F00BB</key>
+		<key>C12A3792E35675E4A9EBA95E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>EE68E13166B46140BB23A2B1</key>
+		<key>EAE959B1A3604CE1DF7D7107</key>
 		<dict>
 			<key>primary</key>
 			<true/>
