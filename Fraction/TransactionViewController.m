@@ -13,11 +13,12 @@
 @import AddressBookUI;
 
 
-@interface TransactionViewController () <UITextViewDelegate>
+@interface TransactionViewController () <UITextViewDelegate, ABPeoplePickerNavigationControllerDelegate>
 
 @property (nonatomic) BOOL nameTextViewValid;
 @property (nonatomic) BOOL amountTextViewValid;
 @property (nonatomic) BOOL noteTextViewValid;
+@property (strong, nonatomic) NSMutableString *contactString;
 
 @property (weak, nonatomic) IBOutlet UISegmentedControl *payChargeSegmentedControl;
 @property (weak, nonatomic) IBOutlet UITextField *nameTextView;
@@ -27,6 +28,7 @@
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *backButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *submitButton;
 @property (weak, nonatomic) IBOutlet UIButton *completeTransactionButton;
+@property (weak, nonatomic) IBOutlet UIButton *addContactButton;
 
 - (IBAction)didSelectPayCharge:(id)sender;
 - (IBAction)didSelectPrivacy:(id)sender;
@@ -37,11 +39,14 @@
 
 
 - (IBAction)didFinishEditingAmount:(id)sender;
+- (IBAction)didTapAddContact:(id)sender;
 
 @end
 
 @implementation TransactionViewController
 
+
+#pragma mark View Lifecycle
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self clearNavigationBar];
@@ -80,22 +85,27 @@
 
 - (void)setUpViewsAndButtons{
     
-    self.nameTextView.layer.cornerRadius    = 8;
-    self.nameTextView.layer.borderWidth     = 1;
-    self.nameTextView.layer.borderColor     = [[UIColor whiteColor]CGColor];
-    self.nameTextView.clipsToBounds         = YES;
+    self.nameTextView.layer.cornerRadius        = 8;
+    self.nameTextView.layer.borderWidth         = 1;
+    self.nameTextView.layer.borderColor         = [[UIColor whiteColor]CGColor];
+    self.nameTextView.clipsToBounds             = YES;
     [self.nameTextView becomeFirstResponder];
     
-    self.amountTextView.layer.cornerRadius  = 8;
-    self.amountTextView.layer.borderWidth   = 1;
-    self.amountTextView.layer.borderColor   = [[UIColor whiteColor]CGColor];
-    self.amountTextView.clipsToBounds       = YES;
+    self.addContactButton.layer.cornerRadius    = 8;
+    self.addContactButton.layer.borderWidth     = 1;
+    self.addContactButton.layer.borderColor     = [[UIColor whiteColor]CGColor];
+    self.addContactButton.clipsToBounds         = YES;
     
-    self.noteTextView.layer.cornerRadius    = 8;
-    self.noteTextView.layer.borderWidth     = 1;
-    self.noteTextView.layer.borderColor     = [[UIColor whiteColor]CGColor];
-    self.noteTextView.clipsToBounds         = YES;
-    self.noteTextView.delegate              = self;
+    self.amountTextView.layer.cornerRadius      = 8;
+    self.amountTextView.layer.borderWidth       = 1;
+    self.amountTextView.layer.borderColor       = [[UIColor whiteColor]CGColor];
+    self.amountTextView.clipsToBounds           = YES;
+    
+    self.noteTextView.layer.cornerRadius        = 8;
+    self.noteTextView.layer.borderWidth         = 1;
+    self.noteTextView.layer.borderColor         = [[UIColor whiteColor]CGColor];
+    self.noteTextView.clipsToBounds             = YES;
+    self.noteTextView.delegate                  = self;
     
     self.completeTransactionButton.layer.cornerRadius    = 8;
     self.completeTransactionButton.layer.borderWidth     = 1;
@@ -105,6 +115,73 @@
     self.completeTransactionButton.userInteractionEnabled= NO;
 }
 
+
+#pragma mark ABPeoplePicker Delegate
+
+- (void)presentPeoplePicker{
+    
+    ABPeoplePickerNavigationController *picker  = [[ABPeoplePickerNavigationController alloc] init];
+    picker.peoplePickerDelegate                 = self;
+    
+    [self presentViewController:picker animated:YES completion:nil];
+}
+
+- (void)addNameToStrongFrom:(ABRecordRef)person{
+    
+    self.contactString      = [NSMutableString stringWithFormat:@"%@", self.nameTextView.text];
+    
+    NSString *firstName     =  (__bridge_transfer NSString*)ABRecordCopyValue(person,kABPersonCompositeNameFormatFirstNameFirst);
+    NSString *lastName     =  (__bridge_transfer NSString*)ABRecordCopyValue(person,kABPersonCompositeNameFormatLastNameFirst);
+    
+    NSString *nameToAdd     =  [NSString stringWithFormat:@"%@ %@", firstName, lastName];
+    
+    if ([self.nameTextView.text length] == 0 ||
+         self.nameTextView.text == nil       ||
+        [self.nameTextView.text isEqual:@""] == TRUE)
+    {
+        self.contactString      = [NSMutableString stringWithFormat: @"%@", nameToAdd];
+    }
+    else
+    {
+        self.contactString      = [NSMutableString stringWithFormat: @"%@, %@", self.contactString, nameToAdd];
+
+    }
+    
+    self.nameTextView.text  = self.contactString;
+    
+}
+
+
+- (void)peoplePickerNavigationControllerDidCancel:(ABPeoplePickerNavigationController *)peoplePicker{
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+
+ -(void)peoplePickerNavigationController:(ABPeoplePickerNavigationController *)peoplePicker didSelectPerson:(ABRecordRef)person{
+    
+    //do something with the person object passed here
+    
+    [self addNameToStrongFrom:person];
+    
+     [self dismissViewControllerAnimated:YES completion:nil];
+    
+}
+
+- (BOOL)peoplePickerNavigationController:
+(ABPeoplePickerNavigationController *)peoplePicker
+      shouldContinueAfterSelectingPerson:(ABRecordRef)person
+                                property:(ABPropertyID)property
+                              identifier:(ABMultiValueIdentifier)identifier
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+    return NO;
+    
+}
+
+
+
+#pragma mark Entry Field Methods
 - (BOOL)checkNameFieldIsNotEmpty{
     
     if ([self.nameTextView.text length] > 0){
@@ -185,6 +262,8 @@
     }
 }
 
+
+
 #pragma mark UITextView Delegate
 
 -(void)textViewDidBeginEditing:(UITextView *)textView{
@@ -211,6 +290,8 @@
 }
 */
 
+#pragma Mark Action Methods
+
 - (IBAction)didSelectPayCharge:(id)sender {
     
     [self checkIfAllFieldsAreComplete];
@@ -235,10 +316,16 @@
 }
 
 
+- (IBAction)didTapAddContact:(id)sender {
+    
+    [self presentPeoplePicker];
+}
+
 - (IBAction)didFinishEditingAmount:(id)sender {
     
     [self checkIfAllFieldsAreComplete];
 }
+
 
 
 
