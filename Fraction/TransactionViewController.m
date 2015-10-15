@@ -25,8 +25,10 @@
 @property (strong, nonatomic) NSMutableString   *contactString;
 @property (strong, nonatomic) NSMutableArray    *contactArray;
 
+
 @property (weak, nonatomic) IBOutlet UISegmentedControl *payChargeSegmentedControl;
 @property (weak, nonatomic) IBOutlet UITextField        *nameTextView;
+@property (weak, nonatomic) IBOutlet UITextField *amountLabelTextField;
 @property (weak, nonatomic) IBOutlet UITextField        *amountTextView;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *privacySegementedControl;
 @property (weak, nonatomic) IBOutlet UITextView         *noteTextView;
@@ -150,11 +152,14 @@
             
             NSString *nameString    = [NSString stringWithFormat:@"%@ %@", eachContact.givenName, eachContact.familyName];
             self.contactString      = [NSMutableString stringWithFormat:@"%@", nameString];
+            self.amountLabelTextField.text = @"Amount (in USD)";
             
         }else{
             
             NSString *nameString    = [NSString stringWithFormat:@", %@ %@", eachContact.givenName, eachContact.familyName];
             self.contactString      = [NSMutableString stringWithFormat:@"%@%@", self.contactString, nameString];
+            
+            self.amountLabelTextField.text = @"Amount per person (in USD)";
 
         }
         

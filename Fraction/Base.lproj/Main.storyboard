@@ -1998,7 +1998,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LxF-fp-W32">
                                         <rect key="frame" x="0.0" y="134" width="600" height="80"/>
                                         <subviews>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Amount (in USD)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dCE-EV-59I" userLabel="Top Text Field">
+                                            <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Amount (inUSD)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dCE-EV-59I" userLabel="Top Text Field">
                                                 <rect key="frame" x="30" y="8" width="540" height="24"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
@@ -2046,7 +2046,7 @@
                                                     <action selector="didSelectPrivacy:" destination="yPg-0E-fgF" eventType="valueChanged" id="SVj-LV-xQH"/>
                                                 </connections>
                                             </segmentedControl>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Privacy" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7Cu-T0-U71">
+                                            <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Privacy" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7Cu-T0-U71">
                                                 <rect key="frame" x="30" y="12" width="540" height="24"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
@@ -2076,7 +2076,7 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Notes" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BTV-bv-3Oc">
+                                            <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Notes" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BTV-bv-3Oc">
                                                 <rect key="frame" x="30" y="7" width="540" height="40"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
@@ -2243,6 +2243,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="addContactButton" destination="aQd-kr-bcl" id="tb5-wB-qxD"/>
+                        <outlet property="amountLabelTextField" destination="dCE-EV-59I" id="Ipr-CK-6ha"/>
                         <outlet property="amountTextView" destination="U9h-W6-oYU" id="5UL-ne-u4F"/>
                         <outlet property="backButton" destination="nve-04-ebo" id="QE5-6D-pY8"/>
                         <outlet property="completeTransactionButton" destination="lFQ-Ib-Y0S" id="GCy-fa-u57"/>
