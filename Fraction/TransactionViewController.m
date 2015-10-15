@@ -22,10 +22,15 @@
 @property (nonatomic) BOOL amountTextViewValid;
 @property (nonatomic) BOOL noteTextViewValid;
 
+@property (nonatomic) CGFloat viewHeight;
+@property (nonatomic) CGFloat keyboardHeight;
+
+
 @property (strong, nonatomic) NSMutableString   *contactString;
 @property (strong, nonatomic) NSMutableArray    *contactArray;
 
 
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *payChargeSegmentedControl;
 @property (weak, nonatomic) IBOutlet UITextField        *nameTextView;
 @property (weak, nonatomic) IBOutlet UITextField *amountLabelTextField;
@@ -59,7 +64,15 @@
     [self clearNavigationBar];
     [self setUpViewsAndButtons];
     [self setBackgroundColor];
+    [self addGestureRecognizer];
     
+    self.viewHeight = self.view.frame.size.height;
+    self.keyboardHeight = 260;
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidShow:) name:@"keyboardDidShow" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidHide:) name:@"keyboardDidHide" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardOnScreen:) name:UIKeyboardDidShowNotification object:nil];
+
 
 }
 
@@ -123,6 +136,14 @@
     self.completeTransactionButton.userInteractionEnabled= NO;
 }
 
+
+- (void)addGestureRecognizer{
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
+                                   initWithTarget:self
+                                   action:@selector(dismissKeyboard)];
+    
+    [self.view addGestureRecognizer:tap];
+}
 
 #pragma mark ABPeoplePicker Delegate
 
@@ -261,10 +282,67 @@
 #pragma mark UITextView Delegate
 
 -(void)textViewDidBeginEditing:(UITextView *)textView{
-
     [self checkIfAllFieldsAreComplete];
 }
 
+
+- (BOOL)textViewShouldBeginEditing:(UITextView *)textView{
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"keyboardDidShow" object:nil];
+    return YES;
+}
+
+- (BOOL)textViewShouldEndEditing:(UITextView *)textView{
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"keyboardDidHide" object:nil];
+    return YES;
+}
+
+- (void)keyboardDidShow:(NSNotification *)notification
+{
+    
+    
+}
+
+-(void)keyboardDidHide:(NSNotification *)notification
+{
+    [UIView animateWithDuration:0.3
+                          delay:0
+                        options:UIViewAnimationOptionTransitionNone
+                     animations:^{
+                         [self.view setFrame:CGRectMake(0,0,self.view.frame.size.width,self.viewHeight)];
+                         self.titleLabel.textColor = [UIColor whiteColor];
+                         self.backButton.tintColor = [UIColor whiteColor];
+                     }
+                     completion:^(BOOL finished){
+                         
+                     }];
+    
+}
+
+-(void)keyboardOnScreen:(NSNotification *)notification
+{
+    NSDictionary *info  = notification.userInfo;
+    NSValue      *value = info[UIKeyboardFrameEndUserInfoKey];
+    
+    CGRect rawFrame         = [value CGRectValue];
+    CGRect keyboardFrame    = [self.view convertRect:rawFrame fromView:nil];
+    self.keyboardHeight     = keyboardFrame.size.height;
+    
+    [UIView animateWithDuration:0.3
+                          delay:0.0
+                        options:UIViewAnimationOptionTransitionNone
+                     animations:^{
+                         [self.view setFrame:CGRectMake(0,-self.keyboardHeight,self.view.frame.size.width,self.viewHeight)];
+                         self.titleLabel.textColor = [UIColor clearColor];
+                         self.backButton.tintColor = [UIColor clearColor];
+                         
+                     }
+                     completion:^(BOOL finished){
+                         
+                         
+                     }];
+    
+}
 
 -(void)textViewDidChange:(UITextView *)textView{
     [self checkIfAllFieldsAreComplete];
@@ -274,17 +352,14 @@
 -(void)textViewDidEndEditing:(UITextView *)textView{
     [self checkIfAllFieldsAreComplete];
 }
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return NO;
 }
-*/
 
-#pragma Mark Action Methods
+#pragma mark Action Methods
 
 - (IBAction)didSelectPayCharge:(id)sender {
     
@@ -328,5 +403,10 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 - (IBAction)didTapSubmitButton:(id)sender {
+}
+
+-(void)dismissKeyboard {
+    [self.amountTextView resignFirstResponder];
+    [self.noteTextView resignFirstResponder];
 }
 @end

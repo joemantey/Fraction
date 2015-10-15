@@ -2129,7 +2129,7 @@
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="snr-fY-liL" userLabel="Bottom Text Field">
+                                            <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="snr-fY-liL" userLabel="Bottom Text Field">
                                                 <rect key="frame" x="30" y="36" width="450" height="40"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2252,6 +2252,7 @@
                         <outlet property="payChargeSegmentedControl" destination="Odv-1W-fav" id="Kia-Zo-2QJ"/>
                         <outlet property="privacySegementedControl" destination="Owy-XI-4o5" id="wlq-8N-SQA"/>
                         <outlet property="submitButton" destination="YZt-8i-uRW" id="187-Gq-P0g"/>
+                        <outlet property="titleLabel" destination="RAa-Gt-ps7" id="DKQ-kZ-d8v"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ndk-bk-tJZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
