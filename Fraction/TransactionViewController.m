@@ -12,23 +12,28 @@
 @import AddressBook;
 @import AddressBookUI;
 
+@import Contacts;
+@import ContactsUI;
 
-@interface TransactionViewController () <UITextViewDelegate, ABPeoplePickerNavigationControllerDelegate>
+
+@interface TransactionViewController () <UITextViewDelegate,  CNContactPickerDelegate >
 
 @property (nonatomic) BOOL nameTextViewValid;
 @property (nonatomic) BOOL amountTextViewValid;
 @property (nonatomic) BOOL noteTextViewValid;
-@property (strong, nonatomic) NSMutableString *contactString;
+
+@property (strong, nonatomic) NSMutableString   *contactString;
+@property (strong, nonatomic) NSMutableArray    *contactArray;
 
 @property (weak, nonatomic) IBOutlet UISegmentedControl *payChargeSegmentedControl;
-@property (weak, nonatomic) IBOutlet UITextField *nameTextView;
-@property (weak, nonatomic) IBOutlet UITextField *amountTextView;
+@property (weak, nonatomic) IBOutlet UITextField        *nameTextView;
+@property (weak, nonatomic) IBOutlet UITextField        *amountTextView;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *privacySegementedControl;
-@property (weak, nonatomic) IBOutlet UITextView *noteTextView;
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *backButton;
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *submitButton;
-@property (weak, nonatomic) IBOutlet UIButton *completeTransactionButton;
-@property (weak, nonatomic) IBOutlet UIButton *addContactButton;
+@property (weak, nonatomic) IBOutlet UITextView         *noteTextView;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem    *backButton;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem    *submitButton;
+@property (weak, nonatomic) IBOutlet UIButton           *completeTransactionButton;
+@property (weak, nonatomic) IBOutlet UIButton           *addContactButton;
 
 - (IBAction)didSelectPayCharge:(id)sender;
 - (IBAction)didSelectPrivacy:(id)sender;
@@ -52,6 +57,7 @@
     [self clearNavigationBar];
     [self setUpViewsAndButtons];
     [self setBackgroundColor];
+    
 
 }
 
@@ -120,64 +126,47 @@
 
 - (void)presentPeoplePicker{
     
-    ABPeoplePickerNavigationController *picker  = [[ABPeoplePickerNavigationController alloc] init];
-    picker.peoplePickerDelegate                 = self;
+    CNContactPickerViewController *picker   = [[CNContactPickerViewController alloc] init];
+    picker.delegate                         = self;
     
     [self presentViewController:picker animated:YES completion:nil];
 }
 
-- (void)addNameToStrongFrom:(ABRecordRef)person{
-    
-    self.contactString      = [NSMutableString stringWithFormat:@"%@", self.nameTextView.text];
-    
-    NSString *firstName     =  (__bridge_transfer NSString*)ABRecordCopyValue(person,kABPersonCompositeNameFormatFirstNameFirst);
-    NSString *lastName     =  (__bridge_transfer NSString*)ABRecordCopyValue(person,kABPersonCompositeNameFormatLastNameFirst);
-    
-    NSString *nameToAdd     =  [NSString stringWithFormat:@"%@ %@", firstName, lastName];
-    
-    if ([self.nameTextView.text length] == 0 ||
-         self.nameTextView.text == nil       ||
-        [self.nameTextView.text isEqual:@""] == TRUE)
-    {
-        self.contactString      = [NSMutableString stringWithFormat: @"%@", nameToAdd];
-    }
-    else
-    {
-        self.contactString      = [NSMutableString stringWithFormat: @"%@, %@", self.contactString, nameToAdd];
 
-    }
-    
-    self.nameTextView.text  = self.contactString;
-    
-}
-
-
-- (void)peoplePickerNavigationControllerDidCancel:(ABPeoplePickerNavigationController *)peoplePicker{
+-(void)contactPickerDidCancel:(CNContactPickerViewController *)picker{
     
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+- (void)contactPicker:(CNContactPickerViewController *)picker didSelectContacts:(nonnull NSArray<CNContact *> *)contacts{
 
- -(void)peoplePickerNavigationController:(ABPeoplePickerNavigationController *)peoplePicker didSelectPerson:(ABRecordRef)person{
     
-    //do something with the person object passed here
+    self.contactArray = [NSMutableArray arrayWithArray:contacts];
     
-    [self addNameToStrongFrom:person];
-    
-     [self dismissViewControllerAnimated:YES completion:nil];
-    
+    int counter = 0;
+    for (CNContact *eachContact in self.contactArray) {
+        
+        if (counter == 0) {
+            
+            NSString *nameString    = [NSString stringWithFormat:@"%@ %@", eachContact.givenName, eachContact.familyName];
+            self.contactString      = [NSMutableString stringWithFormat:@"%@", nameString];
+            
+        }else{
+            
+            NSString *nameString    = [NSString stringWithFormat:@", %@ %@", eachContact.givenName, eachContact.familyName];
+            self.contactString      = [NSMutableString stringWithFormat:@"%@%@", self.contactString, nameString];
+
+        }
+        
+        self.nameTextView.text  = self.contactString;
+        
+        counter++;
+    }
 }
 
-- (BOOL)peoplePickerNavigationController:
-(ABPeoplePickerNavigationController *)peoplePicker
-      shouldContinueAfterSelectingPerson:(ABRecordRef)person
-                                property:(ABPropertyID)property
-                              identifier:(ABMultiValueIdentifier)identifier
-{
-    [self dismissViewControllerAnimated:YES completion:nil];
-    return NO;
-    
-}
+
+
+
 
 
 
