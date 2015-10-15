@@ -19,7 +19,6 @@
 		38B818801BC56754006AD704 /* SignInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38B8187F1BC56754006AD704 /* SignInViewController.m */; };
 		38B818841BC7468E006AD704 /* JSContactSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38B818831BC7468E006AD704 /* JSContactSearchViewController.m */; };
 		38BF44161BB9FDA300E65D71 /* JSVenmoAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 38BF44151BB9FDA300E65D71 /* JSVenmoAPIClient.m */; };
-		38BF44191BB9FDD700E65D71 /* JSDataStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 38BF44181BB9FDD700E65D71 /* JSDataStore.m */; };
 		38BF441C1BB9FDF200E65D71 /* JSConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 38BF441B1BB9FDF200E65D71 /* JSConstants.m */; };
 		38C3E2991BCFDE7A00340A53 /* JSCoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C3E2981BCFDE7A00340A53 /* JSCoreData.m */; settings = {ASSET_TAGS = (); }; };
 		38D5B9541BBCA791009C6245 /* JSRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D5B9531BBCA791009C6245 /* JSRootViewController.m */; };
@@ -64,8 +63,6 @@
 		38B818831BC7468E006AD704 /* JSContactSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSContactSearchViewController.m; sourceTree = "<group>"; };
 		38BF44141BB9FDA300E65D71 /* JSVenmoAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSVenmoAPIClient.h; sourceTree = "<group>"; };
 		38BF44151BB9FDA300E65D71 /* JSVenmoAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSVenmoAPIClient.m; sourceTree = "<group>"; };
-		38BF44171BB9FDD700E65D71 /* JSDataStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSDataStore.h; sourceTree = "<group>"; };
-		38BF44181BB9FDD700E65D71 /* JSDataStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSDataStore.m; sourceTree = "<group>"; };
 		38BF441A1BB9FDF200E65D71 /* JSConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSConstants.h; sourceTree = "<group>"; };
 		38BF441B1BB9FDF200E65D71 /* JSConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSConstants.m; sourceTree = "<group>"; };
 		38C3E2971BCFDE7A00340A53 /* JSCoreData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSCoreData.h; sourceTree = "<group>"; };
@@ -186,11 +183,9 @@
 		3870E7471BB990670080A2A9 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				38C3E2971BCFDE7A00340A53 /* JSCoreData.h */,
-				38C3E2981BCFDE7A00340A53 /* JSCoreData.m */,
+				38C3E29A1BCFE05C00340A53 /* Core Data */,
 				38BF441D1BB9FDFF00E65D71 /* Constants */,
 				38BF44131BB9FD1C00E65D71 /* API Clients */,
-				3870E74A1BB990A50080A2A9 /* Data Store */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -214,16 +209,6 @@
 				38D5B9621BBDBECC009C6245 /* JSMenuTableViewController.m */,
 			);
 			name = Controller;
-			sourceTree = "<group>";
-		};
-		3870E74A1BB990A50080A2A9 /* Data Store */ = {
-			isa = PBXGroup;
-			children = (
-				3870E7251BB9904D0080A2A9 /* Fraction.xcdatamodeld */,
-				38BF44171BB9FDD700E65D71 /* JSDataStore.h */,
-				38BF44181BB9FDD700E65D71 /* JSDataStore.m */,
-			);
-			name = "Data Store";
 			sourceTree = "<group>";
 		};
 		38B8187D1BC56508006AD704 /* Sign In */ = {
@@ -260,6 +245,16 @@
 				38BF441B1BB9FDF200E65D71 /* JSConstants.m */,
 			);
 			name = Constants;
+			sourceTree = "<group>";
+		};
+		38C3E29A1BCFE05C00340A53 /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				3870E7251BB9904D0080A2A9 /* Fraction.xcdatamodeld */,
+				38C3E2971BCFDE7A00340A53 /* JSCoreData.h */,
+				38C3E2981BCFDE7A00340A53 /* JSCoreData.m */,
+			);
+			name = "Core Data";
 			sourceTree = "<group>";
 		};
 		38D5B9551BBCAB94009C6245 /* RESideMenu */ = {
@@ -446,7 +441,6 @@
 				38B818841BC7468E006AD704 /* JSContactSearchViewController.m in Sources */,
 				38BF44161BB9FDA300E65D71 /* JSVenmoAPIClient.m in Sources */,
 				384477091BC2EBD80096553C /* TransactionViewController.m in Sources */,
-				38BF44191BB9FDD700E65D71 /* JSDataStore.m in Sources */,
 				38C3E2991BCFDE7A00340A53 /* JSCoreData.m in Sources */,
 				38BF441C1BB9FDF200E65D71 /* JSConstants.m in Sources */,
 				3856DBEB1BBC6FD1005AA1E3 /* JSHomeViewController.m in Sources */,
