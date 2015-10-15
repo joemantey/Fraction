@@ -9,6 +9,9 @@
 #import "TransactionViewController.h"
 #import <Venmo-iOS-SDK/Venmo.h>
 
+@import AddressBook;
+@import AddressBookUI;
+
 
 @interface TransactionViewController () <UITextViewDelegate>
 

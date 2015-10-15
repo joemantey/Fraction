@@ -7,11 +7,11 @@
 //
 
 #import "JSContactSearchViewController.h"
+@import AddressBook;
+@import AddressBookUI;
 
+@interface JSContactSearchViewController ()<UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, ABPeoplePickerNavigationControllerDelegate>
 
-@interface JSContactSearchViewController ()<UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate>
-
-@property (strong, nonatomic) RHAddressBook *addressBook;
 @property (strong, nonatomic) NSArray       *peopleArray;
 @property (strong, nonatomic) NSArray       *searchResultArray;
 
@@ -65,7 +65,7 @@
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     
-       
+    
     return cell;
 }
 
