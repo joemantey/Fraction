@@ -10,4 +10,12 @@
 
 @interface JSVenmoAPIClient : NSObject
 
++(JSVenmoAPIClient *)sharedInstance;
+
+- (void)buildPayChargeWithPhoneNumber:(NSString *)phoneNumbers
+                            andAmount:(NSString *)amount
+                              andNote:(NSString *)note
+                          andAudience:(NSString *)audience
+                      andChargeStatus:(BOOL)isCharge;
+
 @end

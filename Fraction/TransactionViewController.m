@@ -7,10 +7,13 @@
 //
 
 #import "TransactionViewController.h"
+#import "JSCoreData.h"
+#import "JSVenmoAPIClient.h"
+
+
 #import <Venmo-iOS-SDK/Venmo.h>
 
-@import AddressBook;
-@import AddressBookUI;
+
 
 @import Contacts;
 @import ContactsUI;
@@ -18,13 +21,14 @@
 
 @interface TransactionViewController () <UITextViewDelegate,  CNContactPickerDelegate >
 
+@property (strong, nonatomic) JSVenmoAPIClient *venmoClient;
+
 @property (nonatomic) BOOL nameTextViewValid;
 @property (nonatomic) BOOL amountTextViewValid;
 @property (nonatomic) BOOL noteTextViewValid;
 
 @property (nonatomic) CGFloat viewHeight;
 @property (nonatomic) CGFloat keyboardHeight;
-
 
 @property (strong, nonatomic) NSMutableString   *contactString;
 @property (strong, nonatomic) NSMutableArray    *contactArray;
@@ -66,12 +70,15 @@
     [self setBackgroundColor];
     [self addGestureRecognizer];
     
+    self.venmoClient = [JSVenmoAPIClient sharedInstance];
+    
     self.viewHeight = self.view.frame.size.height;
     self.keyboardHeight = 260;
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidShow:) name:@"keyboardDidShow" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidHide:) name:@"keyboardDidHide" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardOnScreen:) name:UIKeyboardDidShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardOffScreen:) name:UIKeyboardDidHideNotification object:nil];
 
 
 }
@@ -95,8 +102,8 @@
 
 - (void)setBackgroundColor{
     
-    UIColor *startColor         = [UIColor colorWithRed:0.108 green:0.649 blue:0.683 alpha:1.000];
-    UIColor *endColor           = [UIColor colorWithRed:0.108 green:0.649 blue:0.683 alpha:1.000];
+    UIColor *startColor         = [UIColor colorWithRed:0.000 green:0.806 blue:0.827 alpha:1.000];
+    UIColor *endColor           = [UIColor colorWithRed:0.000 green:0.806 blue:0.827 alpha:1.000];
     CAGradientLayer*gradient    = [CAGradientLayer layer];
     gradient.frame              =  self.view.bounds;
     gradient.colors             = [NSArray arrayWithObjects:(id)[startColor CGColor], (id)[endColor CGColor], nil];
@@ -145,7 +152,7 @@
     [self.view addGestureRecognizer:tap];
 }
 
-#pragma mark ABPeoplePicker Delegate
+#pragma mark CNContactPicker Delegate
 
 - (void)presentPeoplePicker{
     
@@ -165,6 +172,8 @@
 
     
     self.contactArray = [NSMutableArray arrayWithArray:contacts];
+    
+    NSLog(@"%@", self.contactArray);
     
     int counter = 0;
     for (CNContact *eachContact in self.contactArray) {
@@ -191,11 +200,6 @@
 }
 
 
-
-
-
-
-
 #pragma mark Entry Field Methods
 - (BOOL)checkNameFieldIsNotEmpty{
     
@@ -215,8 +219,8 @@
 
 - (BOOL)checkIfAmountFieldIsCompletedCorrectly{
     
-    if ([self.amountTextView.text length] > 0){
-        
+    if ([self.amountTextView.text length] > 0 &&
+        [self checkifisAllDigitsWithString:self.amountTextView.text]){
         self.amountTextViewValid = YES;
         return YES;
     }
@@ -225,6 +229,32 @@
         self.amountTextViewValid = NO;
         return NO;
     }
+}
+
+- (BOOL)checkifisAllDigitsWithString:(NSString*)string{
+   
+    NSArray *cancelButtonTextArray = @[@"OK, got it",
+                                       @"Gotcha",
+                                       @"OK"];
+    
+    int random = arc4random_uniform(2);
+    
+    NSString *cancelButtonText = [cancelButtonTextArray objectAtIndex:random];
+    
+    NSCharacterSet* nonNumbers = [[NSCharacterSet decimalDigitCharacterSet] invertedSet];
+    NSRange range = [string rangeOfCharacterFromSet: nonNumbers];
+    
+    if (range.location != NSNotFound) {
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sorry, we can't proccess the amount you input"
+                                                        message:@"Please only use numbers and decimals"
+                                                       delegate:self
+                                              cancelButtonTitle:cancelButtonText
+                                              otherButtonTitles:nil];
+        [alert show];
+    }
+    
+    return range.location == NSNotFound;
 }
 
 - (BOOL)checkIfNoteFieldIsNotEmpty{
@@ -247,6 +277,10 @@
     [self checkIfAmountFieldIsCompletedCorrectly];
     [self checkIfNoteFieldIsNotEmpty];
     [self checkNameFieldIsNotEmpty];
+    
+    if (![self checkifisAllDigitsWithString:self.amountTextView.text]) {
+        return NO;
+    }
     
     if (self.noteTextViewValid   == YES &&
         self.amountTextViewValid == YES &&
@@ -319,6 +353,25 @@
     
 }
 
+
+-(void)keyboardOffScreen:(NSNotification *)notification
+{
+   
+    [UIView animateWithDuration:0.25
+                          delay:0
+                        options:UIViewAnimationOptionTransitionNone
+                     animations:^{
+                         [self.view setFrame:CGRectMake(0,0,self.view.frame.size.width,self.viewHeight)];
+                         self.titleLabel.textColor = [UIColor whiteColor];
+                         self.backButton.tintColor = [UIColor whiteColor];
+                         self.backButton.enabled   = YES;
+                     }
+                     completion:^(BOOL finished){
+                         
+                     }];
+    
+}
+
 -(void)keyboardOnScreen:(NSNotification *)notification
 {
     NSDictionary *info  = notification.userInfo;
@@ -328,20 +381,16 @@
     CGRect keyboardFrame    = [self.view convertRect:rawFrame fromView:nil];
     self.keyboardHeight     = keyboardFrame.size.height;
     
-    [UIView animateWithDuration:0.3
+    [UIView animateWithDuration:0.25
                           delay:0.0
                         options:UIViewAnimationOptionTransitionNone
                      animations:^{
-                         [self.view setFrame:CGRectMake(0,-self.keyboardHeight,self.view.frame.size.width,self.viewHeight)];
+                         [self.view setFrame:CGRectMake(0,-self.keyboardHeight+60,self.view.frame.size.width,self.viewHeight)];
                          self.titleLabel.textColor = [UIColor clearColor];
                          self.backButton.tintColor = [UIColor clearColor];
-                         
+                         self.backButton.enabled   = NO;
                      }
-                     completion:^(BOOL finished){
-                         
-                         
-                     }];
-    
+                     completion:^(BOOL finished){}];
 }
 
 -(void)textViewDidChange:(UITextView *)textView{
@@ -393,6 +442,7 @@
 - (IBAction)didFinishEditingAmount:(id)sender {
     
     [self checkIfAllFieldsAreComplete];
+    [self checkifisAllDigitsWithString:self.amountTextView.text];
 }
 
 

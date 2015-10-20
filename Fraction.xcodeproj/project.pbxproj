@@ -21,6 +21,8 @@
 		38BF44161BB9FDA300E65D71 /* JSVenmoAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 38BF44151BB9FDA300E65D71 /* JSVenmoAPIClient.m */; };
 		38BF441C1BB9FDF200E65D71 /* JSConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 38BF441B1BB9FDF200E65D71 /* JSConstants.m */; };
 		38C3E2991BCFDE7A00340A53 /* JSCoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C3E2981BCFDE7A00340A53 /* JSCoreData.m */; settings = {ASSET_TAGS = (); }; };
+		38C3E2B21BD05B7E00340A53 /* PayCharge+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C3E2AF1BD05B7E00340A53 /* PayCharge+CoreDataProperties.m */; settings = {ASSET_TAGS = (); }; };
+		38C3E2B31BD05B7E00340A53 /* PayCharge.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C3E2B11BD05B7E00340A53 /* PayCharge.m */; settings = {ASSET_TAGS = (); }; };
 		38D5B9541BBCA791009C6245 /* JSRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D5B9531BBCA791009C6245 /* JSRootViewController.m */; };
 		38D5B95C1BBCAB94009C6245 /* RECommonFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D5B9571BBCAB94009C6245 /* RECommonFunctions.m */; };
 		38D5B95D1BBCAB94009C6245 /* RESideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D5B9591BBCAB94009C6245 /* RESideMenu.m */; };
@@ -67,6 +69,10 @@
 		38BF441B1BB9FDF200E65D71 /* JSConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSConstants.m; sourceTree = "<group>"; };
 		38C3E2971BCFDE7A00340A53 /* JSCoreData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSCoreData.h; sourceTree = "<group>"; };
 		38C3E2981BCFDE7A00340A53 /* JSCoreData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSCoreData.m; sourceTree = "<group>"; };
+		38C3E2AE1BD05B7E00340A53 /* PayCharge+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PayCharge+CoreDataProperties.h"; sourceTree = "<group>"; };
+		38C3E2AF1BD05B7E00340A53 /* PayCharge+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PayCharge+CoreDataProperties.m"; sourceTree = "<group>"; };
+		38C3E2B01BD05B7E00340A53 /* PayCharge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayCharge.h; sourceTree = "<group>"; };
+		38C3E2B11BD05B7E00340A53 /* PayCharge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PayCharge.m; sourceTree = "<group>"; };
 		38D5B9521BBCA791009C6245 /* JSRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSRootViewController.h; sourceTree = "<group>"; };
 		38D5B9531BBCA791009C6245 /* JSRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSRootViewController.m; sourceTree = "<group>"; };
 		38D5B9561BBCAB94009C6245 /* RECommonFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RECommonFunctions.h; sourceTree = "<group>"; };
@@ -253,8 +259,20 @@
 				3870E7251BB9904D0080A2A9 /* Fraction.xcdatamodeld */,
 				38C3E2971BCFDE7A00340A53 /* JSCoreData.h */,
 				38C3E2981BCFDE7A00340A53 /* JSCoreData.m */,
+				38C3E2AA1BD05A1F00340A53 /* PayCharge */,
 			);
 			name = "Core Data";
+			sourceTree = "<group>";
+		};
+		38C3E2AA1BD05A1F00340A53 /* PayCharge */ = {
+			isa = PBXGroup;
+			children = (
+				38C3E2AE1BD05B7E00340A53 /* PayCharge+CoreDataProperties.h */,
+				38C3E2AF1BD05B7E00340A53 /* PayCharge+CoreDataProperties.m */,
+				38C3E2B01BD05B7E00340A53 /* PayCharge.h */,
+				38C3E2B11BD05B7E00340A53 /* PayCharge.m */,
+			);
+			name = PayCharge;
 			sourceTree = "<group>";
 		};
 		38D5B9551BBCAB94009C6245 /* RESideMenu */ = {
@@ -434,12 +452,14 @@
 			files = (
 				38B818801BC56754006AD704 /* SignInViewController.m in Sources */,
 				3870E7241BB9904D0080A2A9 /* AppDelegate.m in Sources */,
+				38C3E2B31BD05B7E00340A53 /* PayCharge.m in Sources */,
 				38D5B95C1BBCAB94009C6245 /* RECommonFunctions.m in Sources */,
 				38D5B9541BBCA791009C6245 /* JSRootViewController.m in Sources */,
 				3870E7211BB9904D0080A2A9 /* main.m in Sources */,
 				38D5B9631BBDBECC009C6245 /* JSMenuTableViewController.m in Sources */,
 				38B818841BC7468E006AD704 /* JSContactSearchViewController.m in Sources */,
 				38BF44161BB9FDA300E65D71 /* JSVenmoAPIClient.m in Sources */,
+				38C3E2B21BD05B7E00340A53 /* PayCharge+CoreDataProperties.m in Sources */,
 				384477091BC2EBD80096553C /* TransactionViewController.m in Sources */,
 				38C3E2991BCFDE7A00340A53 /* JSCoreData.m in Sources */,
 				38BF441C1BB9FDF200E65D71 /* JSConstants.m in Sources */,

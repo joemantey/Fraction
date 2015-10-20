@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="8195" systemVersion="14F27" minimumToolsVersion="Automatic">
-    <entity name="Friend" syncable="YES">
+    <entity name="JSFriend" syncable="YES">
         <attribute name="about" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="display_name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
@@ -9,11 +9,16 @@
         <attribute name="profile_picuture_url" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="username" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
-    <entity name="FundRequest" syncable="YES">
+    <entity name="JSPayCharge" representedClassName="PayCharge" syncable="YES">
+        <attribute name="amount" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="audience" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="isCharge" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="note" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="phoneNumbers" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="requestURL" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="FundRequest" positionX="-63" positionY="-18" width="128" height="60"/>
-        <element name="Friend" positionX="-63" positionY="-9" width="128" height="150"/>
+        <element name="JSPayCharge" positionX="-63" positionY="-18" width="128" height="135"/>
+        <element name="JSFriend" positionX="-63" positionY="-9" width="128" height="150"/>
     </elements>
 </model>
