@@ -2144,8 +2144,8 @@
                                                     <action selector="didFinishEditingNameField:" destination="yPg-0E-fgF" eventType="editingDidBegin" id="fQf-7K-LBF"/>
                                                 </connections>
                                             </textField>
-                                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aQd-kr-bcl">
-                                                <rect key="frame" x="463" y="30" width="104" height="50"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aQd-kr-bcl">
+                                                <rect key="frame" x="501" y="36" width="72" height="40"/>
                                                 <state key="normal" image="Add User"/>
                                                 <connections>
                                                     <action selector="didTapAddContact:" destination="yPg-0E-fgF" eventType="touchUpInside" id="r0y-bK-6fi"/>
@@ -2277,10 +2277,10 @@
             </objects>
             <point key="canvasLocation" x="2384" y="-70"/>
         </scene>
-        <!--View Controller-->
+        <!--Split Transaction View Controller-->
         <scene sceneID="sFt-Ue-La6">
             <objects>
-                <viewController id="5vs-tD-DDn" sceneMemberID="viewController">
+                <viewController id="5vs-tD-DDn" customClass="JSSplitTransactionViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="cfV-eR-0Od"/>
                         <viewControllerLayoutGuide type="bottom" id="HaO-EX-221"/>
@@ -2295,8 +2295,8 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v5q-a8-GwK">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="134"/>
                                         <subviews>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="$99 each" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MpD-03-y8x">
-                                                <rect key="frame" x="151" y="0.0" width="300" height="134"/>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="$99 each" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MpD-03-y8x">
+                                                <rect key="frame" x="150" y="0.0" width="300" height="134"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="50"/>
@@ -2321,7 +2321,7 @@
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fjR-Zs-BpF" userLabel="Bottom Text Field">
-                                                <rect key="frame" x="30" y="36" width="540" height="40"/>
+                                                <rect key="frame" x="30" y="36" width="450" height="40"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2332,16 +2332,33 @@
                                                     <action selector="didFinishEditingAmount:" destination="yPg-0E-fgF" eventType="editingDidEnd" id="hGA-Qq-Dxc"/>
                                                     <action selector="didFinishEditingAmount:" destination="yPg-0E-fgF" eventType="editingChanged" id="n7f-cW-Jiq"/>
                                                     <action selector="didFinishEditingAmount:" destination="yPg-0E-fgF" eventType="editingDidBegin" id="yUP-Oj-aum"/>
+                                                    <action selector="didFinishEditingContactTextField:" destination="5vs-tD-DDn" eventType="editingDidEnd" id="kPj-sj-ZTe"/>
                                                 </connections>
                                             </textField>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dqU-mg-ICF">
+                                                <rect key="frame" x="501" y="36" width="72" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="46" id="AyG-uf-FaS"/>
+                                                </constraints>
+                                                <state key="normal" image="Add User"/>
+                                                <variation key="default">
+                                                    <mask key="constraints">
+                                                        <exclude reference="AyG-uf-FaS"/>
+                                                    </mask>
+                                                </variation>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstItem="fjR-Zs-BpF" firstAttribute="height" secondItem="HBJ-fx-PBv" secondAttribute="height" multiplier="0.5" id="5dv-nE-6yl"/>
-                                            <constraint firstItem="fjR-Zs-BpF" firstAttribute="centerX" secondItem="HBJ-fx-PBv" secondAttribute="centerX" id="LmO-UL-g2N"/>
-                                            <constraint firstItem="fjR-Zs-BpF" firstAttribute="width" secondItem="HBJ-fx-PBv" secondAttribute="width" multiplier="0.9" id="Oaq-fP-1yY"/>
+                                            <constraint firstItem="fjR-Zs-BpF" firstAttribute="centerX" secondItem="HBJ-fx-PBv" secondAttribute="centerX" multiplier="0.85" id="LmO-UL-g2N"/>
+                                            <constraint firstItem="dqU-mg-ICF" firstAttribute="height" secondItem="HBJ-fx-PBv" secondAttribute="height" multiplier="0.5" id="MXF-Fr-N91"/>
+                                            <constraint firstItem="fjR-Zs-BpF" firstAttribute="width" secondItem="HBJ-fx-PBv" secondAttribute="width" multiplier="0.75" id="Oaq-fP-1yY"/>
                                             <constraint firstItem="0GN-pU-eTG" firstAttribute="height" secondItem="HBJ-fx-PBv" secondAttribute="height" multiplier="0.3" id="Po1-cG-Sfs"/>
                                             <constraint firstItem="fjR-Zs-BpF" firstAttribute="centerY" secondItem="HBJ-fx-PBv" secondAttribute="centerY" multiplier="1.4" id="Q1G-Nm-k9B"/>
+                                            <constraint firstItem="dqU-mg-ICF" firstAttribute="centerX" secondItem="HBJ-fx-PBv" secondAttribute="centerX" multiplier="1.79" id="RkZ-ez-nJu"/>
+                                            <constraint firstItem="dqU-mg-ICF" firstAttribute="width" secondItem="HBJ-fx-PBv" secondAttribute="width" multiplier="0.12" id="Vsq-fy-F7f"/>
+                                            <constraint firstItem="dqU-mg-ICF" firstAttribute="centerY" secondItem="HBJ-fx-PBv" secondAttribute="centerY" multiplier="1.4" id="eBm-0S-vs6"/>
                                             <constraint firstItem="0GN-pU-eTG" firstAttribute="centerX" secondItem="HBJ-fx-PBv" secondAttribute="centerX" id="en0-Gj-8of"/>
                                             <constraint firstItem="0GN-pU-eTG" firstAttribute="centerY" secondItem="HBJ-fx-PBv" secondAttribute="centerY" multiplier="0.5" id="zaI-gw-K2j"/>
                                             <constraint firstItem="0GN-pU-eTG" firstAttribute="width" secondItem="HBJ-fx-PBv" secondAttribute="width" multiplier="0.9" id="zft-XQ-0kv"/>
@@ -2526,6 +2543,9 @@
                         </view>
                         <barButtonItem key="rightBarButtonItem" title="next" id="yis-ob-MSt"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="contactTextField" destination="fjR-Zs-BpF" id="4O0-CS-bbb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WoG-ct-4ld" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

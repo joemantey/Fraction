@@ -23,6 +23,7 @@
 		38C3E2991BCFDE7A00340A53 /* JSCoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C3E2981BCFDE7A00340A53 /* JSCoreData.m */; settings = {ASSET_TAGS = (); }; };
 		38C3E2B21BD05B7E00340A53 /* PayCharge+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C3E2AF1BD05B7E00340A53 /* PayCharge+CoreDataProperties.m */; settings = {ASSET_TAGS = (); }; };
 		38C3E2B31BD05B7E00340A53 /* PayCharge.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C3E2B11BD05B7E00340A53 /* PayCharge.m */; settings = {ASSET_TAGS = (); }; };
+		38C3E2BA1BD8057F00340A53 /* JSSplitTransactionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C3E2B91BD8057F00340A53 /* JSSplitTransactionViewController.m */; settings = {ASSET_TAGS = (); }; };
 		38D5B9541BBCA791009C6245 /* JSRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D5B9531BBCA791009C6245 /* JSRootViewController.m */; };
 		38D5B95C1BBCAB94009C6245 /* RECommonFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D5B9571BBCAB94009C6245 /* RECommonFunctions.m */; };
 		38D5B95D1BBCAB94009C6245 /* RESideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D5B9591BBCAB94009C6245 /* RESideMenu.m */; };
@@ -73,6 +74,8 @@
 		38C3E2AF1BD05B7E00340A53 /* PayCharge+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PayCharge+CoreDataProperties.m"; sourceTree = "<group>"; };
 		38C3E2B01BD05B7E00340A53 /* PayCharge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayCharge.h; sourceTree = "<group>"; };
 		38C3E2B11BD05B7E00340A53 /* PayCharge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PayCharge.m; sourceTree = "<group>"; };
+		38C3E2B81BD8057F00340A53 /* JSSplitTransactionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSSplitTransactionViewController.h; sourceTree = "<group>"; };
+		38C3E2B91BD8057F00340A53 /* JSSplitTransactionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSSplitTransactionViewController.m; sourceTree = "<group>"; };
 		38D5B9521BBCA791009C6245 /* JSRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSRootViewController.h; sourceTree = "<group>"; };
 		38D5B9531BBCA791009C6245 /* JSRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSRootViewController.m; sourceTree = "<group>"; };
 		38D5B9561BBCAB94009C6245 /* RECommonFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RECommonFunctions.h; sourceTree = "<group>"; };
@@ -206,6 +209,7 @@
 		3870E7491BB9907B0080A2A9 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				38C3E2B41BD802A100340A53 /* Split Transaction */,
 				38B818811BC7466C006AD704 /* Contact Search */,
 				38B8187D1BC56508006AD704 /* Sign In */,
 				384477061BC2EB460096553C /* Transaction */,
@@ -273,6 +277,15 @@
 				38C3E2B11BD05B7E00340A53 /* PayCharge.m */,
 			);
 			name = PayCharge;
+			sourceTree = "<group>";
+		};
+		38C3E2B41BD802A100340A53 /* Split Transaction */ = {
+			isa = PBXGroup;
+			children = (
+				38C3E2B81BD8057F00340A53 /* JSSplitTransactionViewController.h */,
+				38C3E2B91BD8057F00340A53 /* JSSplitTransactionViewController.m */,
+			);
+			name = "Split Transaction";
 			sourceTree = "<group>";
 		};
 		38D5B9551BBCAB94009C6245 /* RESideMenu */ = {
@@ -457,6 +470,7 @@
 				38D5B9541BBCA791009C6245 /* JSRootViewController.m in Sources */,
 				3870E7211BB9904D0080A2A9 /* main.m in Sources */,
 				38D5B9631BBDBECC009C6245 /* JSMenuTableViewController.m in Sources */,
+				38C3E2BA1BD8057F00340A53 /* JSSplitTransactionViewController.m in Sources */,
 				38B818841BC7468E006AD704 /* JSContactSearchViewController.m in Sources */,
 				38BF44161BB9FDA300E65D71 /* JSVenmoAPIClient.m in Sources */,
 				38C3E2B21BD05B7E00340A53 /* PayCharge+CoreDataProperties.m in Sources */,

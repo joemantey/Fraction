@@ -45,8 +45,6 @@ static JSVenmoAPIClient * venmoAPIClient;
                                 NSLog(@"Transaction failed with error: %@", [error localizedDescription]);
                             }
                         }];
-    
-
 }
 
 - (NSString *)returnPhoneNumberStringfromArray:(NSArray<CNLabeledValue<CNPhoneNumber*>*> *)contactArray{
