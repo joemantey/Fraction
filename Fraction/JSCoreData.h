@@ -9,13 +9,20 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
+#import <Venmo-iOS-SDK/Venmo.h>
+
+
 @interface JSCoreData : NSObject
 
 @property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 
+@property (nonatomic) BOOL didGainPermissions;
+
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
+
++ (instancetype) sharedDataStore;
 
 @end

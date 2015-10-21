@@ -32,12 +32,14 @@
 
 @property (strong, nonatomic) NSMutableString   *contactString;
 @property (strong, nonatomic) NSMutableArray    *contactArray;
+@property (strong, nonatomic) NSArray           *audienceArray;
+@property (strong, nonatomic) NSArray           *chargeStatusArray;
+@property (strong, nonatomic) JSCoreData        *dataStore;
 
-
-@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UILabel            *titleLabel;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *payChargeSegmentedControl;
 @property (weak, nonatomic) IBOutlet UITextField        *nameTextView;
-@property (weak, nonatomic) IBOutlet UITextField *amountLabelTextField;
+@property (weak, nonatomic) IBOutlet UITextField        *amountLabelTextField;
 @property (weak, nonatomic) IBOutlet UITextField        *amountTextView;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *privacySegementedControl;
 @property (weak, nonatomic) IBOutlet UITextView         *noteTextView;
@@ -69,24 +71,26 @@
     [self setUpViewsAndButtons];
     [self setBackgroundColor];
     [self addGestureRecognizer];
+    [self addNotifications];
     
-    self.venmoClient = [JSVenmoAPIClient sharedInstance];
+    self.dataStore          = [JSCoreData sharedDataStore];
     
-    self.viewHeight = self.view.frame.size.height;
-    self.keyboardHeight = 260;
+    self.venmoClient        = [JSVenmoAPIClient sharedInstance];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidShow:) name:@"keyboardDidShow" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidHide:) name:@"keyboardDidHide" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardOnScreen:) name:UIKeyboardDidShowNotification object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardOffScreen:) name:UIKeyboardDidHideNotification object:nil];
+    self.viewHeight         = self.view.frame.size.height;
+    self.keyboardHeight     = 260;
+    
+    self.audienceArray      = @[@"public", @"friends", @"private"];
 
 
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 
 - (void)clearNavigationBar{
     self.navigationItem.leftBarButtonItem.imageInsets = UIEdgeInsetsMake(12, 0, 12, 24);
@@ -110,6 +114,7 @@
     [self.view.layer insertSublayer:gradient atIndex:0];
 
 }
+
 
 - (void)setUpViewsAndButtons{
     
@@ -152,6 +157,15 @@
     [self.view addGestureRecognizer:tap];
 }
 
+- (void)addNotifications{
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidShow:) name:@"keyboardDidShow" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidHide:) name:@"keyboardDidHide" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardOnScreen:) name:UIKeyboardDidShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardOffScreen:) name:UIKeyboardDidHideNotification object:nil];
+}
+
+
 #pragma mark CNContactPicker Delegate
 
 - (void)presentPeoplePicker{
@@ -167,6 +181,7 @@
     
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+
 
 - (void)contactPicker:(CNContactPickerViewController *)picker didSelectContacts:(nonnull NSArray<CNContact *> *)contacts{
 
@@ -219,8 +234,8 @@
 
 - (BOOL)checkIfAmountFieldIsCompletedCorrectly{
     
-    if ([self.amountTextView.text length] > 0 &&
-        [self checkifisAllDigitsWithString:self.amountTextView.text]){
+    if ([self.amountTextView.text length] > 0 ){
+        
         self.amountTextViewValid = YES;
         return YES;
     }
@@ -231,36 +246,12 @@
     }
 }
 
-- (BOOL)checkifisAllDigitsWithString:(NSString*)string{
-   
-    NSArray *cancelButtonTextArray = @[@"OK, got it",
-                                       @"Gotcha",
-                                       @"OK"];
-    
-    int random = arc4random_uniform(2);
-    
-    NSString *cancelButtonText = [cancelButtonTextArray objectAtIndex:random];
-    
-    NSCharacterSet* nonNumbers = [[NSCharacterSet decimalDigitCharacterSet] invertedSet];
-    NSRange range = [string rangeOfCharacterFromSet: nonNumbers];
-    
-    if (range.location != NSNotFound) {
-        
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sorry, we can't proccess the amount you input"
-                                                        message:@"Please only use numbers and decimals"
-                                                       delegate:self
-                                              cancelButtonTitle:cancelButtonText
-                                              otherButtonTitles:nil];
-        [alert show];
-    }
-    
-    return range.location == NSNotFound;
-}
+
 
 - (BOOL)checkIfNoteFieldIsNotEmpty{
     
     if ([self.noteTextView.text length] > 0){
-        
+       
         self.noteTextViewValid = YES;
         return YES;
     }
@@ -278,9 +269,6 @@
     [self checkIfNoteFieldIsNotEmpty];
     [self checkNameFieldIsNotEmpty];
     
-    if (![self checkifisAllDigitsWithString:self.amountTextView.text]) {
-        return NO;
-    }
     
     if (self.noteTextViewValid   == YES &&
         self.amountTextViewValid == YES &&
@@ -408,6 +396,30 @@
     return NO;
 }
 
+#pragma mark Complete Transaction Methods
+
+- (IBAction)didTapCompleteTransactionButton:(id)sender {
+    
+    [self checkIfAllFieldsAreComplete];
+    
+    
+    NSString *amountString =  self.amountTextView.text;
+    
+    if (self.payChargeSegmentedControl.selectedSegmentIndex == 1) {
+        amountString       =  [NSString stringWithFormat:@"-%@", self.amountTextView.text];
+    }
+    
+    NSString *phoneNumberString = [self.venmoClient returnPhoneNumberStringfromArray:self.contactArray];
+    NSString *audineceString    = self.audienceArray[self.privacySegementedControl.selectedSegmentIndex];
+    
+    
+    [self.venmoClient  executeChargeWithPhoneNumber:phoneNumberString
+                                          andAmount:amountString
+                                            andNote:self.noteTextView.text
+                                        andAudience:audineceString];
+}
+
+
 #pragma mark Action Methods
 
 - (IBAction)didSelectPayCharge:(id)sender {
@@ -417,12 +429,6 @@
 
 
 - (IBAction)didSelectPrivacy:(id)sender {
-    
-    [self checkIfAllFieldsAreComplete];
-}
-
-
-- (IBAction)didTapCompleteTransactionButton:(id)sender {
     
     [self checkIfAllFieldsAreComplete];
 }
@@ -442,7 +448,6 @@
 - (IBAction)didFinishEditingAmount:(id)sender {
     
     [self checkIfAllFieldsAreComplete];
-    [self checkifisAllDigitsWithString:self.amountTextView.text];
 }
 
 
@@ -459,4 +464,61 @@
     [self.amountTextView resignFirstResponder];
     [self.noteTextView resignFirstResponder];
 }
+
 @end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//- (BOOL)checkifisAllDigitsWithString:(NSString*)string{
+//
+//    NSArray *cancelButtonTextArray = @[@"OK, got it",
+//                                       @"Gotcha",
+//                                       @"OK"];
+//
+//    int random = arc4random_uniform(2);
+//
+//    NSString *cancelButtonText = [cancelButtonTextArray objectAtIndex:random];
+//
+//    NSCharacterSet* nonNumbers = [[NSCharacterSet decimalDigitCharacterSet] invertedSet];
+//    NSRange range = [string rangeOfCharacterFromSet: nonNumbers];
+//
+//    if (range.location == NSNotFound) {
+//
+//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sorry, we can't proccess the amount you input"
+//                                                        message:@"Please only use numbers and decimals"
+//                                                       delegate:self
+//                                              cancelButtonTitle:cancelButtonText
+//                                              otherButtonTitles:nil];
+//        [alert show];
+//    }
+//
+//    return range.location == NSNotFound;
+//}

@@ -11,8 +11,8 @@
 
 #import "PayCharge.h"
 
-@import Contacts;
-@import ContactsUI;
+#import <Venmo-iOS-SDK/Venmo.h>
+
 
 @implementation JSVenmoAPIClient
 
@@ -29,41 +29,51 @@ static JSVenmoAPIClient * venmoAPIClient;
 }
 
 
-- (void)buildPayChargeWithPhoneNumber:(NSString *)phoneNumbers
+- (void)executeChargeWithPhoneNumber:(NSString *)phoneNumbers
                             andAmount:(NSString *)amount
                               andNote:(NSString *)note
-                          andAudience:(NSString *)audience
-                      andChargeStatus:(BOOL)isCharge{
+                          andAudience:(NSString *)audience{
     
+    [[Venmo sharedInstance] sendPaymentTo:phoneNumbers
+                                   amount:amount.floatValue
+                                     note:note
+                        completionHandler:^(VENTransaction *transaction, BOOL success, NSError *error) {
+                            if (success) {
+                                NSLog(@"Transaction succeeded!");
+                            }
+                            else {
+                                NSLog(@"Transaction failed with error: %@", [error localizedDescription]);
+                            }
+                        }];
     
-    
+
 }
 
 - (NSString *)returnPhoneNumberStringfromArray:(NSArray<CNLabeledValue<CNPhoneNumber*>*> *)contactArray{
     
-    NSString *iPhonePhoneNumber = @"";
-    NSString *mobilePhoneNumber = @"";
-    NSString *mainPhoneNumber   = @"";
-    NSString *otherPhoneNumber  = @"";
+    NSMutableString *iPhonePhoneNumber = @"";
+    NSMutableString *mobilePhoneNumber = @"";
+    NSMutableString *mainPhoneNumber   = @"";
+    NSMutableString *otherPhoneNumber  = @"";
     
     //fill the assoated string if it matches the correct label
     
     for (CNLabeledValue *eachContact in contactArray) {
         
         if (eachContact.label == CNLabelPhoneNumberiPhone ) {
-            NSString *iPhonePhoneNumber = eachContact.value;
+            NSMutableString *iPhonePhoneNumber = eachContact.value;
         }
         
         else if (eachContact.label == CNLabelPhoneNumberMobile ) {
-            NSString *mobilePhoneNumber = eachContact.value;
+            NSMutableString *mobilePhoneNumber = eachContact.value;
         }
         
         else if (eachContact.label == CNLabelPhoneNumberMain) {
-            NSString *mainPhoneNumber   = eachContact.value;
+            NSMutableString *mainPhoneNumber   = eachContact.value;
         }
         
         else {
-            NSString *otherPhoneNumber  = eachContact.value;
+            NSMutableString *otherPhoneNumber  = eachContact.value;
         }
         
     }
@@ -71,23 +81,33 @@ static JSVenmoAPIClient * venmoAPIClient;
     //return whatever the iphone is first, then mobile, then main
     
     if (iPhonePhoneNumber.length > 4) {
-        return iPhonePhoneNumber;
+        
+        NSString *returnString = iPhonePhoneNumber;
+        return returnString;
     }
     
     else if (mobilePhoneNumber.length > 4){
-        return mobilePhoneNumber;
+        
+        NSString *returnString = mobilePhoneNumber;
+        return returnString;
     }
     
     else if (mainPhoneNumber.length > 4){
-        return mainPhoneNumber;
+        
+        NSString *returnString = mainPhoneNumber;
+        return returnString;
     }
     
     else{
+        
         return otherPhoneNumber;
     }
         
 
 }
+
+
+
 
 #pragma mark - Get Authorization
 

@@ -8,14 +8,20 @@
 
 #import <Foundation/Foundation.h>
 
+@import Contacts;
+@import ContactsUI;
+
 @interface JSVenmoAPIClient : NSObject
 
-+(JSVenmoAPIClient *)sharedInstance;
+@property (nonatomic) BOOL permissionsGranted;
 
-- (void)buildPayChargeWithPhoneNumber:(NSString *)phoneNumbers
++ (JSVenmoAPIClient *)sharedInstance;
+
+- (void)executeChargeWithPhoneNumber:(NSString *)phoneNumbers
                             andAmount:(NSString *)amount
                               andNote:(NSString *)note
-                          andAudience:(NSString *)audience
-                      andChargeStatus:(BOOL)isCharge;
+                          andAudience:(NSString *)audience;
+
+- (NSString *)returnPhoneNumberStringfromArray:(NSArray<CNLabeledValue<CNPhoneNumber*>*> *)contactArray;
 
 @end

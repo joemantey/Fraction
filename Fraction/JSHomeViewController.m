@@ -7,12 +7,21 @@
 //
 
 #import "JSHomeViewController.h"
+#import "JSCoreData.h"
+
 #import <QuartzCore/QuartzCore.h>
 
 #include <stdlib.h>
 
+#import <Venmo-iOS-SDK/Venmo.h>
+
 @interface JSHomeViewController ()
+
+
+@property (strong, nonatomic) JSCoreData *dataStore;
+
 @property (weak, nonatomic) IBOutlet UILabel *welcomeLabel;
+
 - (IBAction)didTapMenuButton:(id)sender;
 
 @end
@@ -20,17 +29,40 @@
 @implementation JSHomeViewController
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
     [self clearNavigationBar];
     [self setBackgroundColor];
     [self setWelcomeMessage];
+    [self setUpDataStore];
+    [self askForPermissions];
     
     self.navigationItem.leftBarButtonItem.action = @selector(presentLeftMenuViewController:);
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)setUpDataStore{
+    
+    self.dataStore = [JSCoreData sharedDataStore];
+}
+
+- (void)askForPermissions{
+    
+    [[Venmo sharedInstance] requestPermissions:@[VENPermissionMakePayments,
+                                                 VENPermissionAccessProfile,
+                                                 VENPermissionAccessPhone,
+                                                 VENPermissionAccessBalance]
+     
+                         withCompletionHandler:^(BOOL success, NSError *error) {
+                             if (success) {
+                                 
+                                 self.dataStore.didGainPermissions = YES;
+                             }
+                             else {
+                                 
+                                 self.dataStore.didGainPermissions = NO;
+                             }
+                         }
+     ];
 }
 
 - (void)setWelcomeMessage{
@@ -43,6 +75,7 @@
     
     self.welcomeLabel.text = [welcomeMessageArray objectAtIndex:random];
 }
+
 
 - (void)setBackgroundColor{
     
