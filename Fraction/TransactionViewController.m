@@ -54,8 +54,6 @@
 - (IBAction)didTapSubmitButton:(id)sender;
 - (IBAction)didTapCompleteTransactionButton:(id)sender;
 - (IBAction)didFinishEditingNameField:(id)sender;
-
-
 - (IBAction)didFinishEditingAmount:(id)sender;
 - (IBAction)didTapAddContact:(id)sender;
 

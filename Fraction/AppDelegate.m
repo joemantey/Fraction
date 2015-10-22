@@ -13,10 +13,13 @@
 #import "JSRootViewController.h"
 
 #import "JSConstants.h"
+#import "JSCoreData.h"
 
 #import <Venmo-iOS-SDK/Venmo.h>
 
 @interface AppDelegate ()
+
+@property (strong, nonatomic) JSCoreData *dataStore;
 
 @end
 
@@ -25,6 +28,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
+    
+    self.dataStore = [JSCoreData sharedDataStore];
+    
     //Start Venmo API
     [Venmo startWithAppId:VENMO_API_APP_ID secret:VENMO_API_APP_SECRET name:@"Fraction"];
     
@@ -32,6 +38,13 @@
     //Initiate SideMenu
     [self initiateRESsideMenu];
     return YES;
+}
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+    if ([[Venmo sharedInstance] handleOpenURL:url]) {
+        return YES;
+    }
+    return NO;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
@@ -44,6 +57,7 @@
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
 }
 
+
 - (void)applicationWillEnterForeground:(UIApplication *)application {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
 }
@@ -55,7 +69,9 @@
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     // Saves changes in the application's managed object context before the application terminates.
-    [self saveContext];
+    
+    
+    [self.dataStore saveContext];
 }
 #pragma mark RESideMenu Delegate
 

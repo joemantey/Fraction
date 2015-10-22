@@ -9,9 +9,22 @@
 #import "JSSplitTransactionViewController.h"
 
 @interface JSSplitTransactionViewController ()
+@property (weak, nonatomic) IBOutlet UITextField *postSplitAmountTextField;
 @property (weak, nonatomic) IBOutlet UITextField *contactTextField;
+@property (weak, nonatomic) IBOutlet UITextField *amountTextField;
+@property (weak, nonatomic) IBOutlet UISlider *tipSlider;
+@property (weak, nonatomic) IBOutlet UITextField *tipAmountField;
+@property (weak, nonatomic) IBOutlet UISlider *taxSlider;
+@property (weak, nonatomic) IBOutlet UIView *taxAmountField;
+@property (weak, nonatomic) IBOutlet UIButton *completeTransactionButton;
 
+
+- (IBAction)didTapAddContact:(id)sender;
 - (IBAction)didFinishEditingContactTextField:(id)sender;
+- (IBAction)didiEndEditingAmount:(id)sender;
+- (IBAction)tipSliderValueChanged:(id)sender;
+- (IBAction)taxSliderValueChanged:(id)sender;
+- (IBAction)didTapCompletetTransaction:(id)sender;
 
 @end
 
@@ -37,6 +50,21 @@
 }
 */
 
+- (IBAction)tipSliderValueChanged:(id)sender {
+}
+
+- (IBAction)taxSliderValueChanged:(id)sender {
+}
+
+- (IBAction)didTapCompletetTransaction:(id)sender {
+}
+
+- (IBAction)didTapAddContact:(id)sender {
+}
+
 - (IBAction)didFinishEditingContactTextField:(id)sender {
+}
+
+- (IBAction)didiEndEditingAmount:(id)sender {
 }
 @end
