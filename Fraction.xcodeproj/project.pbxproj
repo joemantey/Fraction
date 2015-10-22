@@ -209,10 +209,10 @@
 		3870E7491BB9907B0080A2A9 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				384477061BC2EB460096553C /* Transaction */,
 				38C3E2B41BD802A100340A53 /* Split Transaction */,
 				38B818811BC7466C006AD704 /* Contact Search */,
 				38B8187D1BC56508006AD704 /* Sign In */,
-				384477061BC2EB460096553C /* Transaction */,
 				38D5B95F1BBCABA3009C6245 /* Home  */,
 				38D5B9601BBCABB9009C6245 /* Root  */,
 				38D5B9611BBDBECC009C6245 /* JSMenuTableViewController.h */,

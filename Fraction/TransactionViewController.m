@@ -400,7 +400,6 @@
     
     [self checkIfAllFieldsAreComplete];
     
-    
     NSString *amountString =  self.amountTextView.text;
     
     if (self.payChargeSegmentedControl.selectedSegmentIndex == 1) {
@@ -411,10 +410,10 @@
     NSString *audineceString    = self.audienceArray[self.privacySegementedControl.selectedSegmentIndex];
     
     
-    [self.venmoClient  executeChargeWithPhoneNumber:phoneNumberString
-                                          andAmount:amountString
-                                            andNote:self.noteTextView.text
-                                        andAudience:audineceString];
+//    [self.venmoClient  executeChargeWithPhoneNumber:phoneNumberString
+//                                          andAmount:amountString
+//                                            andNote:self.noteTextView.text
+//                                        andAudience:audineceString];
 }
 
 

@@ -45,24 +45,26 @@
     self.dataStore = [JSCoreData sharedDataStore];
 }
 
+#warning remember to turmn back on asking for permissions
+
 - (void)askForPermissions{
     
-    [[Venmo sharedInstance] requestPermissions:@[VENPermissionMakePayments,
-                                                 VENPermissionAccessProfile,
-                                                 VENPermissionAccessPhone,
-                                                 VENPermissionAccessBalance]
-     
-                         withCompletionHandler:^(BOOL success, NSError *error) {
-                             if (success) {
-                                 
-                                 self.dataStore.didGainPermissions = YES;
-                             }
-                             else {
-                                 
-                                 self.dataStore.didGainPermissions = NO;
-                             }
-                         }
-     ];
+//    [[Venmo sharedInstance] requestPermissions:@[VENPermissionMakePayments,
+//                                                 VENPermissionAccessProfile,
+//                                                 VENPermissionAccessPhone,
+//                                                 VENPermissionAccessBalance]
+//     
+//                         withCompletionHandler:^(BOOL success, NSError *error) {
+//                             if (success) {
+//                                 
+//                                 self.dataStore.didGainPermissions = YES;
+//                             }
+//                             else {
+//                                 
+//                                 self.dataStore.didGainPermissions = NO;
+//                             }
+//                         }
+//     ];
 }
 
 - (void)setWelcomeMessage{
