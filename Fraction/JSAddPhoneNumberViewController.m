@@ -104,19 +104,17 @@
         [self clearTextField];
 
     }else{
+       
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Please enter a valid phone number"
                                                             message:nil
                                                            delegate:self
                                                   cancelButtonTitle:nil
                                                   otherButtonTitles:@"OK", nil];
         [self clearTextField];
-
     }
     
-    
-    [self.addPhoneNumberTextField resignFirstResponder];
+    [self.view endEditing:YES];
     [self.tableView reloadData];
-    
 }
 
 - (void)clearTextField{

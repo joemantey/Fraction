@@ -1963,7 +1963,7 @@
         <!--Transaction View Controller-->
         <scene sceneID="KLr-bg-Wpc">
             <objects>
-                <viewController id="yPg-0E-fgF" customClass="TransactionViewController" sceneMemberID="viewController">
+                <viewController id="yPg-0E-fgF" customClass="JSTransactionViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="xKD-Bp-yLm"/>
                         <viewControllerLayoutGuide type="bottom" id="LxJ-YL-tvB"/>

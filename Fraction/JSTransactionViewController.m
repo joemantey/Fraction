@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 Yosimite Labs | Joseph Smalls-Mantey. All rights reserved.
 //
 
-#import "TransactionViewController.h"
+#import "JSTransactionViewController.h"
 #import "JSCoreData.h"
 #import "JSVenmoAPIClient.h"
 
@@ -19,7 +19,7 @@
 @import ContactsUI;
 
 
-@interface TransactionViewController () <UITextViewDelegate,  CNContactPickerDelegate >
+@interface JSTransactionViewController () <UITextViewDelegate,  CNContactPickerDelegate >
 
 @property (strong, nonatomic) JSVenmoAPIClient *venmoClient;
 
@@ -59,7 +59,7 @@
 
 @end
 
-@implementation TransactionViewController
+@implementation JSTransactionViewController
 
 
 #pragma mark View Lifecycle

@@ -72,6 +72,7 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated{
+    
     [self getTotalEach];
 }
 
