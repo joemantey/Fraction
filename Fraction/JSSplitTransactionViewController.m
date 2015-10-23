@@ -7,6 +7,7 @@
 //
 
 #import "JSSplitTransactionViewController.h"
+#import "JSCoreData.h"
 
 @import Contacts;
 @import ContactsUI;
@@ -18,8 +19,16 @@
 
 @property (strong, nonatomic) NSMutableString   *contactString;
 @property (strong, nonatomic) NSMutableArray    *contactArray;
+@property (nonatomic)         NSInteger         contactCount;
+@property (nonatomic)         NSInteger         totalEach;
+@property (nonatomic)         NSInteger         taxEach;
+@property (nonatomic)         NSInteger         tipEach;
+
+@property (strong, nonatomic) JSCoreData        *dataStore;
 
 @property (weak, nonatomic) IBOutlet UITextField    *postSplitAmountTextField;
+@property (weak, nonatomic) IBOutlet UITextField    *splitTipTextField;
+@property (weak, nonatomic) IBOutlet UITextField    *splitTaxTextField;
 @property (weak, nonatomic) IBOutlet UITextField    *contactTextField;
 @property (weak, nonatomic) IBOutlet UITextField    *amountTextField;
 @property (weak, nonatomic) IBOutlet UIView         *amountTotalBackground;
@@ -53,6 +62,19 @@
     [self setOutlines];
     [self addGestureRecognizer];
     [self setUpSlider];
+    [self getTotalEach];
+    
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [self getTotalEach];
+}
+
+- (void)setUpCoreData{
+    
+    self.dataStore = [JSCoreData sharedDataStore];
+    self.dataStore.inputPhoneNumberArray = [[NSMutableArray alloc]init];
+    
 }
 
 - (void)clearNavigationBar{
@@ -108,6 +130,8 @@
     self.completeTransactionButton.layer.borderColor    = [[UIColor whiteColor]CGColor];
     self.completeTransactionButton.clipsToBounds        = YES;
     [self.completeTransactionButton setTitle:@"Please complete all fields" forState:UIControlStateNormal];
+    
+  
     self.completeTransactionButton.userInteractionEnabled= NO;
 }
 
@@ -128,15 +152,61 @@
     [self.contactTextField resignFirstResponder];
 }
 
-#pragma mark UISlider
+#pragma mark Math Methods
+
+- (void)getContactCount{
+    
+    if (!self.contactCount) {
+        self.contactCount = 0;
+    }
+    self.contactCount = self.dataStore.inputPhoneNumberArray.count + self.contactArray.count;
+    
+}
+
+
+- (void)getTotalEach{
+    [self getContactCount];
+    
+    if (self.amountTextField.text.floatValue > 0 && self.contactCount > 0) {
+        [self getTipEach];
+        [self getTaxEach];
+        [self getContactCount];
+        
+        self.totalEach                      = (self.amountTextField.text.floatValue / self.contactCount) + self.taxEach + self.tipEach;
+        self.postSplitAmountTextField.text  = [NSString stringWithFormat:@"$%ld", (long)self.totalEach ];
+        
+        self.completeTransactionButton.backgroundColor      = [UIColor clearColor];
+        [self.completeTransactionButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [self.completeTransactionButton setTitle:@"Next: Adjust shares" forState:UIControlStateNormal];
+         self.completeTransactionButton.userInteractionEnabled= YES;
+    }
+   
+
+}
+
+
+- (void)getTaxEach{
+    
+    self.taxEach                = self.taxSlider.value * self.amountTextField.text.floatValue;
+    self.splitTaxTextField.text    = [NSString stringWithFormat:@"$%ld", (long)self.taxEach ];
+}
+
+
+- (void)getTipEach{
+    
+    self.tipEach                = self.tipSlider.value * self.amountTextField.text.floatValue;
+    self.splitTipTextField.text    = [NSString stringWithFormat:@"$%ld", (long)self.tipEach ];
+}
+
+#pragma mark UISlider Methods
 
 - (void)setUpSlider{
     
-    self.tipSlider.value        = 0.15;
+    self.tipSlider.value        = 0;
     NSInteger tipPercentage     = self.tipSlider.value * 100;
     self.tipAmountField.text    = [NSString stringWithFormat:@"%ld %%", (long)tipPercentage];
     
-    self.taxSlider.value        = 0.09;
+    self.taxSlider.value        = 0;
     NSInteger taxPercentage     = self.taxSlider.value * 100;
     self.taxAmountField.text    = [NSString stringWithFormat:@"%ld %%", (long)taxPercentage];
 }
@@ -165,6 +235,7 @@
                                                             style:UIAlertActionStyleDefault
                                                          handler:^(UIAlertAction * _Nonnull action) {
 //                                                                [self dismissViewControllerAnimated:YES completion:nil];
+                                                             [self performSegueWithIdentifier:@"phoneSegue" sender:nil];
                                                             }];
     
     UIAlertAction *cancel       = [UIAlertAction actionWithTitle:@"Cancel"
@@ -241,12 +312,14 @@
     
     NSInteger tipPercentage     = self.tipSlider.value * 100;
     self.tipAmountField.text    = [NSString stringWithFormat:@"%ld %%", (long)tipPercentage];
+    [self getTotalEach];
 }
 
 - (IBAction)taxSliderValueChanged:(id)sender {
     
     NSInteger taxPercentage     = self.taxSlider.value * 100;
     self.taxAmountField.text    = [NSString stringWithFormat:@"%ld %%", (long)taxPercentage];
+    [self getTotalEach];
 }
 
 - (IBAction)didTapCompletetTransaction:(id)sender {
@@ -255,11 +328,14 @@
 - (IBAction)didTapAddContact:(id)sender {
     
     [self presentActionController];
+     [self getTotalEach];
 }
 
 - (IBAction)didFinishEditingContactTextField:(id)sender {
+     [self getTotalEach];
 }
 
 - (IBAction)didiEndEditingAmount:(id)sender {
+     [self getTotalEach];
 }
 @end

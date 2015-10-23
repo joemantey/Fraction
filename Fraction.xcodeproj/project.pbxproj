@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		384477091BC2EBD80096553C /* TransactionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 384477081BC2EBD80096553C /* TransactionViewController.m */; };
 		3856DBEB1BBC6FD1005AA1E3 /* JSHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3856DBEA1BBC6FD1005AA1E3 /* JSHomeViewController.m */; };
+		386906501BD9AA7C0012EF90 /* JSPhoneTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3869064F1BD9AA7C0012EF90 /* JSPhoneTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
+		386906531BD9AC8B0012EF90 /* JSAddPhoneNumberViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 386906521BD9AC8B0012EF90 /* JSAddPhoneNumberViewController.m */; settings = {ASSET_TAGS = (); }; };
 		3870E7211BB9904D0080A2A9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3870E7201BB9904D0080A2A9 /* main.m */; };
 		3870E7241BB9904D0080A2A9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3870E7231BB9904D0080A2A9 /* AppDelegate.m */; };
 		3870E7271BB9904D0080A2A9 /* Fraction.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3870E7251BB9904D0080A2A9 /* Fraction.xcdatamodeld */; };
@@ -17,7 +19,6 @@
 		3870E7321BB9904D0080A2A9 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3870E7301BB9904D0080A2A9 /* LaunchScreen.xib */; };
 		3870E73E1BB9904D0080A2A9 /* FractionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3870E73D1BB9904D0080A2A9 /* FractionTests.m */; };
 		38B818801BC56754006AD704 /* SignInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38B8187F1BC56754006AD704 /* SignInViewController.m */; };
-		38B818841BC7468E006AD704 /* JSContactSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38B818831BC7468E006AD704 /* JSContactSearchViewController.m */; };
 		38BF44161BB9FDA300E65D71 /* JSVenmoAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 38BF44151BB9FDA300E65D71 /* JSVenmoAPIClient.m */; };
 		38BF441C1BB9FDF200E65D71 /* JSConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 38BF441B1BB9FDF200E65D71 /* JSConstants.m */; };
 		38C3E2991BCFDE7A00340A53 /* JSCoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C3E2981BCFDE7A00340A53 /* JSCoreData.m */; settings = {ASSET_TAGS = (); }; };
@@ -48,6 +49,10 @@
 		384477081BC2EBD80096553C /* TransactionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransactionViewController.m; sourceTree = "<group>"; };
 		3856DBE91BBC6FD1005AA1E3 /* JSHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSHomeViewController.h; sourceTree = "<group>"; };
 		3856DBEA1BBC6FD1005AA1E3 /* JSHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSHomeViewController.m; sourceTree = "<group>"; };
+		3869064E1BD9AA7C0012EF90 /* JSPhoneTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSPhoneTableViewCell.h; sourceTree = "<group>"; };
+		3869064F1BD9AA7C0012EF90 /* JSPhoneTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSPhoneTableViewCell.m; sourceTree = "<group>"; };
+		386906511BD9AC8B0012EF90 /* JSAddPhoneNumberViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSAddPhoneNumberViewController.h; sourceTree = "<group>"; };
+		386906521BD9AC8B0012EF90 /* JSAddPhoneNumberViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSAddPhoneNumberViewController.m; sourceTree = "<group>"; };
 		3870E71B1BB9904D0080A2A9 /* Fraction.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fraction.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3870E71F1BB9904D0080A2A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3870E7201BB9904D0080A2A9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -62,8 +67,6 @@
 		3870E73D1BB9904D0080A2A9 /* FractionTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FractionTests.m; sourceTree = "<group>"; };
 		38B8187E1BC56754006AD704 /* SignInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignInViewController.h; sourceTree = "<group>"; };
 		38B8187F1BC56754006AD704 /* SignInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignInViewController.m; sourceTree = "<group>"; };
-		38B818821BC7468E006AD704 /* JSContactSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSContactSearchViewController.h; sourceTree = "<group>"; };
-		38B818831BC7468E006AD704 /* JSContactSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSContactSearchViewController.m; sourceTree = "<group>"; };
 		38BF44141BB9FDA300E65D71 /* JSVenmoAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSVenmoAPIClient.h; sourceTree = "<group>"; };
 		38BF44151BB9FDA300E65D71 /* JSVenmoAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSVenmoAPIClient.m; sourceTree = "<group>"; };
 		38BF441A1BB9FDF200E65D71 /* JSConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSConstants.h; sourceTree = "<group>"; };
@@ -125,6 +128,15 @@
 				713BCC3CBCED7FC5B22ABBA3 /* Pods-Fraction.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		3869064D1BD9AA540012EF90 /* Phone Number Cell */ = {
+			isa = PBXGroup;
+			children = (
+				3869064E1BD9AA7C0012EF90 /* JSPhoneTableViewCell.h */,
+				3869064F1BD9AA7C0012EF90 /* JSPhoneTableViewCell.m */,
+			);
+			name = "Phone Number Cell";
 			sourceTree = "<group>";
 		};
 		3870E7121BB9904D0080A2A9 = {
@@ -202,6 +214,7 @@
 		3870E7481BB990720080A2A9 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				3869064D1BD9AA540012EF90 /* Phone Number Cell */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -211,7 +224,6 @@
 			children = (
 				384477061BC2EB460096553C /* Transaction */,
 				38C3E2B41BD802A100340A53 /* Split Transaction */,
-				38B818811BC7466C006AD704 /* Contact Search */,
 				38B8187D1BC56508006AD704 /* Sign In */,
 				38D5B95F1BBCABA3009C6245 /* Home  */,
 				38D5B9601BBCABB9009C6245 /* Root  */,
@@ -228,15 +240,6 @@
 				38B8187F1BC56754006AD704 /* SignInViewController.m */,
 			);
 			name = "Sign In";
-			sourceTree = "<group>";
-		};
-		38B818811BC7466C006AD704 /* Contact Search */ = {
-			isa = PBXGroup;
-			children = (
-				38B818821BC7468E006AD704 /* JSContactSearchViewController.h */,
-				38B818831BC7468E006AD704 /* JSContactSearchViewController.m */,
-			);
-			name = "Contact Search";
 			sourceTree = "<group>";
 		};
 		38BF44131BB9FD1C00E65D71 /* API Clients */ = {
@@ -284,6 +287,8 @@
 			children = (
 				38C3E2B81BD8057F00340A53 /* JSSplitTransactionViewController.h */,
 				38C3E2B91BD8057F00340A53 /* JSSplitTransactionViewController.m */,
+				386906511BD9AC8B0012EF90 /* JSAddPhoneNumberViewController.h */,
+				386906521BD9AC8B0012EF90 /* JSAddPhoneNumberViewController.m */,
 			);
 			name = "Split Transaction";
 			sourceTree = "<group>";
@@ -465,14 +470,15 @@
 			files = (
 				38B818801BC56754006AD704 /* SignInViewController.m in Sources */,
 				3870E7241BB9904D0080A2A9 /* AppDelegate.m in Sources */,
+				386906501BD9AA7C0012EF90 /* JSPhoneTableViewCell.m in Sources */,
 				38C3E2B31BD05B7E00340A53 /* PayCharge.m in Sources */,
 				38D5B95C1BBCAB94009C6245 /* RECommonFunctions.m in Sources */,
 				38D5B9541BBCA791009C6245 /* JSRootViewController.m in Sources */,
 				3870E7211BB9904D0080A2A9 /* main.m in Sources */,
 				38D5B9631BBDBECC009C6245 /* JSMenuTableViewController.m in Sources */,
 				38C3E2BA1BD8057F00340A53 /* JSSplitTransactionViewController.m in Sources */,
-				38B818841BC7468E006AD704 /* JSContactSearchViewController.m in Sources */,
 				38BF44161BB9FDA300E65D71 /* JSVenmoAPIClient.m in Sources */,
+				386906531BD9AC8B0012EF90 /* JSAddPhoneNumberViewController.m in Sources */,
 				38C3E2B21BD05B7E00340A53 /* PayCharge+CoreDataProperties.m in Sources */,
 				384477091BC2EBD80096553C /* TransactionViewController.m in Sources */,
 				38C3E2991BCFDE7A00340A53 /* JSCoreData.m in Sources */,

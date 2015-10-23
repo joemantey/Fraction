@@ -20,6 +20,8 @@
 
 @property (nonatomic) BOOL didGainPermissions;
 
+@property (strong, nonatomic) NSMutableArray    *inputPhoneNumberArray;
+
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
 
