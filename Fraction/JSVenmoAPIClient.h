@@ -6,6 +6,8 @@
 //  Copyright (c) 2015 Yosimite Labs | Joseph Smalls-Mantey. All rights reserved.
 //
 
+#import "JSCoreData.h"
+
 #import <Foundation/Foundation.h>
 
 @import Contacts;
@@ -14,6 +16,7 @@
 @interface JSVenmoAPIClient : NSObject
 
 @property (nonatomic) BOOL permissionsGranted;
+@property (strong, nonatomic) JSCoreData *dataStore;
 
 + (JSVenmoAPIClient *)sharedInstance;
 

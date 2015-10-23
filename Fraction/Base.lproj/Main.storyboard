@@ -2593,7 +2593,7 @@
                                                 <connections>
                                                     <action selector="didTapCompleteTransactionButton:" destination="yPg-0E-fgF" eventType="touchUpInside" id="lgR-aV-Ot8"/>
                                                     <action selector="didTapCompletetTransaction:" destination="5vs-tD-DDn" eventType="touchUpInside" id="2Qc-1z-gyV"/>
-                                                    <segue destination="hEu-JI-7kd" kind="showDetail" id="GKZ-NY-iUx"/>
+                                                    <segue destination="hEu-JI-7kd" kind="presentation" id="GKZ-NY-iUx"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -2906,10 +2906,10 @@
             </objects>
             <point key="canvasLocation" x="2384" y="629"/>
         </scene>
-        <!--View Controller-->
+        <!--Adjust Split View Controller-->
         <scene sceneID="AAS-6h-loX">
             <objects>
-                <viewController id="yv5-Fa-czu" sceneMemberID="viewController">
+                <viewController id="yv5-Fa-czu" customClass="JSAdjustSplitViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="hsK-tg-Ih9"/>
                         <viewControllerLayoutGuide type="bottom" id="omI-k7-0rA"/>
@@ -3033,7 +3033,7 @@
                                                                     </constraints>
                                                                 </view>
                                                             </subviews>
-                                                            <color key="backgroundColor" red="0.0" green="0.3593568909" blue="0.71614652590000005" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                             <constraints>
                                                                 <constraint firstItem="kkN-1u-aZ2" firstAttribute="leading" secondItem="cDj-KN-xkr" secondAttribute="trailing" id="1vx-X3-LeG"/>
                                                                 <constraint firstAttribute="bottom" secondItem="cDj-KN-xkr" secondAttribute="bottom" id="2uc-hU-2i0"/>
@@ -3082,20 +3082,20 @@
                                                 <rect key="frame" x="30" y="7" width="540" height="120"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xRS-BI-oSZ" userLabel="Total Background">
-                                                        <rect key="frame" x="27" y="6" width="486" height="108"/>
+                                                        <rect key="frame" x="0.0" y="6" width="540" height="108"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e5d-pK-QT7" userLabel="Total Amount Container">
-                                                                <rect key="frame" x="146" y="0.0" width="340" height="108"/>
+                                                                <rect key="frame" x="162" y="0.0" width="378" height="108"/>
                                                                 <subviews>
                                                                     <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kNl-2s-2K7" userLabel="Total Text">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="340" height="108"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="378" height="108"/>
                                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="30"/>
                                                                         <textInputTraits key="textInputTraits"/>
                                                                     </textField>
                                                                     <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" text="amount remaining each" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZoZ-oF-Mde" userLabel="Total Label">
-                                                                        <rect key="frame" x="0.0" y="81" width="330" height="27"/>
+                                                                        <rect key="frame" x="0.0" y="81" width="368" height="27"/>
                                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                         <color key="textColor" white="1" alpha="0.75" colorSpace="calibratedWhite"/>
                                                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
@@ -3115,17 +3115,17 @@
                                                                 </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q8S-eg-drJ" userLabel="Tax Amount Container">
-                                                                <rect key="frame" x="0.0" y="0.0" width="146" height="108"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="162" height="108"/>
                                                                 <subviews>
                                                                     <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PQp-3q-jnN" userLabel="Big">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="146" height="108"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="162" height="108"/>
                                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
                                                                         <textInputTraits key="textInputTraits"/>
                                                                     </textField>
                                                                     <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" text="amount remaining" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ceg-ug-bMD" userLabel="Little">
-                                                                        <rect key="frame" x="0.0" y="86" width="146" height="22"/>
+                                                                        <rect key="frame" x="0.0" y="86" width="162" height="22"/>
                                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                         <color key="textColor" white="1" alpha="0.75" colorSpace="calibratedWhite"/>
                                                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
@@ -3158,12 +3158,12 @@
                                                         </constraints>
                                                     </view>
                                                 </subviews>
-                                                <color key="backgroundColor" red="0.0" green="0.3593568909" blue="0.71614652590000005" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstItem="xRS-BI-oSZ" firstAttribute="centerY" secondItem="KPL-dW-l1G" secondAttribute="centerY" id="2uG-uF-IZI"/>
                                                     <constraint firstItem="xRS-BI-oSZ" firstAttribute="height" secondItem="KPL-dW-l1G" secondAttribute="height" multiplier="0.9" id="Z3c-bw-V4h"/>
                                                     <constraint firstItem="xRS-BI-oSZ" firstAttribute="centerX" secondItem="KPL-dW-l1G" secondAttribute="centerX" id="hpf-nI-iP2"/>
-                                                    <constraint firstItem="xRS-BI-oSZ" firstAttribute="width" secondItem="KPL-dW-l1G" secondAttribute="width" multiplier="0.9" id="kV5-AF-RUk"/>
+                                                    <constraint firstItem="xRS-BI-oSZ" firstAttribute="width" secondItem="KPL-dW-l1G" secondAttribute="width" id="kV5-AF-RUk"/>
                                                 </constraints>
                                             </view>
                                         </subviews>
@@ -3199,19 +3199,24 @@
                     </view>
                     <navigationItem key="navigationItem" id="R5J-ih-ZHC">
                         <nil key="title"/>
-                        <barButtonItem key="leftBarButtonItem" title="Item" id="Pzb-vg-wPS"/>
+                        <barButtonItem key="leftBarButtonItem" image="Back" id="Pzb-vg-wPS">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="didTapBackButton:" destination="yv5-Fa-czu" id="eIP-FN-Hs4"/>
+                            </connections>
+                        </barButtonItem>
                         <view key="titleView" contentMode="scaleToFill" id="jLq-Hu-MZt">
                             <rect key="frame" x="180" y="6" width="240" height="33"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lMW-1z-KyK">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Adjust split" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lMW-1z-KyK">
                                     <rect key="frame" x="0.0" y="0.0" width="240" height="33"/>
                                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="20"/>
-                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="textColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="bottom" secondItem="lMW-1z-KyK" secondAttribute="bottom" id="7p2-Mb-gp3"/>
                                 <constraint firstAttribute="trailing" secondItem="lMW-1z-KyK" secondAttribute="trailing" id="YlL-f6-2KJ"/>
@@ -3221,6 +3226,13 @@
                         </view>
                         <barButtonItem key="rightBarButtonItem" title="Item" id="q38-tI-SAR"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="amountRemainingContainer" destination="e5d-pK-QT7" id="Lrn-DP-kBf"/>
+                        <outlet property="amountRemainingTextView" destination="PQp-3q-jnN" id="J48-ak-u1d"/>
+                        <outlet property="backgroundContainer" destination="KPL-dW-l1G" id="3sF-HP-XaE"/>
+                        <outlet property="perAmountRemainingTextView" destination="kNl-2s-2K7" id="gA3-VE-RPV"/>
+                        <outlet property="tableView" destination="qYQ-8f-X8H" id="43y-43-NuU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="usZ-PB-Vu0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

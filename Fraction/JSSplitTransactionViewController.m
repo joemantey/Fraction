@@ -138,7 +138,7 @@
     [self.completeTransactionButton setTitle:@"Please complete all fields" forState:UIControlStateNormal];
     
   
-    self.completeTransactionButton.userInteractionEnabled= NO;
+    self.completeTransactionButton.userInteractionEnabled= YES;
 }
 
 
@@ -303,16 +303,19 @@
 
 
 
-/*
+
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    
+    
 }
-*/
 
+
+
+#pragma mark - View Input Methods
 - (IBAction)tipSliderValueChanged:(id)sender {
     
     NSInteger tipPercentage     = self.tipSlider.value * 100;
