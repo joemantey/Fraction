@@ -11,7 +11,8 @@
 		3856DBEB1BBC6FD1005AA1E3 /* JSHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3856DBEA1BBC6FD1005AA1E3 /* JSHomeViewController.m */; };
 		386906501BD9AA7C0012EF90 /* JSPhoneTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3869064F1BD9AA7C0012EF90 /* JSPhoneTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
 		386906531BD9AC8B0012EF90 /* JSAddPhoneNumberViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 386906521BD9AC8B0012EF90 /* JSAddPhoneNumberViewController.m */; settings = {ASSET_TAGS = (); }; };
-		386906571BDADBD30012EF90 /* SplitTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 386906561BDADBD30012EF90 /* SplitTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
+		3869065A1BDADD120012EF90 /* JSSplitTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 386906591BDADD120012EF90 /* JSSplitTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
+		3869065D1BDAE07D0012EF90 /* JSAdjustSplitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3869065C1BDAE07D0012EF90 /* JSAdjustSplitViewController.m */; settings = {ASSET_TAGS = (); }; };
 		3870E7211BB9904D0080A2A9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3870E7201BB9904D0080A2A9 /* main.m */; };
 		3870E7241BB9904D0080A2A9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3870E7231BB9904D0080A2A9 /* AppDelegate.m */; };
 		3870E7271BB9904D0080A2A9 /* Fraction.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3870E7251BB9904D0080A2A9 /* Fraction.xcdatamodeld */; };
@@ -54,8 +55,10 @@
 		3869064F1BD9AA7C0012EF90 /* JSPhoneTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSPhoneTableViewCell.m; sourceTree = "<group>"; };
 		386906511BD9AC8B0012EF90 /* JSAddPhoneNumberViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSAddPhoneNumberViewController.h; sourceTree = "<group>"; };
 		386906521BD9AC8B0012EF90 /* JSAddPhoneNumberViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSAddPhoneNumberViewController.m; sourceTree = "<group>"; };
-		386906551BDADBD30012EF90 /* SplitTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SplitTableViewCell.h; sourceTree = "<group>"; };
-		386906561BDADBD30012EF90 /* SplitTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SplitTableViewCell.m; sourceTree = "<group>"; };
+		386906581BDADD120012EF90 /* JSSplitTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSSplitTableViewCell.h; sourceTree = "<group>"; };
+		386906591BDADD120012EF90 /* JSSplitTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSSplitTableViewCell.m; sourceTree = "<group>"; };
+		3869065B1BDAE07D0012EF90 /* JSAdjustSplitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSAdjustSplitViewController.h; sourceTree = "<group>"; };
+		3869065C1BDAE07D0012EF90 /* JSAdjustSplitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSAdjustSplitViewController.m; sourceTree = "<group>"; };
 		3870E71B1BB9904D0080A2A9 /* Fraction.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fraction.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3870E71F1BB9904D0080A2A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3870E7201BB9904D0080A2A9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -142,13 +145,13 @@
 			name = "Phone Number Cell";
 			sourceTree = "<group>";
 		};
-		386906541BDAD5F40012EF90 /* Share Cell */ = {
+		386906541BDAD5F40012EF90 /* Split Cell */ = {
 			isa = PBXGroup;
 			children = (
-				386906551BDADBD30012EF90 /* SplitTableViewCell.h */,
-				386906561BDADBD30012EF90 /* SplitTableViewCell.m */,
+				386906581BDADD120012EF90 /* JSSplitTableViewCell.h */,
+				386906591BDADD120012EF90 /* JSSplitTableViewCell.m */,
 			);
-			name = "Share Cell";
+			name = "Split Cell";
 			sourceTree = "<group>";
 		};
 		3870E7121BB9904D0080A2A9 = {
@@ -226,7 +229,7 @@
 		3870E7481BB990720080A2A9 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				386906541BDAD5F40012EF90 /* Share Cell */,
+				386906541BDAD5F40012EF90 /* Split Cell */,
 				3869064D1BD9AA540012EF90 /* Phone Number Cell */,
 			);
 			name = View;
@@ -300,6 +303,8 @@
 			children = (
 				38C3E2B81BD8057F00340A53 /* JSSplitTransactionViewController.h */,
 				38C3E2B91BD8057F00340A53 /* JSSplitTransactionViewController.m */,
+				3869065B1BDAE07D0012EF90 /* JSAdjustSplitViewController.h */,
+				3869065C1BDAE07D0012EF90 /* JSAdjustSplitViewController.m */,
 				386906511BD9AC8B0012EF90 /* JSAddPhoneNumberViewController.h */,
 				386906521BD9AC8B0012EF90 /* JSAddPhoneNumberViewController.m */,
 			);
@@ -487,7 +492,6 @@
 				38C3E2B31BD05B7E00340A53 /* PayCharge.m in Sources */,
 				38D5B95C1BBCAB94009C6245 /* RECommonFunctions.m in Sources */,
 				38D5B9541BBCA791009C6245 /* JSRootViewController.m in Sources */,
-				386906571BDADBD30012EF90 /* SplitTableViewCell.m in Sources */,
 				3870E7211BB9904D0080A2A9 /* main.m in Sources */,
 				38D5B9631BBDBECC009C6245 /* JSMenuTableViewController.m in Sources */,
 				38C3E2BA1BD8057F00340A53 /* JSSplitTransactionViewController.m in Sources */,
@@ -499,8 +503,10 @@
 				38BF441C1BB9FDF200E65D71 /* JSConstants.m in Sources */,
 				3856DBEB1BBC6FD1005AA1E3 /* JSHomeViewController.m in Sources */,
 				38D5B95D1BBCAB94009C6245 /* RESideMenu.m in Sources */,
+				3869065A1BDADD120012EF90 /* JSSplitTableViewCell.m in Sources */,
 				3870E7271BB9904D0080A2A9 /* Fraction.xcdatamodeld in Sources */,
 				38D5B95E1BBCAB94009C6245 /* UIViewController+RESideMenu.m in Sources */,
+				3869065D1BDAE07D0012EF90 /* JSAdjustSplitViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

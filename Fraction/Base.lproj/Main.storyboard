@@ -2923,9 +2923,10 @@
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="221" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qYQ-8f-X8H">
                                         <rect key="frame" x="0.0" y="134" width="600" height="402"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="221" id="MdC-ef-xJT">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="221" id="MdC-ef-xJT" customClass="JSSplitTableViewCell">
                                                 <rect key="frame" x="0.0" y="92" width="600" height="221"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MdC-ef-xJT" id="D9A-nl-dzM">
@@ -2933,22 +2934,25 @@
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rbo-5k-dda">
-                                                            <rect key="frame" x="0.0" y="8" width="600" height="204"/>
+                                                            <rect key="frame" x="5" y="13" width="600" height="194"/>
                                                             <subviews>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cDj-KN-xkr" userLabel="Left Container">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="450" height="204"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="450" height="194"/>
                                                                     <subviews>
-                                                                        <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="TSn-vb-mOu">
-                                                                            <rect key="frame" x="21" y="102" width="409" height="103"/>
+                                                                        <slider opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="TSn-vb-mOu">
+                                                                            <rect key="frame" x="21" y="98" width="409" height="97"/>
+                                                                            <connections>
+                                                                                <action selector="sliderValueDidChange:" destination="MdC-ef-xJT" eventType="valueChanged" id="pNY-dB-OVN"/>
+                                                                            </connections>
                                                                         </slider>
-                                                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Z96-Sh-Hl9">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="450" height="102"/>
+                                                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Z96-Sh-Hl9">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="450" height="98"/>
                                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
                                                                             <textInputTraits key="textInputTraits"/>
                                                                         </textField>
                                                                     </subviews>
-                                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="bottom" secondItem="TSn-vb-mOu" secondAttribute="bottom" id="2Fm-Mx-8J6"/>
                                                                         <constraint firstAttribute="trailing" secondItem="Z96-Sh-Hl9" secondAttribute="trailing" id="3GR-dj-Kki"/>
@@ -2972,23 +2976,23 @@
                                                                         </mask>
                                                                     </variation>
                                                                 </view>
-                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kkN-1u-aZ2" userLabel="Top Right Container">
-                                                                    <rect key="frame" x="450" y="0.0" width="150" height="102"/>
+                                                                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kkN-1u-aZ2" userLabel="Top Right Container">
+                                                                    <rect key="frame" x="450" y="0.0" width="150" height="98"/>
                                                                     <subviews>
-                                                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="share" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pLD-bJ-f64" userLabel="Bottom">
-                                                                            <rect key="frame" x="0.0" y="82" width="150" height="20"/>
+                                                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="share" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pLD-bJ-f64" userLabel="Bottom">
+                                                                            <rect key="frame" x="0.0" y="78" width="150" height="20"/>
                                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
                                                                             <textInputTraits key="textInputTraits"/>
                                                                         </textField>
-                                                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ErC-2w-WDG">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="150" height="82"/>
+                                                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ErC-2w-WDG">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="150" height="78"/>
                                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
                                                                             <textInputTraits key="textInputTraits"/>
                                                                         </textField>
                                                                     </subviews>
-                                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="trailing" secondItem="ErC-2w-WDG" secondAttribute="trailing" id="74x-aQ-KUm"/>
                                                                         <constraint firstAttribute="bottom" secondItem="pLD-bJ-f64" secondAttribute="bottom" id="75z-S8-dfY"/>
@@ -3000,23 +3004,23 @@
                                                                         <constraint firstItem="pLD-bJ-f64" firstAttribute="top" secondItem="ErC-2w-WDG" secondAttribute="bottom" id="rDm-1A-dfG"/>
                                                                     </constraints>
                                                                 </view>
-                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JEx-c3-8lz" userLabel="Top Right Container">
-                                                                    <rect key="frame" x="450" y="102" width="150" height="102"/>
+                                                                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JEx-c3-8lz" userLabel="Top Right Container">
+                                                                    <rect key="frame" x="450" y="98" width="150" height="96"/>
                                                                     <subviews>
-                                                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="share %" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TD1-Mg-SR2" userLabel="Bottom">
-                                                                            <rect key="frame" x="0.0" y="82" width="150" height="20"/>
+                                                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="share %" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TD1-Mg-SR2" userLabel="Bottom">
+                                                                            <rect key="frame" x="0.0" y="78" width="150" height="18"/>
                                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
                                                                             <textInputTraits key="textInputTraits"/>
                                                                         </textField>
                                                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZKE-s7-m1r">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="150" height="82"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="150" height="78"/>
                                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
                                                                             <textInputTraits key="textInputTraits"/>
                                                                         </textField>
                                                                     </subviews>
-                                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="trailing" secondItem="ZKE-s7-m1r" secondAttribute="trailing" id="1YQ-mm-Dn2"/>
                                                                         <constraint firstItem="TD1-Mg-SR2" firstAttribute="top" secondItem="ZKE-s7-m1r" secondAttribute="bottom" id="3Ga-aP-aEB"/>
@@ -3053,12 +3057,21 @@
                                                         </view>
                                                     </subviews>
                                                     <constraints>
-                                                        <constraint firstItem="rbo-5k-dda" firstAttribute="top" secondItem="D9A-nl-dzM" secondAttribute="topMargin" id="Et0-e7-Hkd"/>
-                                                        <constraint firstAttribute="bottomMargin" secondItem="rbo-5k-dda" secondAttribute="bottom" id="W4A-iV-Osb"/>
-                                                        <constraint firstItem="rbo-5k-dda" firstAttribute="trailing" secondItem="D9A-nl-dzM" secondAttribute="trailing" id="aVP-DF-5FV"/>
-                                                        <constraint firstItem="rbo-5k-dda" firstAttribute="leading" secondItem="D9A-nl-dzM" secondAttribute="leading" id="t4K-dE-rQb"/>
+                                                        <constraint firstItem="rbo-5k-dda" firstAttribute="top" secondItem="D9A-nl-dzM" secondAttribute="topMargin" constant="5" id="Et0-e7-Hkd"/>
+                                                        <constraint firstAttribute="bottomMargin" secondItem="rbo-5k-dda" secondAttribute="bottom" constant="5" id="W4A-iV-Osb"/>
+                                                        <constraint firstItem="rbo-5k-dda" firstAttribute="trailing" secondItem="D9A-nl-dzM" secondAttribute="trailing" constant="5" id="aVP-DF-5FV"/>
+                                                        <constraint firstItem="rbo-5k-dda" firstAttribute="leading" secondItem="D9A-nl-dzM" secondAttribute="leading" constant="5" id="t4K-dE-rQb"/>
                                                     </constraints>
                                                 </tableViewCellContentView>
+                                                <connections>
+                                                    <outlet property="cellBackgroundView" destination="rbo-5k-dda" id="Cs8-lc-xm0"/>
+                                                    <outlet property="contactTextView" destination="Z96-Sh-Hl9" id="sLy-os-CKs"/>
+                                                    <outlet property="percentContainerView" destination="JEx-c3-8lz" id="T2b-eB-HaF"/>
+                                                    <outlet property="percentTextView" destination="ZKE-s7-m1r" id="QcD-t2-fHb"/>
+                                                    <outlet property="shareContainerView" destination="kkN-1u-aZ2" id="Utz-NT-sES"/>
+                                                    <outlet property="shareTextView" destination="ErC-2w-WDG" id="MZ6-fx-0sp"/>
+                                                    <outlet property="sliderContainerView" destination="cDj-KN-xkr" id="YFZ-FV-3jK"/>
+                                                </connections>
                                             </tableViewCell>
                                         </prototypes>
                                     </tableView>
@@ -3154,7 +3167,7 @@
                                                 </constraints>
                                             </view>
                                         </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstItem="KPL-dW-l1G" firstAttribute="centerY" secondItem="VJs-1e-o76" secondAttribute="centerY" id="1Sk-NR-bfr"/>
                                             <constraint firstItem="KPL-dW-l1G" firstAttribute="width" secondItem="VJs-1e-o76" secondAttribute="width" multiplier="0.9" id="OYp-h7-0R9"/>
@@ -3163,7 +3176,7 @@
                                         </constraints>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="VJs-1e-o76" firstAttribute="top" secondItem="unx-jg-IE8" secondAttribute="top" id="6WD-EF-qRd"/>
                                     <constraint firstItem="qYQ-8f-X8H" firstAttribute="leading" secondItem="unx-jg-IE8" secondAttribute="leading" id="H28-i0-yeM"/>
@@ -3176,7 +3189,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="unx-jg-IE8" firstAttribute="top" secondItem="hsK-tg-Ih9" secondAttribute="bottom" id="2Xk-iD-Fhb"/>
                             <constraint firstItem="omI-k7-0rA" firstAttribute="top" secondItem="unx-jg-IE8" secondAttribute="bottom" id="Sg4-dA-3tQ"/>

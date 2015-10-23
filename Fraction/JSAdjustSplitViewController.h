@@ -1,5 +1,5 @@
 //
-//  SplitTableViewCell.h
+//  JSAdjustSplitViewController.h
 //  Fraction
 //
 //  Created by Joseph Smalls-Mantey on 10/23/15.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SplitTableViewCell : UITableViewCell
+@interface JSAdjustSplitViewController : UIViewController
 
 @end
