@@ -8,6 +8,7 @@
 
 #import "JSSplitTransactionViewController.h"
 #import "JSCoreData.h"
+#import "JSVenmoAPIClient.h"
 
 @import Contacts;
 @import ContactsUI;
@@ -25,6 +26,7 @@
 @property (nonatomic)         NSInteger         tipEach;
 
 @property (strong, nonatomic) JSCoreData        *dataStore;
+@property (strong, nonatomic) JSVenmoAPIClient  *venmoAPIClient;
 
 
 @property (weak, nonatomic) IBOutlet UITextField    *postSplitAmountTextField;
@@ -58,6 +60,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [self setUpCoreDataAndVenmo];
     [self clearNavigationBar];
     [self setBackgroundColor];
     [self setOutlines];
@@ -76,12 +79,15 @@
     [self getTotalEach];
 }
 
-- (void)setUpCoreData{
+- (void)setUpCoreDataAndVenmo{
     
     self.dataStore = [JSCoreData sharedDataStore];
     self.dataStore.inputPhoneNumberArray = [[NSMutableArray alloc]init];
-    
+    [self.dataStore deleteVenPersons];
+
+    self.venmoAPIClient = [JSVenmoAPIClient sharedInstance];
 }
+
 
 - (void)clearNavigationBar{
     self.navigationItem.leftBarButtonItem.imageInsets = UIEdgeInsetsMake(12, 0, 12, 24);
@@ -310,7 +316,11 @@
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
     
+    [self getTotalEach];
     
+    [self.venmoAPIClient processContactArraysInputArray:self.dataStore.inputPhoneNumberArray
+                                        andContactArray:self.contactArray
+                                              andAmount:[NSString stringWithFormat:@"%ld", (long)self.totalEach]];   
 }
 
 

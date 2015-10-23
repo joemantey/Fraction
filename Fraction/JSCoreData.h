@@ -25,6 +25,11 @@
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
 
+#pragma mark - Core Data Saving support
 + (instancetype) sharedDataStore;
+
+#pragma mark - VenPersons
+- (NSArray *)fetchVenPersons;
+- (void)deleteVenPersons;
 
 @end

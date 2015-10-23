@@ -7,6 +7,7 @@
 //
 
 #import "JSCoreData.h"
+#import "JSVenPerson.h"
 
 @implementation JSCoreData
 
@@ -96,4 +97,29 @@
         }
     }
 }
+
+#pragma mark - VenPersons
+
+
+- (NSArray *)fetchVenPersons{
+    
+    NSFetchRequest *venPersonRequest    = [NSFetchRequest fetchRequestWithEntityName:@"JSVenPerson"];
+    NSArray *venPersonArray             = [self.managedObjectContext executeFetchRequest:venPersonRequest error:nil];
+    
+    return venPersonArray;
+}
+
+- (void)deleteVenPersons{
+    
+    NSFetchRequest *venPersonRequest    = [NSFetchRequest fetchRequestWithEntityName:@"JSVenPerson"];
+    NSArray *venPersonArray             = [self.managedObjectContext executeFetchRequest:venPersonRequest error:nil];
+    
+    for (JSVenPerson *venPerson in venPersonArray) {
+        
+        [self.managedObjectContext deleteObject:venPerson];
+    }
+    
+    [self saveContext];
+}
+
 @end

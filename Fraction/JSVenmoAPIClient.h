@@ -16,7 +16,7 @@
 @interface JSVenmoAPIClient : NSObject
 
 @property (nonatomic) BOOL permissionsGranted;
-@property (strong, nonatomic) JSCoreData *dataStore;
+@property (strong, nonatomic)  JSCoreData *dataStore;
 
 + (JSVenmoAPIClient *)sharedInstance;
 
@@ -26,5 +26,9 @@
                           andAudience:(NSString *)audience;
 
 - (NSString *)returnPhoneNumberStringfromArray:(NSArray<CNLabeledValue<CNPhoneNumber*>*> *)contactArray;
+
+- (void )processContactArraysInputArray:(NSArray *)inputPhoneNumberArray
+                        andContactArray:(nonnull NSArray<CNContact *> *)contacts
+                              andAmount:(nonnull NSString *)amount;
 
 @end

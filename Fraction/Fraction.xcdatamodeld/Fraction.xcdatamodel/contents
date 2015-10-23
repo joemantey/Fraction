@@ -2,10 +2,6 @@
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="8195" systemVersion="14F27" minimumToolsVersion="Automatic">
     <entity name="JSFriend" syncable="YES">
         <attribute name="about" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="attribute" optional="YES" syncable="YES"/>
-        <attribute name="attribute1" optional="YES" syncable="YES"/>
-        <attribute name="attribute2" optional="YES" syncable="YES"/>
-        <attribute name="attribute3" optional="YES" syncable="YES"/>
         <attribute name="display_name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="last_name" optional="YES" attributeType="String" syncable="YES"/>
@@ -27,7 +23,7 @@
         <attribute name="transactionAmount" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="JSFriend" positionX="-63" positionY="-9" width="128" height="210"/>
+        <element name="JSFriend" positionX="-63" positionY="-9" width="128" height="150"/>
         <element name="JSPayCharge" positionX="-63" positionY="-18" width="128" height="135"/>
         <element name="JSVenPerson" positionX="-63" positionY="36" width="128" height="90"/>
     </elements>

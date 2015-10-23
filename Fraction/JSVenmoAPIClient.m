@@ -105,9 +105,9 @@ static JSVenmoAPIClient * venmoAPIClient;
 }
 
 
--(void )processContactArraysInputArray:(NSArray *)inputPhoneNumberArray
-                       andContactArray:(nonnull NSArray<CNContact *> *)contacts
-                             andAmount:(NSString *)amount{
+- (void )processContactArraysInputArray:(NSArray *)inputPhoneNumberArray
+                        andContactArray:(nonnull NSArray<CNContact *> *)contacts
+                              andAmount:(NSString *)amount{
     
     self.dataStore =[JSCoreData sharedDataStore];
     
@@ -126,12 +126,12 @@ static JSVenmoAPIClient * venmoAPIClient;
         newVenPerson.transactionAmount  = amount;
     }
     
-    
     [self.dataStore saveContext];
-    
-    
-    
 }
+
+
+
+
 
 
 
