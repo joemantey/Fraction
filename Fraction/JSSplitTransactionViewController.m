@@ -26,6 +26,7 @@
 
 @property (strong, nonatomic) JSCoreData        *dataStore;
 
+
 @property (weak, nonatomic) IBOutlet UITextField    *postSplitAmountTextField;
 @property (weak, nonatomic) IBOutlet UITextField    *splitTipTextField;
 @property (weak, nonatomic) IBOutlet UITextField    *splitTaxTextField;
@@ -42,7 +43,7 @@
 
 @property (weak, nonatomic) IBOutlet UIButton       *completeTransactionButton;
 
-
+- (IBAction)didTapBackButton:(id)sender;
 - (IBAction)didTapAddContact:(id)sender;
 - (IBAction)didFinishEditingContactTextField:(id)sender;
 - (IBAction)didiEndEditingAmount:(id)sender;
@@ -64,6 +65,10 @@
     [self setUpSlider];
     [self getTotalEach];
     
+    self.splitTaxTextField.text    = [NSString stringWithFormat:@"$%ld", (long)self.taxEach ];
+    self.splitTipTextField.text    = [NSString stringWithFormat:@"$%ld", (long)self.tipEach ];
+    self.postSplitAmountTextField.text = @"$ --";
+
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -148,8 +153,7 @@
 
 - (void)dismissKeyboard{
   
-    [self.amountTextField resignFirstResponder];
-    [self.contactTextField resignFirstResponder];
+    [self.view endEditing:YES];
 }
 
 #pragma mark Math Methods
@@ -173,7 +177,7 @@
         [self getContactCount];
         
         self.totalEach                      = (self.amountTextField.text.floatValue / self.contactCount) + self.taxEach + self.tipEach;
-        self.postSplitAmountTextField.text  = [NSString stringWithFormat:@"$%ld", (long)self.totalEach ];
+        self.postSplitAmountTextField.text  = [NSString stringWithFormat:@"$%.2ld", (long)self.totalEach ];
         
         self.completeTransactionButton.backgroundColor      = [UIColor clearColor];
         [self.completeTransactionButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
@@ -337,5 +341,9 @@
 
 - (IBAction)didiEndEditingAmount:(id)sender {
      [self getTotalEach];
+}
+- (IBAction)didTapBackButton:(id)sender {
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 @end

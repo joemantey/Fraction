@@ -390,7 +390,7 @@
 
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
-    [textField resignFirstResponder];
+    [self.view endEditing:YES];
     return NO;
 }
 
@@ -458,8 +458,7 @@
 }
 
 -(void)dismissKeyboard {
-    [self.amountTextView resignFirstResponder];
-    [self.noteTextView resignFirstResponder];
+    [self.view endEditing:YES];
 }
 
 @end
