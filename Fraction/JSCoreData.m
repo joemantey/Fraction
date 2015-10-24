@@ -7,7 +7,6 @@
 //
 
 #import "JSCoreData.h"
-#import "JSVenPerson.h"
 
 @implementation JSCoreData
 
@@ -121,5 +120,9 @@
     
     [self saveContext];
 }
+
+
+#pragma mark - PayCharge
+
 
 @end

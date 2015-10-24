@@ -2,7 +2,7 @@
 //  PayCharge+CoreDataProperties.m
 //  Fraction
 //
-//  Created by Joseph Smalls-Mantey on 10/15/15.
+//  Created by Joseph Smalls-Mantey on 10/24/15.
 //  Copyright © 2015 Yosimite Labs | Joseph Smalls-Mantey. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -13,11 +13,12 @@
 
 @implementation PayCharge (CoreDataProperties)
 
-@dynamic requestURL;
-@dynamic phoneNumbers;
 @dynamic amount;
+@dynamic audience;
 @dynamic isCharge;
 @dynamic note;
-@dynamic audience;
+@dynamic phoneNumbers;
+@dynamic requestURL;
+@dynamic chargeToPerson;
 
 @end

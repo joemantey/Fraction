@@ -16,15 +16,17 @@
         <attribute name="note" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="phoneNumbers" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="requestURL" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="chargeToPerson" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="JSVenPerson" inverseName="personToCharge" inverseEntity="JSVenPerson" syncable="YES"/>
     </entity>
     <entity name="JSVenPerson" representedClassName="JSVenPerson" syncable="YES">
         <attribute name="displayName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="phoneNumber" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="transactionAmount" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="personToCharge" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="JSPayCharge" inverseName="chargeToPerson" inverseEntity="JSPayCharge" syncable="YES"/>
     </entity>
     <elements>
-        <element name="JSFriend" positionX="-63" positionY="-9" width="128" height="150"/>
-        <element name="JSPayCharge" positionX="-63" positionY="-18" width="128" height="135"/>
-        <element name="JSVenPerson" positionX="-63" positionY="36" width="128" height="90"/>
+        <element name="JSFriend" positionX="115" positionY="-150" width="128" height="150"/>
+        <element name="JSPayCharge" positionX="-234" positionY="-144" width="128" height="148"/>
+        <element name="JSVenPerson" positionX="-63" positionY="36" width="128" height="103"/>
     </elements>
 </model>

@@ -165,7 +165,6 @@
 //        cell.selectionStyle     = UITableViewCellSelectionStyleNone;
     }
     
-    
     cell.phoneNumberLabel.text               = self.dataStore.inputPhoneNumberArray[indexPath.row];
     cell.deletePhoneNumberButton.tag    = indexPath.row;
     [cell.deletePhoneNumberButton addTarget:self action:@selector(deleteButtonClicked:) forControlEvents:UIControlEventTouchUpInside];

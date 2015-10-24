@@ -117,6 +117,8 @@ static JSVenmoAPIClient * venmoAPIClient;
         newVenPerson.phoneNumber        = phoneNumber;
         newVenPerson.displayName        = phoneNumber;
         newVenPerson.transactionAmount  = amount;
+        
+        [self.dataStore.currentPayCharge addChargeToPersonObject:newVenPerson ];
     }
     
     for (CNContact *contact in contacts) {
@@ -124,15 +126,26 @@ static JSVenmoAPIClient * venmoAPIClient;
         newVenPerson.phoneNumber        = [self returnPhoneNumberStringfromArray:contact.phoneNumbers];
         newVenPerson.displayName        = [NSString stringWithFormat:@", %@ %@", contact.givenName, contact.familyName];
         newVenPerson.transactionAmount  = amount;
+        
+        [self.dataStore.currentPayCharge addChargeToPersonObject:newVenPerson ];
+
     }
     
     [self.dataStore saveContext];
 }
 
 
-
-
-
+- (void )buildPayChargewithAmount:(NSString *)amount{
+    
+    self.dataStore          = [JSCoreData sharedDataStore];
+    
+    PayCharge *newCharge    = [NSEntityDescription insertNewObjectForEntityForName:@"PayCharge" inManagedObjectContext:self.dataStore.managedObjectContext];
+    newCharge.amount        = amount;
+    
+    self.dataStore.currentPayCharge = newCharge;
+    
+    [self.dataStore saveContext];
+}
 
 
 

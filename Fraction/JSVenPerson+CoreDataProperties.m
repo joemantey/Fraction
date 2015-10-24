@@ -2,7 +2,7 @@
 //  JSVenPerson+CoreDataProperties.m
 //  Fraction
 //
-//  Created by Joseph Smalls-Mantey on 10/23/15.
+//  Created by Joseph Smalls-Mantey on 10/24/15.
 //  Copyright © 2015 Yosimite Labs | Joseph Smalls-Mantey. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -16,5 +16,6 @@
 @dynamic phoneNumber;
 @dynamic displayName;
 @dynamic transactionAmount;
+@dynamic personToCharge;
 
 @end

@@ -10,12 +10,14 @@
 #import "JSSplitTableViewCell.h"
 
 #import "JSCoreData.h"
+#import "JSVenPerson.h"
 
 @import Contacts;
 
 @interface JSAdjustSplitViewController () <UITableViewDataSource, UITableViewDelegate>
 
-@property (strong, nonatomic) JSCoreData        *dataStore;
+@property (strong, nonatomic) JSCoreData    *dataStore;
+@property (strong, nonatomic) NSArray       *venPersonArray;
 
 @property (weak, nonatomic) IBOutlet UIView *backgroundContainer;
 @property (weak, nonatomic) IBOutlet UIView *amountRemainingContainer;
@@ -47,8 +49,8 @@
 
 - (void)setUpCoreData{
     
-    self.dataStore = [JSCoreData sharedDataStore];
-    
+    self.dataStore      = [JSCoreData sharedDataStore];
+    self.venPersonArray = [self.dataStore fetchVenPersons];
 }
 
 - (void)clearNavigationBar{
@@ -93,14 +95,33 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
+    return self.venPersonArray.count;
 }
 
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     
+    return 100;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    NSString *cellIdentifier    = @"splitCell";
+    JSSplitTableViewCell *cell  = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    
+    if (cell == nil) {
+        cell                    = [[JSSplitTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+    }
+    
+    JSVenPerson *venPerson      = self.venPersonArray[indexPath.row];
+    
+    cell.percentTextView.text   = venPerson;
+    cell.shareTextView.text     = indexPath.row;
+    
+    cell.contactTextView.text   = venPerson.displayName;
+    [cell.deletePhoneNumberButton addTarget:self action:@selector(deleteButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+    
+    return cell;
     
 }
 

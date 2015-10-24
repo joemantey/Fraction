@@ -2,11 +2,12 @@
 //  JSVenPerson.m
 //  Fraction
 //
-//  Created by Joseph Smalls-Mantey on 10/23/15.
+//  Created by Joseph Smalls-Mantey on 10/24/15.
 //  Copyright © 2015 Yosimite Labs | Joseph Smalls-Mantey. All rights reserved.
 //
 
 #import "JSVenPerson.h"
+#import "PayCharge.h"
 
 @implementation JSVenPerson
 

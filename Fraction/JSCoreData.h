@@ -6,6 +6,9 @@
 //  Copyright © 2015 Yosimite Labs | Joseph Smalls-Mantey. All rights reserved.
 //
 
+#import "JSVenPerson.h"
+#import "PayCharge.h"
+
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
@@ -21,6 +24,7 @@
 @property (nonatomic) BOOL didGainPermissions;
 
 @property (strong, nonatomic) NSMutableArray    *inputPhoneNumberArray;
+@property (strong, nonatomic) PayCharge         *currentPayCharge;
 
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
@@ -31,5 +35,8 @@
 #pragma mark - VenPersons
 - (NSArray *)fetchVenPersons;
 - (void)deleteVenPersons;
+
+#pragma mark - PayCharge
+
 
 @end
