@@ -21,16 +21,17 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic, retain) NSString *note;
 @property (nullable, nonatomic, retain) NSString *phoneNumbers;
 @property (nullable, nonatomic, retain) NSString *requestURL;
-@property (nullable, nonatomic, retain) NSSet<JSVenPerson *> *chargeToPerson;
+@property (nullable, nonatomic, retain) NSString *amountLeft;
+@property (nullable, nonatomic, retain) NSSet<JSVenPerson *> *payChargeToPerson;
 
 @end
 
 @interface PayCharge (CoreDataGeneratedAccessors)
 
-- (void)addChargeToPersonObject:(JSVenPerson *)value;
-- (void)removeChargeToPersonObject:(JSVenPerson *)value;
-- (void)addChargeToPerson:(NSSet<JSVenPerson *> *)values;
-- (void)removeChargeToPerson:(NSSet<JSVenPerson *> *)values;
+- (void)addPayChargeToPersonObject:(JSVenPerson *)value;
+- (void)removePayChargeToPersonObject:(JSVenPerson *)value;
+- (void)addPayChargeToPerson:(NSSet<JSVenPerson *> *)values;
+- (void)removePayChargeToPerson:(NSSet<JSVenPerson *> *)values;
 
 @end
 

@@ -16,6 +16,7 @@
 @dynamic phoneNumber;
 @dynamic displayName;
 @dynamic transactionAmount;
+@dynamic sharePercentage;
 @dynamic personToCharge;
 
 @end

@@ -6,9 +6,12 @@
 //  Copyright © 2015 Yosimite Labs | Joseph Smalls-Mantey. All rights reserved.
 //
 
+#import "JSVenPerson.h"
+
 #import <UIKit/UIKit.h>
 
 @interface JSSplitTableViewCell : UITableViewCell
+
 @property (weak, nonatomic) IBOutlet UIView *cellBackgroundView;
 @property (weak, nonatomic) IBOutlet UIView *sliderContainerView;
 @property (weak, nonatomic) IBOutlet UIView *shareContainerView;
@@ -16,10 +19,11 @@
 @property (weak, nonatomic) IBOutlet UITextField *contactTextView;
 @property (weak, nonatomic) IBOutlet UITextField *shareTextView;
 @property (weak, nonatomic) IBOutlet UITextField *percentTextView;
+@property (weak, nonatomic) IBOutlet UISlider    *slider;
 
+@property (strong, nonatomic)        JSVenPerson *cellVenPerson;
 
 - (IBAction)sliderValueDidChange:(id)sender;
-
 
 
 @end

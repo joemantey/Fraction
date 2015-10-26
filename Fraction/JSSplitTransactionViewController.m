@@ -21,9 +21,9 @@
 @property (strong, nonatomic) NSMutableString   *contactString;
 @property (strong, nonatomic) NSMutableArray    *contactArray;
 @property (nonatomic)         NSInteger         contactCount;
-@property (nonatomic)         NSInteger         totalEach;
-@property (nonatomic)         NSInteger         taxEach;
-@property (nonatomic)         NSInteger         tipEach;
+@property (nonatomic)         CGFloat           totalEach;
+@property (nonatomic)         CGFloat           taxEach;
+@property (nonatomic)         CGFloat           tipEach;
 
 @property (strong, nonatomic) JSCoreData        *dataStore;
 @property (strong, nonatomic) JSVenmoAPIClient  *venmoAPIClient;
@@ -83,8 +83,6 @@
     
     self.dataStore = [JSCoreData sharedDataStore];
     self.dataStore.inputPhoneNumberArray = [[NSMutableArray alloc]init];
-    [self.dataStore deleteVenPersons];
-
     self.venmoAPIClient = [JSVenmoAPIClient sharedInstance];
 }
 
@@ -165,14 +163,6 @@
 
 #pragma mark Math Methods
 
-- (void)getContactCount{
-    
-    if (!self.contactCount) {
-        self.contactCount = 0;
-    }
-    self.contactCount = self.dataStore.inputPhoneNumberArray.count + self.contactArray.count;
-    
-}
 
 
 - (void)getTotalEach{
@@ -191,8 +181,15 @@
         [self.completeTransactionButton setTitle:@"Next: Adjust shares" forState:UIControlStateNormal];
          self.completeTransactionButton.userInteractionEnabled= YES;
     }
-   
+}
 
+
+- (void)getContactCount{
+    
+    if (!self.contactCount) {
+        self.contactCount = 0;
+    }
+    self.contactCount = self.dataStore.inputPhoneNumberArray.count + self.contactArray.count;
 }
 
 
@@ -317,10 +314,13 @@
     // Pass the selected object to the new view controller.
     
     [self getTotalEach];
+    [self getContactCount];
     
+    [self.venmoAPIClient buildPayChargewithAmount:[NSString stringWithFormat:@"%f", self.totalEach * self.contactCount]];
     [self.venmoAPIClient processContactArraysInputArray:self.dataStore.inputPhoneNumberArray
                                         andContactArray:self.contactArray
-                                              andAmount:[NSString stringWithFormat:@"%ld", (long)self.totalEach]];   
+                                              andAmount:[NSString stringWithFormat:@"%ld", (long)self.totalEach]];
+    [self.venmoAPIClient refreshSplit];
 }
 
 

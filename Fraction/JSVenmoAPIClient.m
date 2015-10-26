@@ -54,10 +54,10 @@ static JSVenmoAPIClient * venmoAPIClient;
 #pragma mark - Process Contact Array Methods
 - (NSString *)returnPhoneNumberStringfromArray:(NSArray<CNLabeledValue<CNPhoneNumber*>*> *)contactArray{
     
-    NSMutableString *iPhonePhoneNumber = [NSMutableString stringWithFormat:@""];
-    NSMutableString *mobilePhoneNumber = [NSMutableString stringWithFormat:@""];
-    NSMutableString *mainPhoneNumber   = [NSMutableString stringWithFormat:@""];
-    NSMutableString *otherPhoneNumber  = [NSMutableString stringWithFormat:@""];
+    CNPhoneNumber *iPhonePhoneNumber = [[CNPhoneNumber alloc]init];
+    CNPhoneNumber *mobilePhoneNumber = [[CNPhoneNumber alloc]init];
+    CNPhoneNumber *mainPhoneNumber   = [[CNPhoneNumber alloc]init];
+    CNPhoneNumber *otherPhoneNumber  = [[CNPhoneNumber alloc]init];
     
     //fill the assoated string if it matches the correct label
     for (CNLabeledValue *eachContact in contactArray) {
@@ -80,27 +80,27 @@ static JSVenmoAPIClient * venmoAPIClient;
     }
     
     //return whatever the iphone is first, then mobile, then main
-    if (iPhonePhoneNumber.length > 4) {
+    if ([iPhonePhoneNumber stringValue].length > 4) {
         
-        NSString *returnString = iPhonePhoneNumber;
+        NSString *returnString = [iPhonePhoneNumber stringValue];
         return returnString;
     }
     
-    else if (mobilePhoneNumber.length > 4){
+    else if ([mobilePhoneNumber stringValue].length > 4){
         
-        NSString *returnString = mobilePhoneNumber;
+        NSString *returnString = [mobilePhoneNumber stringValue];
         return returnString;
     }
     
-    else if (mainPhoneNumber.length > 4){
+    else if ([mainPhoneNumber stringValue].length > 4){
         
-        NSString *returnString = mainPhoneNumber;
+        NSString *returnString = [mainPhoneNumber stringValue];
         return returnString;
     }
     
     else{
         
-        return otherPhoneNumber;
+        return [otherPhoneNumber stringValue];
     }
 }
 
@@ -109,7 +109,9 @@ static JSVenmoAPIClient * venmoAPIClient;
                         andContactArray:(nonnull NSArray<CNContact *> *)contacts
                               andAmount:(NSString *)amount{
     
-    self.dataStore =[JSCoreData sharedDataStore];
+    self.dataStore                  = [JSCoreData sharedDataStore];
+    CGFloat numberOfContacts        = [inputPhoneNumberArray count]+[contacts count];
+    CGFloat percentageofContacts    = 1/numberOfContacts;
     
     for (NSString *phoneNumber in inputPhoneNumberArray) {
         
@@ -117,18 +119,20 @@ static JSVenmoAPIClient * venmoAPIClient;
         newVenPerson.phoneNumber        = phoneNumber;
         newVenPerson.displayName        = phoneNumber;
         newVenPerson.transactionAmount  = amount;
+        newVenPerson.sharePercentage    = [NSString stringWithFormat:@"%f", percentageofContacts];
         
-        [self.dataStore.currentPayCharge addChargeToPersonObject:newVenPerson ];
+        [self.dataStore.currentPayCharge addPayChargeToPersonObject:newVenPerson];
     }
     
     for (CNContact *contact in contacts) {
+        
         JSVenPerson *newVenPerson       = [NSEntityDescription insertNewObjectForEntityForName:@"JSVenPerson" inManagedObjectContext:self.dataStore.managedObjectContext];
         newVenPerson.phoneNumber        = [self returnPhoneNumberStringfromArray:contact.phoneNumbers];
-        newVenPerson.displayName        = [NSString stringWithFormat:@", %@ %@", contact.givenName, contact.familyName];
+        newVenPerson.displayName        = [NSString stringWithFormat:@"  %@ %@", contact.givenName, contact.familyName];
         newVenPerson.transactionAmount  = amount;
+        newVenPerson.sharePercentage    = [NSString stringWithFormat:@"%f", percentageofContacts];
         
-        [self.dataStore.currentPayCharge addChargeToPersonObject:newVenPerson ];
-
+        [self.dataStore.currentPayCharge addPayChargeToPersonObject:newVenPerson];
     }
     
     [self.dataStore saveContext];
@@ -139,7 +143,7 @@ static JSVenmoAPIClient * venmoAPIClient;
     
     self.dataStore          = [JSCoreData sharedDataStore];
     
-    PayCharge *newCharge    = [NSEntityDescription insertNewObjectForEntityForName:@"PayCharge" inManagedObjectContext:self.dataStore.managedObjectContext];
+    PayCharge *newCharge    = [NSEntityDescription insertNewObjectForEntityForName:@"JSPayCharge" inManagedObjectContext:self.dataStore.managedObjectContext];
     newCharge.amount        = amount;
     
     self.dataStore.currentPayCharge = newCharge;
@@ -148,7 +152,26 @@ static JSVenmoAPIClient * venmoAPIClient;
 }
 
 
-
+-(void )refreshSplit{
+    
+    PayCharge *charge           = self.dataStore.currentPayCharge;
+    NSArray *venPersonArray     = [charge.payChargeToPerson allObjects];
+    int totalFromVenPersons     = 0;
+    
+    for (JSVenPerson *venPerson in venPersonArray) {
+        
+        totalFromVenPersons = totalFromVenPersons + [venPerson.transactionAmount floatValue];
+    }
+    
+    charge.amountLeft       = [NSString stringWithFormat:@"%f",([charge.amount floatValue] - totalFromVenPersons )];
+    
+    for (JSVenPerson *venPerson in venPersonArray) {
+        
+        venPerson.sharePercentage   = [NSString stringWithFormat:@"%f", ([venPerson.transactionAmount floatValue]/totalFromVenPersons)];
+    }
+    
+    [self.dataStore saveContext];
+}
 
 
 

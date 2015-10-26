@@ -13,10 +13,10 @@
 		386906531BD9AC8B0012EF90 /* JSAddPhoneNumberViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 386906521BD9AC8B0012EF90 /* JSAddPhoneNumberViewController.m */; settings = {ASSET_TAGS = (); }; };
 		3869065A1BDADD120012EF90 /* JSSplitTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 386906591BDADD120012EF90 /* JSSplitTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
 		3869065D1BDAE07D0012EF90 /* JSAdjustSplitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3869065C1BDAE07D0012EF90 /* JSAdjustSplitViewController.m */; settings = {ASSET_TAGS = (); }; };
-		386906721BDC3EA50012EF90 /* JSVenPerson+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 3869066F1BDC3EA50012EF90 /* JSVenPerson+CoreDataProperties.m */; settings = {ASSET_TAGS = (); }; };
-		386906731BDC3EA50012EF90 /* JSVenPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 386906711BDC3EA50012EF90 /* JSVenPerson.m */; settings = {ASSET_TAGS = (); }; };
-		386906781BDC3EC80012EF90 /* PayCharge+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 386906751BDC3EC80012EF90 /* PayCharge+CoreDataProperties.m */; settings = {ASSET_TAGS = (); }; };
-		386906791BDC3EC80012EF90 /* PayCharge.m in Sources */ = {isa = PBXBuildFile; fileRef = 386906771BDC3EC80012EF90 /* PayCharge.m */; settings = {ASSET_TAGS = (); }; };
+		386906841BDC449F0012EF90 /* JSVenPerson+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 386906811BDC449F0012EF90 /* JSVenPerson+CoreDataProperties.m */; settings = {ASSET_TAGS = (); }; };
+		386906851BDC449F0012EF90 /* JSVenPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 386906831BDC449F0012EF90 /* JSVenPerson.m */; settings = {ASSET_TAGS = (); }; };
+		3869068A1BDC4ECE0012EF90 /* PayCharge+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 386906871BDC4ECE0012EF90 /* PayCharge+CoreDataProperties.m */; settings = {ASSET_TAGS = (); }; };
+		3869068B1BDC4ECE0012EF90 /* PayCharge.m in Sources */ = {isa = PBXBuildFile; fileRef = 386906891BDC4ECE0012EF90 /* PayCharge.m */; settings = {ASSET_TAGS = (); }; };
 		3870E7211BB9904D0080A2A9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3870E7201BB9904D0080A2A9 /* main.m */; };
 		3870E7241BB9904D0080A2A9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3870E7231BB9904D0080A2A9 /* AppDelegate.m */; };
 		3870E7271BB9904D0080A2A9 /* Fraction.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3870E7251BB9904D0080A2A9 /* Fraction.xcdatamodeld */; };
@@ -61,14 +61,14 @@
 		386906591BDADD120012EF90 /* JSSplitTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSSplitTableViewCell.m; sourceTree = "<group>"; };
 		3869065B1BDAE07D0012EF90 /* JSAdjustSplitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSAdjustSplitViewController.h; sourceTree = "<group>"; };
 		3869065C1BDAE07D0012EF90 /* JSAdjustSplitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSAdjustSplitViewController.m; sourceTree = "<group>"; };
-		3869066E1BDC3EA50012EF90 /* JSVenPerson+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "JSVenPerson+CoreDataProperties.h"; sourceTree = "<group>"; };
-		3869066F1BDC3EA50012EF90 /* JSVenPerson+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "JSVenPerson+CoreDataProperties.m"; sourceTree = "<group>"; };
-		386906701BDC3EA50012EF90 /* JSVenPerson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSVenPerson.h; sourceTree = "<group>"; };
-		386906711BDC3EA50012EF90 /* JSVenPerson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSVenPerson.m; sourceTree = "<group>"; };
-		386906741BDC3EC80012EF90 /* PayCharge+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PayCharge+CoreDataProperties.h"; sourceTree = "<group>"; };
-		386906751BDC3EC80012EF90 /* PayCharge+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PayCharge+CoreDataProperties.m"; sourceTree = "<group>"; };
-		386906761BDC3EC80012EF90 /* PayCharge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayCharge.h; sourceTree = "<group>"; };
-		386906771BDC3EC80012EF90 /* PayCharge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PayCharge.m; sourceTree = "<group>"; };
+		386906801BDC449F0012EF90 /* JSVenPerson+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "JSVenPerson+CoreDataProperties.h"; sourceTree = "<group>"; };
+		386906811BDC449F0012EF90 /* JSVenPerson+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "JSVenPerson+CoreDataProperties.m"; sourceTree = "<group>"; };
+		386906821BDC449F0012EF90 /* JSVenPerson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSVenPerson.h; sourceTree = "<group>"; };
+		386906831BDC449F0012EF90 /* JSVenPerson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSVenPerson.m; sourceTree = "<group>"; };
+		386906861BDC4ECE0012EF90 /* PayCharge+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PayCharge+CoreDataProperties.h"; sourceTree = "<group>"; };
+		386906871BDC4ECE0012EF90 /* PayCharge+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PayCharge+CoreDataProperties.m"; sourceTree = "<group>"; };
+		386906881BDC4ECE0012EF90 /* PayCharge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayCharge.h; sourceTree = "<group>"; };
+		386906891BDC4ECE0012EF90 /* PayCharge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PayCharge.m; sourceTree = "<group>"; };
 		3870E71B1BB9904D0080A2A9 /* Fraction.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fraction.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3870E71F1BB9904D0080A2A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3870E7201BB9904D0080A2A9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -163,10 +163,10 @@
 		3869065E1BDAEDA60012EF90 /* JSVenPerson */ = {
 			isa = PBXGroup;
 			children = (
-				3869066E1BDC3EA50012EF90 /* JSVenPerson+CoreDataProperties.h */,
-				3869066F1BDC3EA50012EF90 /* JSVenPerson+CoreDataProperties.m */,
-				386906701BDC3EA50012EF90 /* JSVenPerson.h */,
-				386906711BDC3EA50012EF90 /* JSVenPerson.m */,
+				386906801BDC449F0012EF90 /* JSVenPerson+CoreDataProperties.h */,
+				386906811BDC449F0012EF90 /* JSVenPerson+CoreDataProperties.m */,
+				386906821BDC449F0012EF90 /* JSVenPerson.h */,
+				386906831BDC449F0012EF90 /* JSVenPerson.m */,
 			);
 			name = JSVenPerson;
 			sourceTree = "<group>";
@@ -308,10 +308,10 @@
 		38C3E2AA1BD05A1F00340A53 /* JSPayCharge */ = {
 			isa = PBXGroup;
 			children = (
-				386906741BDC3EC80012EF90 /* PayCharge+CoreDataProperties.h */,
-				386906751BDC3EC80012EF90 /* PayCharge+CoreDataProperties.m */,
-				386906761BDC3EC80012EF90 /* PayCharge.h */,
-				386906771BDC3EC80012EF90 /* PayCharge.m */,
+				386906861BDC4ECE0012EF90 /* PayCharge+CoreDataProperties.h */,
+				386906871BDC4ECE0012EF90 /* PayCharge+CoreDataProperties.m */,
+				386906881BDC4ECE0012EF90 /* PayCharge.h */,
+				386906891BDC4ECE0012EF90 /* PayCharge.m */,
 			);
 			name = JSPayCharge;
 			sourceTree = "<group>";
@@ -508,13 +508,13 @@
 				3870E7241BB9904D0080A2A9 /* AppDelegate.m in Sources */,
 				386906501BD9AA7C0012EF90 /* JSPhoneTableViewCell.m in Sources */,
 				38D5B95C1BBCAB94009C6245 /* RECommonFunctions.m in Sources */,
-				386906781BDC3EC80012EF90 /* PayCharge+CoreDataProperties.m in Sources */,
+				3869068A1BDC4ECE0012EF90 /* PayCharge+CoreDataProperties.m in Sources */,
 				38D5B9541BBCA791009C6245 /* JSRootViewController.m in Sources */,
 				3870E7211BB9904D0080A2A9 /* main.m in Sources */,
 				38D5B9631BBDBECC009C6245 /* JSMenuTableViewController.m in Sources */,
 				38C3E2BA1BD8057F00340A53 /* JSSplitTransactionViewController.m in Sources */,
-				386906791BDC3EC80012EF90 /* PayCharge.m in Sources */,
-				386906721BDC3EA50012EF90 /* JSVenPerson+CoreDataProperties.m in Sources */,
+				3869068B1BDC4ECE0012EF90 /* PayCharge.m in Sources */,
+				386906841BDC449F0012EF90 /* JSVenPerson+CoreDataProperties.m in Sources */,
 				38BF44161BB9FDA300E65D71 /* JSVenmoAPIClient.m in Sources */,
 				386906531BD9AC8B0012EF90 /* JSAddPhoneNumberViewController.m in Sources */,
 				384477091BC2EBD80096553C /* JSTransactionViewController.m in Sources */,
@@ -523,7 +523,7 @@
 				3856DBEB1BBC6FD1005AA1E3 /* JSHomeViewController.m in Sources */,
 				38D5B95D1BBCAB94009C6245 /* RESideMenu.m in Sources */,
 				3869065A1BDADD120012EF90 /* JSSplitTableViewCell.m in Sources */,
-				386906731BDC3EA50012EF90 /* JSVenPerson.m in Sources */,
+				386906851BDC449F0012EF90 /* JSVenPerson.m in Sources */,
 				3870E7271BB9904D0080A2A9 /* Fraction.xcdatamodeld in Sources */,
 				38D5B95E1BBCAB94009C6245 /* UIViewController+RESideMenu.m in Sources */,
 				3869065D1BDAE07D0012EF90 /* JSAdjustSplitViewController.m in Sources */,

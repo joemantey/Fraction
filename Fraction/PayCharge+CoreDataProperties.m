@@ -19,6 +19,7 @@
 @dynamic note;
 @dynamic phoneNumbers;
 @dynamic requestURL;
-@dynamic chargeToPerson;
+@dynamic amountLeft;
+@dynamic payChargeToPerson;
 
 @end

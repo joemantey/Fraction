@@ -34,12 +34,10 @@
     
     self.sliderContainerView.layer.borderColor  = [[UIColor whiteColor]CGColor];
     self.sliderContainerView.layer.borderWidth  = 1;
-    self.sliderContainerView.layer.cornerRadius = 8;
     self.sliderContainerView.clipsToBounds      = YES;
     
     self.shareContainerView.layer.borderColor   = [[UIColor whiteColor]CGColor];
     self.shareContainerView.layer.borderWidth   = 1;
-    self.shareContainerView.layer.cornerRadius  = 8;
     self.shareContainerView.clipsToBounds       = YES;
     
 }

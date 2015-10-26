@@ -27,8 +27,12 @@
 
 - (NSString *)returnPhoneNumberStringfromArray:(NSArray<CNLabeledValue<CNPhoneNumber*>*> *)contactArray;
 
+- (void )buildPayChargewithAmount:(NSString *)amount;
+
 - (void )processContactArraysInputArray:(NSArray *)inputPhoneNumberArray
                         andContactArray:(nonnull NSArray<CNContact *> *)contacts
                               andAmount:(nonnull NSString *)amount;
+
+-(void )refreshSplit;
 
 @end

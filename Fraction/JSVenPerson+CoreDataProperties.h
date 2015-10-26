@@ -18,6 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic, retain) NSString *phoneNumber;
 @property (nullable, nonatomic, retain) NSString *displayName;
 @property (nullable, nonatomic, retain) NSString *transactionAmount;
+@property (nullable, nonatomic, retain) NSString *sharePercentage;
 @property (nullable, nonatomic, retain) PayCharge *personToCharge;
 
 @end
