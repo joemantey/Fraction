@@ -10,6 +10,8 @@
 #import "JSCoreData.h"
 #import "JSVenmoAPIClient.h"
 
+#import "UIColor+Colors.h"
+
 @import Contacts;
 @import ContactsUI;
 
@@ -101,8 +103,8 @@
 
 - (void)setBackgroundColor{
     
-    UIColor *startColor         = [UIColor colorWithRed:0.000 green:0.806 blue:0.827 alpha:1.000];
-    UIColor *endColor           = [UIColor colorWithRed:0.000 green:0.806 blue:0.827 alpha:1.000];
+    UIColor *startColor         = [UIColor greenLight];
+    UIColor *endColor           = [UIColor greenLight];
     CAGradientLayer*gradient    = [CAGradientLayer layer];
     gradient.frame              =  self.view.bounds;
     gradient.colors             = [NSArray arrayWithObjects:(id)[startColor CGColor], (id)[endColor CGColor], nil];

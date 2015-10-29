@@ -8,6 +8,7 @@
 
 #import "JSHomeViewController.h"
 #import "JSCoreData.h"
+#import "UIColor+Colors.h"
 
 #import <QuartzCore/QuartzCore.h>
 
@@ -21,6 +22,10 @@
 @property (strong, nonatomic) JSCoreData *dataStore;
 
 @property (weak, nonatomic) IBOutlet UILabel *welcomeLabel;
+@property (weak, nonatomic) IBOutlet UIButton *sendFundsButton;
+@property (weak, nonatomic) IBOutlet UIButton *splitBillButton;
+@property (weak, nonatomic) IBOutlet UIButton *scheduleTransactionButton;
+@property (weak, nonatomic) IBOutlet UIButton *startATabButton;
 
 - (IBAction)didTapMenuButton:(id)sender;
 
@@ -33,6 +38,7 @@
     [super viewDidLoad];
     [self clearNavigationBar];
     [self setBackgroundColor];
+    [self setOutlines];
     [self setWelcomeMessage];
     [self setUpDataStore];
     [self askForPermissions];
@@ -82,7 +88,7 @@
 - (void)setBackgroundColor{
     
     UIColor *startColor = [UIColor colorWithRed:0.091 green:0.598 blue:0.822 alpha:1.000];
-    UIColor *endColor = [UIColor colorWithRed:0.047 green:0.233 blue:0.364 alpha:1.000];
+    UIColor *endColor = [UIColor colorWithRed:0.091 green:0.598 blue:0.822 alpha:1.000];
     
     CAGradientLayer *gradient = [CAGradientLayer layer];
     gradient.frame = self.view.bounds;
@@ -104,6 +110,31 @@
     self.navigationController.navigationBar.shadowImage = [UIImage new];
     self.navigationController.navigationBar.translucent = YES;
     self.navigationController.view.backgroundColor      = [UIColor clearColor];
+}
+
+- (void)setOutlines{
+    
+    self.sendFundsButton.layer.cornerRadius            = 8;
+    self.sendFundsButton.layer.borderWidth             = 1;
+    self.sendFundsButton.layer.borderColor             = [[UIColor whiteColor]CGColor];
+    self.sendFundsButton.clipsToBounds                 = YES;
+    
+    self.splitBillButton.layer.cornerRadius            = 8;
+    self.splitBillButton.layer.borderWidth             = 1;
+    self.splitBillButton.layer.borderColor             = [[UIColor whiteColor]CGColor];
+    self.splitBillButton.clipsToBounds                 = YES;
+    
+    self.scheduleTransactionButton.layer.cornerRadius  = 8;
+    self.scheduleTransactionButton.layer.borderWidth   = 1;
+    self.scheduleTransactionButton.layer.borderColor   = [[UIColor whiteColor]CGColor];
+    self.scheduleTransactionButton.clipsToBounds       = YES;
+    
+    self.startATabButton.layer.cornerRadius            = 8;
+    self.startATabButton.layer.borderWidth             = 1;
+    self.startATabButton.layer.borderColor             = [[UIColor whiteColor]CGColor];
+    self.startATabButton.clipsToBounds                 = YES;
+    
+    
 }
 /*
 #pragma mark - Navigation

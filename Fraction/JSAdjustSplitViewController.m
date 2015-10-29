@@ -13,6 +13,10 @@
 #import "JSVenPerson.h"
 #import "JSVenmoAPIClient.h"
 
+#import "UIColor+Colors.h"
+
+
+
 @import Contacts;
 
 @interface JSAdjustSplitViewController () <UITableViewDataSource, UITableViewDelegate>
@@ -83,16 +87,16 @@
 
 - (void)setBackgroundColor{
     
-    UIColor *startColor         = [UIColor colorWithRed:0.000 green:0.806 blue:0.827 alpha:1.000];
-    UIColor *endColor           = [UIColor colorWithRed:0.000 green:0.806 blue:0.827 alpha:1.000];
+    UIColor *startColor         = [UIColor greenLight];
+    UIColor *endColor           = [UIColor greenLight];
     
     CAGradientLayer *gradient   = [CAGradientLayer layer];
     gradient.frame              =  self.view.bounds;
     gradient.colors             = [NSArray arrayWithObjects:(id)[startColor CGColor], (id)[endColor CGColor], nil];
     [self.view.layer insertSublayer:gradient atIndex:0];
     
-    UIColor *startColor2         = [UIColor colorWithRed:0.000 green:0.806 blue:0.827 alpha:1.000];
-    UIColor *endColor2           = [UIColor colorWithRed:0.000 green:0.806 blue:0.827 alpha:0.000];
+    UIColor *startColor2         = [UIColor greenLight];
+    UIColor *endColor2           = [UIColor greenClear];
     
     
     CAGradientLayer *gradient2   = [CAGradientLayer layer];
@@ -106,7 +110,7 @@
     [self.buttonBlurView.layer insertSublayer:gradient3 atIndex:0];
     
     
-    self.buttonContainer.backgroundColor = [UIColor colorWithRed:0.000 green:0.806 blue:0.827 alpha:1.000];
+    self.buttonContainer.backgroundColor = [UIColor greenLight];
 }
 
 

@@ -17,6 +17,8 @@
 		386906851BDC449F0012EF90 /* JSVenPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 386906831BDC449F0012EF90 /* JSVenPerson.m */; settings = {ASSET_TAGS = (); }; };
 		3869068A1BDC4ECE0012EF90 /* PayCharge+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 386906871BDC4ECE0012EF90 /* PayCharge+CoreDataProperties.m */; settings = {ASSET_TAGS = (); }; };
 		3869068B1BDC4ECE0012EF90 /* PayCharge.m in Sources */ = {isa = PBXBuildFile; fileRef = 386906891BDC4ECE0012EF90 /* PayCharge.m */; settings = {ASSET_TAGS = (); }; };
+		3869068E1BE009820012EF90 /* JSConfirmSplitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3869068D1BE009820012EF90 /* JSConfirmSplitViewController.m */; settings = {ASSET_TAGS = (); }; };
+		386906911BE033800012EF90 /* UIColor+Colors.m in Sources */ = {isa = PBXBuildFile; fileRef = 386906901BE033800012EF90 /* UIColor+Colors.m */; settings = {ASSET_TAGS = (); }; };
 		3870E7211BB9904D0080A2A9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3870E7201BB9904D0080A2A9 /* main.m */; };
 		3870E7241BB9904D0080A2A9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3870E7231BB9904D0080A2A9 /* AppDelegate.m */; };
 		3870E7271BB9904D0080A2A9 /* Fraction.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3870E7251BB9904D0080A2A9 /* Fraction.xcdatamodeld */; };
@@ -69,6 +71,10 @@
 		386906871BDC4ECE0012EF90 /* PayCharge+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PayCharge+CoreDataProperties.m"; sourceTree = "<group>"; };
 		386906881BDC4ECE0012EF90 /* PayCharge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayCharge.h; sourceTree = "<group>"; };
 		386906891BDC4ECE0012EF90 /* PayCharge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PayCharge.m; sourceTree = "<group>"; };
+		3869068C1BE009810012EF90 /* JSConfirmSplitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSConfirmSplitViewController.h; sourceTree = "<group>"; };
+		3869068D1BE009820012EF90 /* JSConfirmSplitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSConfirmSplitViewController.m; sourceTree = "<group>"; };
+		3869068F1BE033800012EF90 /* UIColor+Colors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Colors.h"; sourceTree = "<group>"; };
+		386906901BE033800012EF90 /* UIColor+Colors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Colors.m"; sourceTree = "<group>"; };
 		3870E71B1BB9904D0080A2A9 /* Fraction.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fraction.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3870E71F1BB9904D0080A2A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3870E7201BB9904D0080A2A9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -289,6 +295,8 @@
 			children = (
 				38BF441A1BB9FDF200E65D71 /* JSConstants.h */,
 				38BF441B1BB9FDF200E65D71 /* JSConstants.m */,
+				3869068F1BE033800012EF90 /* UIColor+Colors.h */,
+				386906901BE033800012EF90 /* UIColor+Colors.m */,
 			);
 			name = Constants;
 			sourceTree = "<group>";
@@ -323,6 +331,8 @@
 				38C3E2B91BD8057F00340A53 /* JSSplitTransactionViewController.m */,
 				3869065B1BDAE07D0012EF90 /* JSAdjustSplitViewController.h */,
 				3869065C1BDAE07D0012EF90 /* JSAdjustSplitViewController.m */,
+				3869068C1BE009810012EF90 /* JSConfirmSplitViewController.h */,
+				3869068D1BE009820012EF90 /* JSConfirmSplitViewController.m */,
 				386906511BD9AC8B0012EF90 /* JSAddPhoneNumberViewController.h */,
 				386906521BD9AC8B0012EF90 /* JSAddPhoneNumberViewController.m */,
 			);
@@ -506,6 +516,7 @@
 			files = (
 				38B818801BC56754006AD704 /* SignInViewController.m in Sources */,
 				3870E7241BB9904D0080A2A9 /* AppDelegate.m in Sources */,
+				386906911BE033800012EF90 /* UIColor+Colors.m in Sources */,
 				386906501BD9AA7C0012EF90 /* JSPhoneTableViewCell.m in Sources */,
 				38D5B95C1BBCAB94009C6245 /* RECommonFunctions.m in Sources */,
 				3869068A1BDC4ECE0012EF90 /* PayCharge+CoreDataProperties.m in Sources */,
@@ -519,6 +530,7 @@
 				386906531BD9AC8B0012EF90 /* JSAddPhoneNumberViewController.m in Sources */,
 				384477091BC2EBD80096553C /* JSTransactionViewController.m in Sources */,
 				38C3E2991BCFDE7A00340A53 /* JSCoreData.m in Sources */,
+				3869068E1BE009820012EF90 /* JSConfirmSplitViewController.m in Sources */,
 				38BF441C1BB9FDF200E65D71 /* JSConstants.m in Sources */,
 				3856DBEB1BBC6FD1005AA1E3 /* JSHomeViewController.m in Sources */,
 				38D5B95D1BBCAB94009C6245 /* RESideMenu.m in Sources */,
