@@ -40,6 +40,7 @@
     self.shareContainerView.layer.borderWidth   = 1;
     self.shareContainerView.clipsToBounds       = YES;
     
+    
 }
 
 - (IBAction)sliderValueDidChange:(id)sender {

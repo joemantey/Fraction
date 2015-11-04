@@ -7,10 +7,13 @@
 //
 
 #import "JSConfirmSplitViewController.h"
+#import "JSCoreData.h"
 
 #import "UIColor+Colors.h"
 
-@interface JSConfirmSplitViewController ()
+@interface JSConfirmSplitViewController () <UITextViewDelegate>
+
+@property (strong, nonatomic) JSCoreData        *dataStore;
 
 @property (weak, nonatomic) IBOutlet UISegmentedControl *privacySegmentedControl;
 @property (weak, nonatomic) IBOutlet UITextView *notesTextField;
@@ -19,6 +22,7 @@
 
 - (IBAction)didTapCompletTransactionButton:(id)sender;
 - (IBAction)didTapBackButton:(id)sender;
+- (IBAction)segmentedControlValueChanged:(id)sender;
 
 
 @end
@@ -28,13 +32,25 @@
 - (void)viewDidLoad {
     
     [super viewDidLoad];
-
+    
+    [self setUpCoreData];
     [self clearNavigationBar];
     [self setBackgroundColor];
     [self setOutlines];
+    [self addGestureRecognizer];
+    [self checkTextView];
+    
+    self.notesTextField.delegate = self;
+
 }
 
-
+- (void)setUpCoreData{
+    self.dataStore              = [JSCoreData sharedDataStore];
+    self.notesTextField.text    = self.dataStore.noteString;
+    
+    self.privacySegmentedControl.selectedSegmentIndex = self.dataStore.privacyPickerIndex;
+    
+}
 
 - (void)clearNavigationBar{
     
@@ -61,28 +77,92 @@
 
 - (void)setOutlines{
     
-    self.notesTextField.layer.cornerRadius              = 8;
-    self.notesTextField.layer.borderWidth               = 1;
-    self.notesTextField.layer.borderColor               = [[UIColor whiteColor]CGColor];
-    self.notesTextField.clipsToBounds                   = YES;
+    self.notesTextField.layer.cornerRadius  = 8;
+    self.notesTextField.layer.borderWidth   = 1;
+    self.notesTextField.layer.borderColor   = [[UIColor whiteColor]CGColor];
+    self.notesTextField.clipsToBounds       = YES;
     
-    self.completeTransactionButton.layer.cornerRadius   = 8;
-    self.completeTransactionButton.layer.borderWidth    = 1;
-    self.completeTransactionButton.layer.borderColor    = [[UIColor whiteColor]CGColor];
-    self.completeTransactionButton.clipsToBounds        = YES;
+    self.completeTransactionButton.layer.cornerRadius       = 8;
+    self.completeTransactionButton.layer.borderWidth        = 1;
+    self.completeTransactionButton.layer.borderColor        = [[UIColor whiteColor]CGColor];
+    self.completeTransactionButton.clipsToBounds            = YES;
+    self.completeTransactionButton.userInteractionEnabled   = NO;
   
 }
 
+- (void)checkTextView{
+    
+    if (self.notesTextField.text.length > 0) {
+        
+        [self.completeTransactionButton setTitleColor:[UIColor greenLight] forState:UIControlStateNormal];
+        self.completeTransactionButton.backgroundColor          =  [UIColor whiteColor];
+        self.completeTransactionButton.userInteractionEnabled   = YES;
+        self.dataStore.noteString                               = self.notesTextField.text;
+        
+        [self.dataStore saveContext];
+    }else{
+        
+        [self.completeTransactionButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [self.completeTransactionButton setTitle:@"Please complete all fields" forState:UIControlStateNormal];
+        self.completeTransactionButton.backgroundColor          =  [UIColor clearColor];
+        self.completeTransactionButton.userInteractionEnabled   = NO;
+        self.dataStore.noteString                               = self.notesTextField.text;
+        
+        [self.dataStore saveContext];
+    }
+    
+}
 
-/*
+- (void)addGestureRecognizer{
+    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
+                                   initWithTarget:self
+                                   action:@selector(dismissKeyboard)];
+    
+    [self.view addGestureRecognizer:tap];
+}
+
+
+- (void)dismissKeyboard{
+    
+    [self.view endEditing:YES];
+}
+
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
+    
+    if ([text isEqualToString:@"\n"]) {
+        
+        [self dismissKeyboard];
+        
+            } else {
+        NSLog(@"Other pressed");
+    }
+    return YES;
+}
+
+- (void)textViewDidEndEditing:(UITextView *)textView{
+    
+    [self checkTextView];
+}
+
+
+
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    [self.dataStore saveContext];
+    
+    self.dataStore.noteString                         = self.notesTextField.text;
+    
+    self.dataStore.privacyPickerIndex = self.privacySegmentedControl.selectedSegmentIndex;
+ 
+    [self checkTextView];
+    
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
 }
-*/
+
 
 - (IBAction)didTapCompletTransactionButton:(id)sender {
 }
@@ -90,5 +170,10 @@
 - (IBAction)didTapBackButton:(id)sender {
     
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (IBAction)segmentedControlValueChanged:(id)sender {
+    
+    self.dataStore.privacyPickerIndex = self.privacySegmentedControl.selectedSegmentIndex;
 }
 @end

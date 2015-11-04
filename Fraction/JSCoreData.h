@@ -25,6 +25,8 @@
 
 @property (strong, nonatomic) NSMutableArray    *inputPhoneNumberArray;
 @property (strong, nonatomic) PayCharge         *currentPayCharge;
+@property (strong, nonatomic) NSString          *noteString;
+@property (nonatomic)         NSInteger          privacyPickerIndex;
 
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;

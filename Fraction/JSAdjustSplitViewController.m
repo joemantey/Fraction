@@ -133,7 +133,7 @@
 
 - (void)setDealText{
     
-    self.amountRemainingTextView.text       = [NSString stringWithFormat:@"$ %ld", self.dataStore.currentPayCharge.amountLeft.integerValue];
+    self.amountRemainingTextView.text       = [NSString stringWithFormat:@"$ %d", self.dataStore.currentPayCharge.amountLeft.integerValue];
     self.perAmountRemainingTextView.text    = [NSString stringWithFormat:@"$ %.f", (self.dataStore.currentPayCharge.amountLeft.floatValue/[self.venPersonArray count])];
     
     
@@ -163,7 +163,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     NSString *cellIdentifier    = @"splitCell";
-    JSSplitTableViewCell *cell  = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    JSSplitTableViewCell *cell  = (JSSplitTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     
     if (cell == nil) {
         cell                    = [[JSSplitTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
@@ -173,7 +173,7 @@
     cell.cellVenPerson          = venPerson;
     
     cell.percentTextView.text   = [NSString stringWithFormat:@"%.f%%", venPerson.sharePercentage.floatValue*100];
-    cell.shareTextView.text     = [NSString stringWithFormat:@"$%ld", venPerson.transactionAmount.integerValue];
+    cell.shareTextView.text     = [NSString stringWithFormat:@"$%d", venPerson.transactionAmount.integerValue];
     cell.contactTextView.text   = venPerson.displayName;
     
     cell.slider.value           = venPerson.transactionAmount.floatValue/self.dataStore.currentPayCharge.amount.floatValue;

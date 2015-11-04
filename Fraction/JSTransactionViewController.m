@@ -122,10 +122,10 @@
     self.nameTextView.clipsToBounds             = YES;
     [self.nameTextView becomeFirstResponder];
     
-    self.addContactButton.layer.cornerRadius    = 8;
-    self.addContactButton.layer.borderWidth     = 1;
-    self.addContactButton.layer.borderColor     = [[UIColor whiteColor]CGColor];
-    self.addContactButton.clipsToBounds         = YES;
+//    self.addContactButton.layer.cornerRadius    = 8;
+//    self.addContactButton.layer.borderWidth     = 1;
+//    self.addContactButton.layer.borderColor     = [[UIColor whiteColor]CGColor];
+//    self.addContactButton.clipsToBounds         = YES;
     
     self.amountTextView.layer.cornerRadius      = 8;
     self.amountTextView.layer.borderWidth       = 1;
@@ -138,10 +138,10 @@
     self.noteTextView.clipsToBounds             = YES;
     self.noteTextView.delegate                  = self;
     
-    self.completeTransactionButton.layer.cornerRadius    = 8;
-    self.completeTransactionButton.layer.borderWidth     = 1;
-    self.completeTransactionButton.layer.borderColor     = [[UIColor whiteColor]CGColor];
-    self.completeTransactionButton.clipsToBounds         = YES;
+    self.completeTransactionButton.layer.cornerRadius   = 8;
+    self.completeTransactionButton.layer.borderWidth    = 1;
+    self.completeTransactionButton.layer.borderColor    = [[UIColor whiteColor]CGColor];
+    self.completeTransactionButton.clipsToBounds        = YES;
     [self.completeTransactionButton setTitle:@"Please complete all fields" forState:UIControlStateNormal];
     self.completeTransactionButton.userInteractionEnabled= NO;
 }

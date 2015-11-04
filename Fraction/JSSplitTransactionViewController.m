@@ -54,6 +54,7 @@
 - (IBAction)tipSliderValueChanged:(id)sender;
 - (IBAction)taxSliderValueChanged:(id)sender;
 - (IBAction)didTapCompletetTransaction:(id)sender;
+- (IBAction)didTapContactField:(id)sender;
 
 @end
 
@@ -141,6 +142,7 @@
     self.completeTransactionButton.layer.borderWidth    = 1;
     self.completeTransactionButton.layer.borderColor    = [[UIColor whiteColor]CGColor];
     self.completeTransactionButton.clipsToBounds        = YES;
+    self.completeTransactionButton.layer.backgroundColor= [[UIColor clearColor]CGColor];
     [self.completeTransactionButton setTitle:@"Please complete all fields" forState:UIControlStateNormal];
     
   
@@ -178,10 +180,19 @@
         self.totalEach                      = (self.amountTextField.text.floatValue / self.contactCount) + self.taxEach + self.tipEach;
         self.postSplitAmountTextField.text  = [NSString stringWithFormat:@"$%.2ld", (long)self.totalEach ];
         
-        self.completeTransactionButton.backgroundColor      = [UIColor clearColor];
+        [self.completeTransactionButton setTitleColor:[UIColor greenLight] forState:UIControlStateNormal];
+        [self.completeTransactionButton setTitle:@"Next: Enter Details" forState:UIControlStateNormal];
+        
+        self.completeTransactionButton.backgroundColor          = [UIColor whiteColor];
+        self.completeTransactionButton.userInteractionEnabled   = YES;
+    }else{
+        
         [self.completeTransactionButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        [self.completeTransactionButton setTitle:@"Next: Adjust shares" forState:UIControlStateNormal];
-         self.completeTransactionButton.userInteractionEnabled= YES;
+        [self.completeTransactionButton setTitle:@"Please complete all fields" forState:UIControlStateNormal];
+        
+        self.completeTransactionButton.layer.backgroundColor    = [[UIColor clearColor]CGColor];
+        self.completeTransactionButton.userInteractionEnabled= NO;
+
     }
 }
 
@@ -343,11 +354,20 @@
 }
 
 - (IBAction)didTapCompletetTransaction:(id)sender {
+    
+    [self getTotalEach];
+}
+
+- (IBAction)didTapContactField:(id)sender {
+    
+    [self getTotalEach];
 }
 
 - (IBAction)didTapAddContact:(id)sender {
     
     [self presentActionController];
+    self.contactTextField.text = @"";
+    [self.contactArray removeAllObjects];
      [self getTotalEach];
 }
 
@@ -358,6 +378,7 @@
 - (IBAction)didiEndEditingAmount:(id)sender {
      [self getTotalEach];
 }
+
 - (IBAction)didTapBackButton:(id)sender {
     
     [self dismissViewControllerAnimated:YES completion:nil];
