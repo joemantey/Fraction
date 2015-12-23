@@ -1,5 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="8195" systemVersion="14F27" minimumToolsVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9525" systemVersion="15A284" minimumToolsVersion="Automatic">
+    <entity name="JSCharge" syncable="YES">
+        <attribute name="amount" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="amountPledged" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="audience" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="dateOfCharge" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="isCharge" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="isDelayedCharge" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="note" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="phoneNumbers" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="requestURL" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="chargeToPerson" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="JSPerson" inverseName="personToCharge" inverseEntity="JSPerson" syncable="YES"/>
+    </entity>
     <entity name="JSFriend" syncable="YES">
         <attribute name="about" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="display_name" optional="YES" attributeType="String" syncable="YES"/>
@@ -19,6 +32,13 @@
         <attribute name="requestURL" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="payChargeToPerson" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="JSVenPerson" inverseName="personToCharge" inverseEntity="JSVenPerson" syncable="YES"/>
     </entity>
+    <entity name="JSPerson" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="phoneNumber" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="pledgedAmount" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="shareOfAmount" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <relationship name="personToCharge" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="JSCharge" inverseName="chargeToPerson" inverseEntity="JSCharge" syncable="YES"/>
+    </entity>
     <entity name="JSVenPerson" representedClassName="JSVenPerson" syncable="YES">
         <attribute name="displayName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="phoneNumber" optional="YES" attributeType="String" syncable="YES"/>
@@ -28,7 +48,9 @@
     </entity>
     <elements>
         <element name="JSFriend" positionX="115" positionY="-150" width="128" height="150"/>
-        <element name="JSPayCharge" positionX="-234" positionY="-144" width="128" height="163"/>
+        <element name="JSPayCharge" positionX="-234" positionY="-144" width="128" height="165"/>
         <element name="JSVenPerson" positionX="-63" positionY="36" width="128" height="118"/>
+        <element name="JSCharge" positionX="34" positionY="-405" width="128" height="208"/>
+        <element name="JSPerson" positionX="-189" positionY="-411" width="128" height="118"/>
     </elements>
 </model>
