@@ -74,6 +74,7 @@
     self.splitTaxTextField.text    = [NSString stringWithFormat:@"$%ld", (long)self.taxEach ];
     self.splitTipTextField.text    = [NSString stringWithFormat:@"$%ld", (long)self.tipEach ];
     self.postSplitAmountTextField.text = @"$ --";
+    self.splitTipTextField.text = @"$ --";
 
 }
 
@@ -142,10 +143,10 @@
     
     self.completeTransactionButton.layer.cornerRadius   = 8;
     self.completeTransactionButton.layer.borderWidth    = 1;
-    self.completeTransactionButton.layer.borderColor    = [[UIColor whiteColor]CGColor];
+    self.completeTransactionButton.layer.borderColor    = [[UIColor clearColor]CGColor];
     self.completeTransactionButton.clipsToBounds        = YES;
     self.completeTransactionButton.layer.backgroundColor= [[UIColor clearColor]CGColor];
-    [self.completeTransactionButton setTitle:@"Please complete all fields" forState:UIControlStateNormal];
+    [self.completeTransactionButton setTitle:@"please complete all fields" forState:UIControlStateNormal];
     
   
     self.completeTransactionButton.userInteractionEnabled= YES;
@@ -182,17 +183,17 @@
         self.totalEach                      = (self.amountTextField.text.floatValue / self.contactCount) + self.taxEach + self.tipEach;
         self.postSplitAmountTextField.text  = [NSString stringWithFormat:@"$%.2ld", (long)self.totalEach ];
         
-        [self.completeTransactionButton setTitleColor:[UIColor greenLight] forState:UIControlStateNormal];
+        [self.completeTransactionButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [self.completeTransactionButton setTitle:@"Next: Enter Details" forState:UIControlStateNormal];
         
-        self.completeTransactionButton.backgroundColor          = [UIColor whiteColor];
+        self.completeTransactionButton.layer.borderColor      = [[UIColor whiteColor]CGColor];
         self.completeTransactionButton.userInteractionEnabled   = YES;
     }else{
         
         [self.completeTransactionButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [self.completeTransactionButton setTitle:@"Please complete all fields" forState:UIControlStateNormal];
         
-        self.completeTransactionButton.layer.backgroundColor    = [[UIColor clearColor]CGColor];
+        self.completeTransactionButton.layer.borderColor    = [[UIColor clearColor]CGColor];
         self.completeTransactionButton.userInteractionEnabled= NO;
 
     }
