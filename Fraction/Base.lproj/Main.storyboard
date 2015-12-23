@@ -1891,14 +1891,14 @@
                                                             <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PA7-R7-pTK" userLabel="Total Text">
                                                                 <rect key="frame" x="0.0" y="0.0" width="378" height="120"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                <color key="textColor" red="0.086420588199999995" green="0.7824040864484848" blue="0.67345368859999999" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="30"/>
                                                                 <textInputTraits key="textInputTraits"/>
                                                             </textField>
                                                             <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" text="total each" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qtw-4e-o9y" userLabel="Total Label">
                                                                 <rect key="frame" x="0.0" y="90" width="368" height="30"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                                <color key="textColor" white="1" alpha="0.75" colorSpace="calibratedWhite"/>
+                                                                <color key="textColor" red="0.086420588199999995" green="0.78240408640000003" blue="0.65314118860000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
                                                                 <textInputTraits key="textInputTraits"/>
                                                             </textField>
@@ -1921,14 +1921,14 @@
                                                             <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JQ6-7O-Ppe" userLabel="Big">
                                                                 <rect key="frame" x="0.0" y="0.0" width="162" height="60"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                <color key="textColor" red="0.086420588199999995" green="0.78240408640000003" blue="0.65314118860000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
                                                                 <textInputTraits key="textInputTraits"/>
                                                             </textField>
                                                             <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" text="tip each" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9lz-rK-awY" userLabel="Little">
                                                                 <rect key="frame" x="0.0" y="36" width="162" height="24"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                                <color key="textColor" white="1" alpha="0.75" colorSpace="calibratedWhite"/>
+                                                                <color key="textColor" red="0.086420588199999995" green="0.78240408640000003" blue="0.65314118860000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
                                                                 <textInputTraits key="textInputTraits"/>
                                                             </textField>
@@ -1951,14 +1951,14 @@
                                                             <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1sw-iC-QYE">
                                                                 <rect key="frame" x="0.0" y="0.0" width="163" height="60"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                <color key="textColor" red="0.086274509803921567" green="0.78431372549019607" blue="0.65490196078431373" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
                                                                 <textInputTraits key="textInputTraits"/>
                                                             </textField>
                                                             <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" text="tax each" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Y3h-gf-pYb">
                                                                 <rect key="frame" x="0.0" y="36" width="163" height="24"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                                <color key="textColor" white="1" alpha="0.75" colorSpace="calibratedWhite"/>
+                                                                <color key="textColor" red="0.086420588199999995" green="0.78240408640000003" blue="0.65314118860000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
                                                                 <textInputTraits key="textInputTraits"/>
                                                             </textField>
@@ -1976,7 +1976,7 @@
                                                         </constraints>
                                                     </view>
                                                 </subviews>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstItem="BzB-qj-1qY" firstAttribute="leading" secondItem="iq2-up-oZV" secondAttribute="trailing" constant="-1" id="1pU-wK-ZrG"/>
                                                     <constraint firstItem="BzB-qj-1qY" firstAttribute="width" secondItem="7Ff-qh-Nlz" secondAttribute="width" multiplier="0.7" id="2Ag-ka-g8x"/>
