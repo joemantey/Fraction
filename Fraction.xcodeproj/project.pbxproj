@@ -7,18 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3844260D1C2B278B00576B70 /* NSString+Formatting.m in Sources */ = {isa = PBXBuildFile; fileRef = 3844260C1C2B278B00576B70 /* NSString+Formatting.m */; };
 		384477091BC2EBD80096553C /* JSTransactionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 384477081BC2EBD80096553C /* JSTransactionViewController.m */; };
 		3856DBEB1BBC6FD1005AA1E3 /* JSHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3856DBEA1BBC6FD1005AA1E3 /* JSHomeViewController.m */; };
-		386906501BD9AA7C0012EF90 /* JSPhoneTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3869064F1BD9AA7C0012EF90 /* JSPhoneTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
-		386906531BD9AC8B0012EF90 /* JSAddPhoneNumberViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 386906521BD9AC8B0012EF90 /* JSAddPhoneNumberViewController.m */; settings = {ASSET_TAGS = (); }; };
-		3869065A1BDADD120012EF90 /* JSSplitTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 386906591BDADD120012EF90 /* JSSplitTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
-		3869065D1BDAE07D0012EF90 /* JSAdjustSplitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3869065C1BDAE07D0012EF90 /* JSAdjustSplitViewController.m */; settings = {ASSET_TAGS = (); }; };
-		386906841BDC449F0012EF90 /* JSVenPerson+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 386906811BDC449F0012EF90 /* JSVenPerson+CoreDataProperties.m */; settings = {ASSET_TAGS = (); }; };
-		386906851BDC449F0012EF90 /* JSVenPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 386906831BDC449F0012EF90 /* JSVenPerson.m */; settings = {ASSET_TAGS = (); }; };
-		3869068A1BDC4ECE0012EF90 /* PayCharge+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 386906871BDC4ECE0012EF90 /* PayCharge+CoreDataProperties.m */; settings = {ASSET_TAGS = (); }; };
-		3869068B1BDC4ECE0012EF90 /* PayCharge.m in Sources */ = {isa = PBXBuildFile; fileRef = 386906891BDC4ECE0012EF90 /* PayCharge.m */; settings = {ASSET_TAGS = (); }; };
-		3869068E1BE009820012EF90 /* JSConfirmSplitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3869068D1BE009820012EF90 /* JSConfirmSplitViewController.m */; settings = {ASSET_TAGS = (); }; };
-		386906911BE033800012EF90 /* UIColor+Colors.m in Sources */ = {isa = PBXBuildFile; fileRef = 386906901BE033800012EF90 /* UIColor+Colors.m */; settings = {ASSET_TAGS = (); }; };
+		386906501BD9AA7C0012EF90 /* JSPhoneTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3869064F1BD9AA7C0012EF90 /* JSPhoneTableViewCell.m */; };
+		386906531BD9AC8B0012EF90 /* JSAddPhoneNumberViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 386906521BD9AC8B0012EF90 /* JSAddPhoneNumberViewController.m */; };
+		3869065A1BDADD120012EF90 /* JSSplitTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 386906591BDADD120012EF90 /* JSSplitTableViewCell.m */; };
+		3869065D1BDAE07D0012EF90 /* JSAdjustSplitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3869065C1BDAE07D0012EF90 /* JSAdjustSplitViewController.m */; };
+		386906841BDC449F0012EF90 /* JSVenPerson+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 386906811BDC449F0012EF90 /* JSVenPerson+CoreDataProperties.m */; };
+		386906851BDC449F0012EF90 /* JSVenPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 386906831BDC449F0012EF90 /* JSVenPerson.m */; };
+		3869068A1BDC4ECE0012EF90 /* PayCharge+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 386906871BDC4ECE0012EF90 /* PayCharge+CoreDataProperties.m */; };
+		3869068B1BDC4ECE0012EF90 /* PayCharge.m in Sources */ = {isa = PBXBuildFile; fileRef = 386906891BDC4ECE0012EF90 /* PayCharge.m */; };
+		3869068E1BE009820012EF90 /* JSConfirmSplitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3869068D1BE009820012EF90 /* JSConfirmSplitViewController.m */; };
+		386906911BE033800012EF90 /* UIColor+Colors.m in Sources */ = {isa = PBXBuildFile; fileRef = 386906901BE033800012EF90 /* UIColor+Colors.m */; };
 		3870E7211BB9904D0080A2A9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3870E7201BB9904D0080A2A9 /* main.m */; };
 		3870E7241BB9904D0080A2A9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3870E7231BB9904D0080A2A9 /* AppDelegate.m */; };
 		3870E7271BB9904D0080A2A9 /* Fraction.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3870E7251BB9904D0080A2A9 /* Fraction.xcdatamodeld */; };
@@ -26,12 +27,12 @@
 		3870E72F1BB9904D0080A2A9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3870E72E1BB9904D0080A2A9 /* Images.xcassets */; };
 		3870E7321BB9904D0080A2A9 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3870E7301BB9904D0080A2A9 /* LaunchScreen.xib */; };
 		3870E73E1BB9904D0080A2A9 /* FractionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3870E73D1BB9904D0080A2A9 /* FractionTests.m */; };
-		38754B051BEA7B6B00172884 /* JSScehduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38754B041BEA7B6B00172884 /* JSScehduleViewController.m */; settings = {ASSET_TAGS = (); }; };
+		38754B051BEA7B6B00172884 /* JSScehduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38754B041BEA7B6B00172884 /* JSScehduleViewController.m */; };
 		38B818801BC56754006AD704 /* SignInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38B8187F1BC56754006AD704 /* SignInViewController.m */; };
 		38BF44161BB9FDA300E65D71 /* JSVenmoAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 38BF44151BB9FDA300E65D71 /* JSVenmoAPIClient.m */; };
 		38BF441C1BB9FDF200E65D71 /* JSConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 38BF441B1BB9FDF200E65D71 /* JSConstants.m */; };
-		38C3E2991BCFDE7A00340A53 /* JSCoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C3E2981BCFDE7A00340A53 /* JSCoreData.m */; settings = {ASSET_TAGS = (); }; };
-		38C3E2BA1BD8057F00340A53 /* JSSplitTransactionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C3E2B91BD8057F00340A53 /* JSSplitTransactionViewController.m */; settings = {ASSET_TAGS = (); }; };
+		38C3E2991BCFDE7A00340A53 /* JSCoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C3E2981BCFDE7A00340A53 /* JSCoreData.m */; };
+		38C3E2BA1BD8057F00340A53 /* JSSplitTransactionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C3E2B91BD8057F00340A53 /* JSSplitTransactionViewController.m */; };
 		38D5B9541BBCA791009C6245 /* JSRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D5B9531BBCA791009C6245 /* JSRootViewController.m */; };
 		38D5B95C1BBCAB94009C6245 /* RECommonFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D5B9571BBCAB94009C6245 /* RECommonFunctions.m */; };
 		38D5B95D1BBCAB94009C6245 /* RESideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D5B9591BBCAB94009C6245 /* RESideMenu.m */; };
@@ -52,6 +53,8 @@
 
 /* Begin PBXFileReference section */
 		1B64CAE54B6FB1BC5CCDE4DC /* Pods-Fraction.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fraction.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Fraction/Pods-Fraction.debug.xcconfig"; sourceTree = "<group>"; };
+		3844260B1C2B278B00576B70 /* NSString+Formatting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Formatting.h"; sourceTree = "<group>"; };
+		3844260C1C2B278B00576B70 /* NSString+Formatting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Formatting.m"; sourceTree = "<group>"; };
 		384477071BC2EBD80096553C /* JSTransactionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSTransactionViewController.h; sourceTree = "<group>"; };
 		384477081BC2EBD80096553C /* JSTransactionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSTransactionViewController.m; sourceTree = "<group>"; };
 		3856DBE91BBC6FD1005AA1E3 /* JSHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSHomeViewController.h; sourceTree = "<group>"; };
@@ -318,6 +321,8 @@
 				38BF441B1BB9FDF200E65D71 /* JSConstants.m */,
 				3869068F1BE033800012EF90 /* UIColor+Colors.h */,
 				386906901BE033800012EF90 /* UIColor+Colors.m */,
+				3844260B1C2B278B00576B70 /* NSString+Formatting.h */,
+				3844260C1C2B278B00576B70 /* NSString+Formatting.m */,
 			);
 			name = Constants;
 			sourceTree = "<group>";
@@ -560,6 +565,7 @@
 				386906851BDC449F0012EF90 /* JSVenPerson.m in Sources */,
 				3870E7271BB9904D0080A2A9 /* Fraction.xcdatamodeld in Sources */,
 				38D5B95E1BBCAB94009C6245 /* UIViewController+RESideMenu.m in Sources */,
+				3844260D1C2B278B00576B70 /* NSString+Formatting.m in Sources */,
 				3869065D1BDAE07D0012EF90 /* JSAdjustSplitViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

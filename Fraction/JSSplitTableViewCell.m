@@ -27,16 +27,17 @@
 
 - (void)setUpBorders{
     
-    self.cellBackgroundView.layer.borderColor   = [[UIColor whiteColor]CGColor];
+    self.cellBackgroundView.layer.borderColor   = [[UIColor colorWithWhite:1 alpha:1]CGColor];
     self.cellBackgroundView.layer.borderWidth   = 1;
     self.cellBackgroundView.layer.cornerRadius  = 8;
     self.cellBackgroundView.clipsToBounds       = YES;
+    self.cellBackgroundView.backgroundColor     = [UIColor colorWithWhite:1 alpha:0.15];
     
-    self.sliderContainerView.layer.borderColor  = [[UIColor whiteColor]CGColor];
+    self.sliderContainerView.layer.borderColor  = [[UIColor clearColor]CGColor];
     self.sliderContainerView.layer.borderWidth  = 1;
     self.sliderContainerView.clipsToBounds      = YES;
     
-    self.shareContainerView.layer.borderColor   = [[UIColor whiteColor]CGColor];
+    self.shareContainerView.layer.borderColor   = [[UIColor clearColor]CGColor];
     self.shareContainerView.layer.borderWidth   = 1;
     self.shareContainerView.clipsToBounds       = YES;
     

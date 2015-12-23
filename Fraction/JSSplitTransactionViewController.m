@@ -11,6 +11,7 @@
 #import "JSVenmoAPIClient.h"
 
 #import "UIColor+Colors.h"
+#import "NSString+Formatting.h"
 
 @import Contacts;
 @import ContactsUI;
@@ -73,7 +74,7 @@
     
     self.splitTaxTextField.text    = [NSString stringWithFormat:@"$%ld", (long)self.taxEach ];
     self.splitTipTextField.text    = [NSString stringWithFormat:@"$%ld", (long)self.tipEach ];
-    self.postSplitAmountTextField.text = @"$ --";
+    self.postSplitAmountTextField.text = @"";
     self.splitTipTextField.text = @"$ --";
 
 }
@@ -170,18 +171,36 @@
 
 #pragma mark Math Methods
 
-
+//-(NSString*)formatNumbers:(CGFloat )inputFloat{
+//    
+//    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+//    
+//    [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
+//    [formatter setMaximumFractionDigits:2];
+//    [formatter setRoundingMode: NSNumberFormatterRoundUp];
+//    
+//    NSString *numberString = [formatter stringFromNumber:[NSNumber numberWithFloat:inputFloat ]];
+//    NSString *returnString = [NSString stringWithFormat:@"$ %@", numberString];
+//    
+//    return returnString;
+//}
 
 - (void)getTotalEach{
     [self getContactCount];
+    [self getTipEach];
+    [self getTaxEach];
+    
+    if (self.contactCount > 0) {
+        self.totalEach  = (self.amountTextField.text.floatValue / self.contactCount) + self.taxEach + self.tipEach;
+    }else{
+        self.totalEach  = self.amountTextField.text.floatValue + self.taxEach + self.tipEach;
+    }
+    
+    self.postSplitAmountTextField.text  = [NSString stringWithFormat:@"%@", [NSString formatNumbers:self.totalEach] ];
     
     if (self.amountTextField.text.floatValue > 0 && self.contactCount > 0) {
-        [self getTipEach];
-        [self getTaxEach];
-        [self getContactCount];
-        
-        self.totalEach                      = (self.amountTextField.text.floatValue / self.contactCount) + self.taxEach + self.tipEach;
-        self.postSplitAmountTextField.text  = [NSString stringWithFormat:@"$%.2ld", (long)self.totalEach ];
+    
+       
         
         [self.completeTransactionButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [self.completeTransactionButton setTitle:@"Next: Enter Details" forState:UIControlStateNormal];
@@ -190,7 +209,7 @@
         self.completeTransactionButton.userInteractionEnabled   = YES;
     }else{
         
-        [self.completeTransactionButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [self.completeTransactionButton setTitleColor:[UIColor colorWithWhite:1 alpha:0.75]  forState:UIControlStateNormal];
         [self.completeTransactionButton setTitle:@"Please complete all fields" forState:UIControlStateNormal];
         
         self.completeTransactionButton.layer.borderColor    = [[UIColor clearColor]CGColor];
@@ -211,15 +230,15 @@
 
 - (void)getTaxEach{
     
-    self.taxEach                = self.taxSlider.value * self.amountTextField.text.floatValue;
-    self.splitTaxTextField.text    = [NSString stringWithFormat:@"$%ld", (long)self.taxEach ];
+    self.taxEach                    = self.taxSlider.value * self.amountTextField.text.floatValue;
+    self.splitTaxTextField.text     = [NSString stringWithFormat:@"%@", [NSString formatNumbers: self.taxEach]];
 }
 
 
 - (void)getTipEach{
     
-    self.tipEach                = self.tipSlider.value * self.amountTextField.text.floatValue;
-    self.splitTipTextField.text    = [NSString stringWithFormat:@"$%ld", (long)self.tipEach ];
+    self.tipEach                    = self.tipSlider.value * self.amountTextField.text.floatValue;
+    self.splitTipTextField.text     = [NSString stringWithFormat:@"%@", [NSString formatNumbers: self.tipEach]];
 }
 
 #pragma mark UISlider Methods

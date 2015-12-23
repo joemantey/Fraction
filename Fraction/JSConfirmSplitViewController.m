@@ -10,6 +10,7 @@
 #import "JSCoreData.h"
 
 #import "UIColor+Colors.h"
+#import "NSString+Formatting.h"
 
 @interface JSConfirmSplitViewController () <UITextViewDelegate>
 
@@ -19,6 +20,9 @@
 @property (weak, nonatomic) IBOutlet UITextView *notesTextField;
 @property (weak, nonatomic) IBOutlet UIButton *completeTransactionButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *backButton;
+@property (weak, nonatomic) IBOutlet UIView *totalBackgroundView;
+@property (weak, nonatomic) IBOutlet UITextField *taxTextField;
+@property (weak, nonatomic) IBOutlet UITextField *totalTextField;
 
 - (IBAction)didTapCompletTransactionButton:(id)sender;
 - (IBAction)didTapBackButton:(id)sender;
@@ -49,8 +53,15 @@
     self.notesTextField.text    = self.dataStore.noteString;
     
     self.privacySegmentedControl.selectedSegmentIndex = self.dataStore.privacyPickerIndex;
+    [self setUpAmountDisplay];
     
 }
+
+-(void)setUpAmountDisplay{
+    
+    self.totalTextField.text = [NSString formatNumbers:self.dataStore.currentPayCharge.amount.floatValue/self.dataStore.currentPayCharge.payChargeToPerson.count];
+}
+
 
 - (void)clearNavigationBar{
     
@@ -82,9 +93,14 @@
     self.notesTextField.layer.borderColor   = [[UIColor whiteColor]CGColor];
     self.notesTextField.clipsToBounds       = YES;
     
+    self.totalBackgroundView.layer.cornerRadius  = 8;
+    self.totalBackgroundView.layer.borderWidth   = 1;
+    self.totalBackgroundView.layer.borderColor   = [[UIColor whiteColor]CGColor];
+    self.totalBackgroundView.clipsToBounds       = YES;
+    
     self.completeTransactionButton.layer.cornerRadius       = 8;
     self.completeTransactionButton.layer.borderWidth        = 1;
-    self.completeTransactionButton.layer.borderColor        = [[UIColor whiteColor]CGColor];
+    self.completeTransactionButton.layer.borderColor        = [[UIColor clearColor]CGColor];
     self.completeTransactionButton.clipsToBounds            = YES;
     self.completeTransactionButton.userInteractionEnabled   = NO;
   
@@ -94,16 +110,18 @@
     
     if (self.notesTextField.text.length > 0) {
         
-        [self.completeTransactionButton setTitleColor:[UIColor greenLight] forState:UIControlStateNormal];
-        self.completeTransactionButton.backgroundColor          =  [UIColor whiteColor];
+        [self.completeTransactionButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        self.completeTransactionButton.layer.borderColor          =  [[UIColor whiteColor]CGColor];
         self.completeTransactionButton.userInteractionEnabled   = YES;
         self.dataStore.noteString                               = self.notesTextField.text;
+        [self.completeTransactionButton setTitle:@"next: confirm splits" forState:UIControlStateNormal];
+
         
         [self.dataStore saveContext];
     }else{
         
-        [self.completeTransactionButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        [self.completeTransactionButton setTitle:@"Please complete all fields" forState:UIControlStateNormal];
+        [self.completeTransactionButton setTitleColor:[UIColor colorWithWhite:1 alpha:0.75] forState:UIControlStateNormal];
+        [self.completeTransactionButton setTitle:@"please complete all fields" forState:UIControlStateNormal];
         self.completeTransactionButton.backgroundColor          =  [UIColor clearColor];
         self.completeTransactionButton.userInteractionEnabled   = NO;
         self.dataStore.noteString                               = self.notesTextField.text;
