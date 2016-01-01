@@ -11,9 +11,9 @@
  
 Formatting: 
  
--create custom cells in IB
--create background class for cells
--method for creating white borders around cells
+x-create custom cells in IB
+x-create background class for cells
+x-method for creating white borders around cells
  
  
 Process:

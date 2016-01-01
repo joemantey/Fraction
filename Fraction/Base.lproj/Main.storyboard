@@ -3926,7 +3926,7 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="87" id="YpL-Pw-FtC">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="87" id="YpL-Pw-FtC" customClass="JSSplitContactTableViewCell">
                                                 <rect key="frame" x="0.0" y="28" width="600" height="87"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="YpL-Pw-FtC" id="6pC-G5-qmE">
@@ -3936,30 +3936,30 @@
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SU1-zx-a5e">
                                                             <rect key="frame" x="30" y="13" width="540" height="60.5"/>
                                                             <subviews>
-                                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TW0-fy-IUB">
-                                                                    <rect key="frame" x="10" y="0.0" width="479.5" height="60.5"/>
-                                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                    <textInputTraits key="textInputTraits"/>
-                                                                </textField>
-                                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WcB-jR-0ju">
-                                                                    <rect key="frame" x="458.5" y="4.5" width="104" height="50"/>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WcB-jR-0ju">
+                                                                    <rect key="frame" x="499.5" y="15" width="30.5" height="30.5"/>
                                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" secondItem="WcB-jR-0ju" secondAttribute="height" multiplier="1:1" id="XIS-9Q-Vwn"/>
                                                                     </constraints>
                                                                     <state key="normal" image="Delete"/>
                                                                 </button>
+                                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TW0-fy-IUB">
+                                                                    <rect key="frame" x="8" y="0.0" width="489.5" height="60.5"/>
+                                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                    <textInputTraits key="textInputTraits"/>
+                                                                </textField>
                                                             </subviews>
-                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="trailing" secondItem="WcB-jR-0ju" secondAttribute="trailing" constant="10" id="2PT-Cp-Hfo"/>
                                                                 <constraint firstItem="TW0-fy-IUB" firstAttribute="leading" secondItem="SU1-zx-a5e" secondAttribute="leading" constant="10" id="46v-Rx-IUy"/>
                                                                 <constraint firstItem="TW0-fy-IUB" firstAttribute="width" secondItem="SU1-zx-a5e" secondAttribute="width" multiplier="0.66" id="GeI-4t-WRi"/>
                                                                 <constraint firstItem="TW0-fy-IUB" firstAttribute="top" secondItem="SU1-zx-a5e" secondAttribute="top" id="JKa-D0-xcv"/>
-                                                                <constraint firstAttribute="bottom" secondItem="WcB-jR-0ju" secondAttribute="bottom" constant="10" id="NN8-Uh-G1Z"/>
+                                                                <constraint firstAttribute="bottom" secondItem="WcB-jR-0ju" secondAttribute="bottom" constant="15" id="NN8-Uh-G1Z"/>
                                                                 <constraint firstAttribute="bottom" secondItem="TW0-fy-IUB" secondAttribute="bottom" id="Rxm-Rx-fJU"/>
-                                                                <constraint firstItem="WcB-jR-0ju" firstAttribute="top" secondItem="SU1-zx-a5e" secondAttribute="top" constant="10" id="pI4-Sm-e2g"/>
+                                                                <constraint firstItem="WcB-jR-0ju" firstAttribute="top" secondItem="SU1-zx-a5e" secondAttribute="top" constant="15" id="pI4-Sm-e2g"/>
                                                                 <constraint firstItem="WcB-jR-0ju" firstAttribute="leading" secondItem="TW0-fy-IUB" secondAttribute="trailing" id="rq3-Mm-06z"/>
                                                             </constraints>
                                                             <variation key="default">
@@ -3978,6 +3978,12 @@
                                                     </constraints>
                                                 </tableViewCellContentView>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <connections>
+                                                    <outlet property="cellOutilineView" destination="SU1-zx-a5e" id="ybv-iW-S8p"/>
+                                                    <outlet property="contactField" destination="TW0-fy-IUB" id="zer-cv-oou"/>
+                                                    <outlet property="deleteButton" destination="WcB-jR-0ju" id="FE1-at-aEa"/>
+                                                    <outlet property="deleteButtonTapped" destination="WcB-jR-0ju" id="7SE-HU-9wn"/>
+                                                </connections>
                                             </tableViewCell>
                                         </prototypes>
                                     </tableView>
