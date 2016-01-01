@@ -38,6 +38,7 @@
 		38D5B95D1BBCAB94009C6245 /* RESideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D5B9591BBCAB94009C6245 /* RESideMenu.m */; };
 		38D5B95E1BBCAB94009C6245 /* UIViewController+RESideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D5B95B1BBCAB94009C6245 /* UIViewController+RESideMenu.m */; };
 		38D5B9631BBDBECC009C6245 /* JSMenuTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D5B9621BBDBECC009C6245 /* JSMenuTableViewController.m */; };
+		5D696F111C347062001357EE /* JSFirstSplitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D696F101C347062001357EE /* JSFirstSplitViewController.m */; };
 		9E38D75CA61D9FE0B3FAACEF /* libPods-Fraction.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A5D42B87C272015837AE9C3E /* libPods-Fraction.a */; };
 /* End PBXBuildFile section */
 
@@ -113,6 +114,8 @@
 		38D5B95B1BBCAB94009C6245 /* UIViewController+RESideMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+RESideMenu.m"; sourceTree = "<group>"; };
 		38D5B9611BBDBECC009C6245 /* JSMenuTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSMenuTableViewController.h; sourceTree = "<group>"; };
 		38D5B9621BBDBECC009C6245 /* JSMenuTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSMenuTableViewController.m; sourceTree = "<group>"; };
+		5D696F0F1C347062001357EE /* JSFirstSplitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSFirstSplitViewController.h; sourceTree = "<group>"; };
+		5D696F101C347062001357EE /* JSFirstSplitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSFirstSplitViewController.m; sourceTree = "<group>"; };
 		713BCC3CBCED7FC5B22ABBA3 /* Pods-Fraction.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fraction.release.xcconfig"; path = "Pods/Target Support Files/Pods-Fraction/Pods-Fraction.release.xcconfig"; sourceTree = "<group>"; };
 		A5D42B87C272015837AE9C3E /* libPods-Fraction.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Fraction.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -258,6 +261,7 @@
 		3870E7481BB990720080A2A9 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				5D696F121C36CF73001357EE /* Split Contact Cell */,
 				386906541BDAD5F40012EF90 /* Split Cell */,
 				3869064D1BD9AA540012EF90 /* Phone Number Cell */,
 			);
@@ -353,6 +357,8 @@
 		38C3E2B41BD802A100340A53 /* Split Transaction */ = {
 			isa = PBXGroup;
 			children = (
+				5D696F0F1C347062001357EE /* JSFirstSplitViewController.h */,
+				5D696F101C347062001357EE /* JSFirstSplitViewController.m */,
 				38C3E2B81BD8057F00340A53 /* JSSplitTransactionViewController.h */,
 				38C3E2B91BD8057F00340A53 /* JSSplitTransactionViewController.m */,
 				3869068C1BE009810012EF90 /* JSConfirmSplitViewController.h */,
@@ -395,6 +401,13 @@
 				38D5B9551BBCAB94009C6245 /* RESideMenu */,
 			);
 			name = "Root ";
+			sourceTree = "<group>";
+		};
+		5D696F121C36CF73001357EE /* Split Contact Cell */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Split Contact Cell";
 			sourceTree = "<group>";
 		};
 		8DFCD8B5FE354C7DAE4A94DC /* Frameworks */ = {
@@ -555,6 +568,7 @@
 				38754B051BEA7B6B00172884 /* JSScehduleViewController.m in Sources */,
 				38BF44161BB9FDA300E65D71 /* JSVenmoAPIClient.m in Sources */,
 				386906531BD9AC8B0012EF90 /* JSAddPhoneNumberViewController.m in Sources */,
+				5D696F111C347062001357EE /* JSFirstSplitViewController.m in Sources */,
 				384477091BC2EBD80096553C /* JSTransactionViewController.m in Sources */,
 				38C3E2991BCFDE7A00340A53 /* JSCoreData.m in Sources */,
 				3869068E1BE009820012EF90 /* JSConfirmSplitViewController.m in Sources */,
