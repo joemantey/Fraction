@@ -52,7 +52,13 @@ static JSVenmoAPIClient * venmoAPIClient;
 
 
 #pragma mark - Process Contact Array Methods
-- (NSString *)returnPhoneNumberStringfromArray:(NSArray<CNLabeledValue<CNPhoneNumber*>*> *)contactArray{
+
++ (NSArray *)buildContactArrayWithArrays:(NSArray *)addressBookArray and:(NSArray *)InputNumberArray{
+    
+    
+}
+
++ (NSString *)returnPhoneNumberStringfromArray:(NSArray<CNLabeledValue<CNPhoneNumber*>*> *)contactArray{
     
     CNPhoneNumber *iPhonePhoneNumber = [[CNPhoneNumber alloc]init];
     CNPhoneNumber *mobilePhoneNumber = [[CNPhoneNumber alloc]init];
@@ -127,7 +133,7 @@ static JSVenmoAPIClient * venmoAPIClient;
     for (CNContact *contact in contacts) {
         
         JSVenPerson *newVenPerson       = [NSEntityDescription insertNewObjectForEntityForName:@"JSVenPerson" inManagedObjectContext:self.dataStore.managedObjectContext];
-        newVenPerson.phoneNumber        = [self returnPhoneNumberStringfromArray:contact.phoneNumbers];
+        newVenPerson.phoneNumber        = [JSVenmoAPIClient returnPhoneNumberStringfromArray:contact.phoneNumbers];
         newVenPerson.displayName        = [NSString stringWithFormat:@"  %@ %@", contact.givenName, contact.familyName];
         newVenPerson.transactionAmount  = amount;
         newVenPerson.sharePercentage    = [NSString stringWithFormat:@"%f", percentageofContacts];

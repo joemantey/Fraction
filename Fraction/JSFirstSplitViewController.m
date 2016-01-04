@@ -18,7 +18,7 @@ x-method for creating white borders around cells
  
 Process:
  
--method create new version of charge
+x-method create new version of charge
 -method to attatching contacts to it (person class)
 -wipe and reattach contacts to the charge everytime it is changes
 -method to make sure before segue you have evrything
@@ -29,6 +29,8 @@ Process:
 
 #import "JSFirstSplitViewController.h"
 #import "JSCoreData.h"
+#import "JSCharge.h"
+#import "JSFriend.h"
 #import "JSVenmoAPIClient.h"
 
 #import "UIColor+Colors.h"
@@ -69,6 +71,8 @@ Process:
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setUpCoreDataAndVenmo];
+    [self createCharge];
+    [self configureTableView];
     // Do any additional setup after loading the view.
 }
 
@@ -79,13 +83,29 @@ Process:
 
 - (void)setUpCoreDataAndVenmo{
     
-    self.dataStore = [JSCoreData sharedDataStore];
+    self.dataStore      = [JSCoreData sharedDataStore];
     self.dataStore.inputPhoneNumberArray = [[NSMutableArray alloc]init];
     self.venmoAPIClient = [JSVenmoAPIClient sharedInstance];
+    self.contactArray   = [[NSMutableArray alloc]init];
+}
+
+- (void)createCharge{
+    
+    JSCharge *charge = [NSEntityDescription insertNewObjectForEntityForName:@"JSCharge" inManagedObjectContext:self.dataStore.managedObjectContext];
+    self.dataStore.currentCharge = charge;
 }
 
 #pragma mark - Table View
 
+- (void)configureTableView{
+    
+    self.contactTableView.delegate      = self;
+    self.contactTableView.dataSource    = self;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    
+}
 
 
 /*
@@ -98,7 +118,53 @@ Process:
 }
 */
 
-#pragma mark CNContactPicker Delegate
+#pragma mark - Contact Array
+
+- (void)buildContactArray{
+    
+}
+
+#pragma mark - Alert View
+
+- (void)presentPhoneNumberAlertView{
+    
+    UIAlertController *getPhoneNumberAlert = [UIAlertController alertControllerWithTitle:@"enter phone number" message:@"please enter a Venmo-connected phone number (numbers only)" preferredStyle:UIAlertControllerStyleAlert];
+    
+    
+    UIAlertAction *cancelAlert = [UIAlertAction actionWithTitle:@"cancel" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }];
+    [getPhoneNumberAlert addAction:cancelAlert];
+    
+    
+    UIAlertAction *okAlert = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+        
+        for (UITextField *textField in getPhoneNumberAlert.textFields) {
+            
+            JSFriend *friend    = [NSEntityDescription insertNewObjectForEntityForName:@"JSFriend" inManagedObjectContext:self.dataStore.managedObjectContext];
+            
+            friend.phoneNumber  = textField.text;
+        }
+        [self.dataStore saveContext];
+        
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }];
+    [getPhoneNumberAlert addAction:okAlert];
+    
+    
+    UIAlertAction *enterAnotherPhoneNumber = [UIAlertAction actionWithTitle:@"EnterAnother" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+        
+        [getPhoneNumberAlert addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
+            
+        }];
+    }];
+    [getPhoneNumberAlert addAction:enterAnotherPhoneNumber];
+
+}
+
+#pragma mark - Contact Picker Delegate
 - (void)presentPeoplePicker{
     
     CNContactPickerViewController *picker   = [[CNContactPickerViewController alloc] init];
@@ -115,29 +181,22 @@ Process:
 
 - (void)contactPicker:(CNContactPickerViewController *)picker didSelectContacts:(nonnull NSArray<CNContact *> *)contacts{
     
+
+    //for each contact in contact, go through and create a person object for and attatch it to the current bargaing
     
-    self.contactArray = [NSMutableArray arrayWithArray:contacts];
     
-    
-    //method
-    NSLog(@"%@", self.contactArray);
-    
-    int counter = 0;
-    for (CNContact *eachContact in self.contactArray) {
+    for (CNContact *eachContact in contacts) {
         
-        if (counter == 0) {
-            
-            NSString *nameString    = [NSString stringWithFormat:@"%@ %@", eachContact.givenName, eachContact.familyName];
-            self.contactString      = [NSMutableString stringWithFormat:@"%@", nameString];
-            
-        }else{
-            
-            NSString *nameString    = [NSString stringWithFormat:@", %@ %@", eachContact.givenName, eachContact.familyName];
-            self.contactString      = [NSMutableString stringWithFormat:@"%@%@", self.contactString, nameString];
-        }
+        JSFriend *friend    = [NSEntityDescription insertNewObjectForEntityForName:@"JSFriend" inManagedObjectContext:self.dataStore.managedObjectContext];
         
-        counter++;
+        friend.displayName  = [NSString stringWithFormat:@"%@ %@", eachContact.givenName, eachContact.familyName];
+        friend.lastName     = eachContact.familyName;
+        friend.phoneNumber  = [JSVenmoAPIClient returnPhoneNumberStringfromArray:eachContact.phoneNumbers ];
+        
     }
+    
+    [self.dataStore saveContext];
+
 }
 
 
@@ -153,8 +212,10 @@ Process:
 }
 
 - (IBAction)addressBookButtonTapped:(id)sender {
+    [self presentPeoplePicker];
 }
 
 - (IBAction)phoneNumberButtonTapped:(id)sender {
+    [self presentPhoneNumberAlertView];
 }
 @end

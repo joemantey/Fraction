@@ -8,6 +8,7 @@
 
 #import "JSVenPerson.h"
 #import "PayCharge.h"
+#import "JSCharge.h"
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
@@ -25,6 +26,8 @@
 
 @property (strong, nonatomic) NSMutableArray    *inputPhoneNumberArray;
 @property (strong, nonatomic) PayCharge         *currentPayCharge;
+@property (strong, nonatomic) JSCharge          *currentCharge;
+
 @property (strong, nonatomic) NSString          *noteString;
 @property (nonatomic)         NSInteger          privacyPickerIndex;
 

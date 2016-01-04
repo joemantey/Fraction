@@ -1,0 +1,16 @@
+//
+//  JSFriend.m
+//  Fraction
+//
+//  Created by Norma Smalls-Mantey on 1/1/16.
+//  Copyright © 2016 Yosimite Labs | Joseph Smalls-Mantey. All rights reserved.
+//
+
+#import "JSFriend.h"
+#import "JSCharge.h"
+
+@implementation JSFriend
+
+// Insert code here to add functionality to your managed object subclass
+
+@end

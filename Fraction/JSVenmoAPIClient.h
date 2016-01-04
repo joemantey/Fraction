@@ -25,7 +25,7 @@
                               andNote:(NSString *)note
                           andAudience:(NSString *)audience;
 
-- (NSString *)returnPhoneNumberStringfromArray:(NSArray<CNLabeledValue<CNPhoneNumber*>*> *)contactArray;
++ (NSString *)returnPhoneNumberStringfromArray:(NSArray<CNLabeledValue<CNPhoneNumber*>*> *)contactArray;
 
 - (void )buildPayChargewithAmount:(NSString *)amount;
 
