@@ -51,6 +51,8 @@ x-method create new version of charge
 @property (weak, nonatomic) IBOutlet UISwitch *includeSelfSwitch;
 @property (weak, nonatomic) IBOutlet UIButton *addressBookButton;
 @property (weak, nonatomic) IBOutlet UIButton *phoneNumberButton;
+@property (weak, nonatomic) IBOutlet UIView *bottomFadeView;
+@property (weak, nonatomic) IBOutlet UIView *topFadeView;
 
 @property (weak, nonatomic) IBOutlet UITableView *contactTableView;
 
@@ -70,22 +72,33 @@ x-method create new version of charge
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self drawBorders];
-    [self setUpCoreDataAndVenmo];
+    [self configureBorders];
+    [self configureButtons];
+    [self configureCoreDataAndVenmo];
     [self createCharge];
     [self configureTableView];
     // Do any additional setup after loading the view.
 }
 
-- (void)drawBorders{
+- (void)configureButtons{
+    
+    self.backButton.imageInsets = UIEdgeInsetsMake(10,0,10,20);
+}
+
+- (void)configureGradients{
+    
+}
+
+- (void)configureBorders{
 
     self.addressBookButton.layer.borderColor    = [[UIColor whiteColor]CGColor];
     self.addressBookButton.layer.borderWidth    = 1;
-    self.addressBookButton.
+    self.addressBookButton.layer.cornerRadius   = 8;
     self.addressBookButton.clipsToBounds        = YES;
     
     self.phoneNumberButton.layer.borderColor    = [[UIColor whiteColor]CGColor];
     self.phoneNumberButton.layer.borderWidth    = 1;
+    self.phoneNumberButton.layer.cornerRadius   = 8;;
     self.phoneNumberButton.clipsToBounds        = YES;
 }
 
@@ -95,7 +108,7 @@ x-method create new version of charge
     // Dispose of any resources that can be recreated.
 }
 
-- (void)setUpCoreDataAndVenmo{
+- (void)configureCoreDataAndVenmo{
     
     self.dataStore      = [JSCoreData sharedDataStore];
     self.dataStore.inputPhoneNumberArray = [[NSMutableArray alloc]init];
@@ -145,16 +158,16 @@ x-method create new version of charge
 
 - (void)presentPhoneNumberAlertView{
     
-    UIAlertController *getPhoneNumberAlert = [UIAlertController alertControllerWithTitle:@"enter phone number" message:@"please enter a Venmo-connected phone number (numbers only)" preferredStyle:UIAlertControllerStyleAlert];
+    //CREATE ALERT
+    UIAlertController *getPhoneNumberAlert = [UIAlertController alertControllerWithTitle:@"enter a Venmo-connected phone number" message:nil preferredStyle:UIAlertControllerStyleAlert];
     
-    
-    UIAlertAction *cancelAlert = [UIAlertAction actionWithTitle:@"cancel" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        [self dismissViewControllerAnimated:YES completion:nil];
+    [getPhoneNumberAlert addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
+        textField.keyboardType = UIKeyboardTypeNumberPad;
     }];
-    [getPhoneNumberAlert addAction:cancelAlert];
     
     
-    UIAlertAction *okAlert = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    //CREATE OK ACTION
+    UIAlertAction *okAlert = [UIAlertAction actionWithTitle:@"Done" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         
         
         for (UITextField *textField in getPhoneNumberAlert.textFields) {
@@ -167,21 +180,33 @@ x-method create new version of charge
         }
         [self.dataStore saveContext];
         
-        [self dismissViewControllerAnimated:YES completion:nil];
     }];
+    
     [getPhoneNumberAlert addAction:okAlert];
     
     
-    UIAlertAction *enterAnotherPhoneNumber = [UIAlertAction actionWithTitle:@"EnterAnother" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        
-        
-        [getPhoneNumberAlert addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
-            
-        }];
+    //CREATE ENTER ANOTHER PHONE NUMBER ACTION
+//    UIAlertAction *enterAnotherPhoneNumber = [UIAlertAction actionWithTitle:@"Enter another phone number" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+//    
+//        [getPhoneNumberAlert addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
+//            textField.keyboardType = UIKeyboardTypeNumberPad;
+//        }];
+//    }];
+//         
+//    [getPhoneNumberAlert addAction:enterAnotherPhoneNumber];
+    
+    [self presentViewController:getPhoneNumberAlert animated:YES completion:nil];
+    
+    
+    
+    
+    //CREATE CANCEL ACTION
+    UIAlertAction *cancelAlert = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self dismissViewControllerAnimated:YES completion:nil];
     }];
-    [getPhoneNumberAlert addAction:enterAnotherPhoneNumber];
-
+    [getPhoneNumberAlert addAction:cancelAlert];
 }
+
 
 #pragma mark - Contact Picker Delegate
 - (void)presentPeoplePicker{
@@ -224,6 +249,8 @@ x-method create new version of charge
 #pragma mark - Actions
 
 - (IBAction)backButtonTapped:(id)sender {
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (IBAction)nextButtonTapped:(id)sender {

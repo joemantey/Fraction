@@ -3841,7 +3841,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xvy-TO-cWb">
                                 <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ePI-K9-pUs">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ePI-K9-pUs" userLabel="Bottom Fade View">
                                         <rect key="frame" x="0.0" y="506" width="600" height="30"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -3859,8 +3859,9 @@
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="268"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="40E-eR-Ft6">
-                                                <rect key="frame" x="30" y="166" width="540" height="43.5"/>
+                                                <rect key="frame" x="30" y="141" width="540" height="53.5"/>
                                                 <color key="backgroundColor" red="0.0" green="0.40000000000000002" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <state key="normal" title="from address book">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
@@ -3868,9 +3869,28 @@
                                                     <action selector="addressBookButtonTapped:" destination="JO2-NV-ngW" eventType="touchUpInside" id="ojW-5c-KSP"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X6c-O5-Wc4" userLabel="Bottom Button">
-                                                <rect key="frame" x="30" y="219.5" width="540" height="43.5"/>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="add contact" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3J4-mK-I99">
+                                                <rect key="frame" x="30" y="82" width="540" height="44"/>
+                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="include yourself in the split?" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Kwg-R9-lKE">
+                                                <rect key="frame" x="30" y="31.5" width="420" height="44"/>
+                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="top" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9xu-Gq-Plk">
+                                                <rect key="frame" x="480" y="33" width="62" height="40"/>
+                                                <connections>
+                                                    <action selector="includeSelfSwitchChanged:" destination="JO2-NV-ngW" eventType="valueChanged" id="iBf-1M-UEE"/>
+                                                </connections>
+                                            </switch>
+                                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X6c-O5-Wc4" userLabel="Bottom Button">
+                                                <rect key="frame" x="30" y="216" width="540" height="43.5"/>
                                                 <color key="backgroundColor" red="0.0" green="0.40000000000000002" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <state key="normal" title="enter phone number">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
@@ -3878,41 +3898,23 @@
                                                     <action selector="phoneNumberButtonTapped:" destination="JO2-NV-ngW" eventType="touchUpInside" id="ZHi-P7-lEd"/>
                                                 </connections>
                                             </button>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="add contact" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3J4-mK-I99">
-                                                <rect key="frame" x="30" y="112" width="540" height="44"/>
-                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="include yourself in the split?" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Kwg-R9-lKE">
-                                                <rect key="frame" x="30" y="31.5" width="420" height="44"/>
-                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
-                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="top" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9xu-Gq-Plk">
-                                                <rect key="frame" x="480" y="33.5" width="62" height="40"/>
-                                                <connections>
-                                                    <action selector="includeSelfSwitchChanged:" destination="JO2-NV-ngW" eventType="valueChanged" id="iBf-1M-UEE"/>
-                                                </connections>
-                                            </switch>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstItem="40E-eR-Ft6" firstAttribute="centerY" secondItem="Wwl-aR-zeP" secondAttribute="centerY" multiplier="1.4" id="3W6-M2-0Ok"/>
+                                            <constraint firstItem="40E-eR-Ft6" firstAttribute="centerY" secondItem="Wwl-aR-zeP" secondAttribute="centerY" multiplier="1.25" id="3W6-M2-0Ok"/>
                                             <constraint firstItem="3J4-mK-I99" firstAttribute="width" secondItem="Wwl-aR-zeP" secondAttribute="width" multiplier="0.9" id="BDO-uP-Edl"/>
                                             <constraint firstItem="9xu-Gq-Plk" firstAttribute="height" secondItem="Wwl-aR-zeP" secondAttribute="height" multiplier="0.15" id="BFT-A5-UFc"/>
                                             <constraint firstItem="Kwg-R9-lKE" firstAttribute="centerX" secondItem="Wwl-aR-zeP" secondAttribute="centerX" multiplier="0.8" id="BvT-Sq-PAK"/>
-                                            <constraint firstItem="3J4-mK-I99" firstAttribute="centerY" secondItem="Wwl-aR-zeP" secondAttribute="centerY" id="CUp-pX-40x"/>
+                                            <constraint firstItem="3J4-mK-I99" firstAttribute="centerY" secondItem="Wwl-aR-zeP" secondAttribute="centerY" multiplier="0.775" id="CUp-pX-40x"/>
                                             <constraint firstItem="X6c-O5-Wc4" firstAttribute="width" secondItem="Wwl-aR-zeP" secondAttribute="width" multiplier="0.9" id="FVi-p4-bke"/>
                                             <constraint firstItem="40E-eR-Ft6" firstAttribute="width" secondItem="Wwl-aR-zeP" secondAttribute="width" multiplier="0.9" id="G7C-F9-s26"/>
-                                            <constraint firstItem="40E-eR-Ft6" firstAttribute="height" secondItem="Wwl-aR-zeP" secondAttribute="height" multiplier="0.2" constant="-10" id="Jeo-MR-RRA"/>
+                                            <constraint firstItem="40E-eR-Ft6" firstAttribute="height" secondItem="Wwl-aR-zeP" secondAttribute="height" multiplier="0.2" id="Jeo-MR-RRA"/>
                                             <constraint firstItem="3J4-mK-I99" firstAttribute="height" secondItem="Wwl-aR-zeP" secondAttribute="height" multiplier="0.2" constant="-10" id="NLf-Qq-oYx"/>
                                             <constraint firstItem="Kwg-R9-lKE" firstAttribute="width" secondItem="Wwl-aR-zeP" secondAttribute="width" multiplier="0.7" id="QD5-cG-bcr"/>
                                             <constraint firstItem="9xu-Gq-Plk" firstAttribute="width" secondItem="Wwl-aR-zeP" secondAttribute="width" multiplier="0.1" id="V2P-kA-Qad"/>
                                             <constraint firstItem="Kwg-R9-lKE" firstAttribute="centerY" secondItem="Wwl-aR-zeP" secondAttribute="centerY" multiplier="0.4" id="Wk0-kz-npA"/>
                                             <constraint firstItem="3J4-mK-I99" firstAttribute="centerX" secondItem="Wwl-aR-zeP" secondAttribute="centerX" id="Wos-2s-9PF"/>
-                                            <constraint firstItem="X6c-O5-Wc4" firstAttribute="height" secondItem="Wwl-aR-zeP" secondAttribute="height" multiplier="0.2" constant="-10" id="Zwd-Cy-N4V"/>
+                                            <constraint firstItem="X6c-O5-Wc4" firstAttribute="height" secondItem="Wwl-aR-zeP" secondAttribute="height" multiplier="0.2" id="Zwd-Cy-N4V"/>
                                             <constraint firstItem="9xu-Gq-Plk" firstAttribute="centerY" secondItem="Wwl-aR-zeP" secondAttribute="centerY" multiplier="0.4" id="a6q-ed-4Gn"/>
                                             <constraint firstItem="X6c-O5-Wc4" firstAttribute="centerY" secondItem="Wwl-aR-zeP" secondAttribute="centerY" multiplier="1.8" id="aaG-hT-rBf"/>
                                             <constraint firstItem="9xu-Gq-Plk" firstAttribute="centerX" secondItem="Wwl-aR-zeP" secondAttribute="centerX" multiplier="1.7" id="eBx-jn-ZQ2"/>
@@ -4025,7 +4027,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="rgY-g8-Fm1">
                         <nil key="title"/>
-                        <barButtonItem key="leftBarButtonItem" title="Item" id="lrS-eg-9oL">
+                        <barButtonItem key="leftBarButtonItem" image="Back" id="lrS-eg-9oL">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="backButtonTapped:" destination="JO2-NV-ngW" id="uA0-TG-Rj4"/>
                             </connections>
@@ -4058,10 +4061,12 @@
                     <connections>
                         <outlet property="addressBookButton" destination="40E-eR-Ft6" id="zJ7-64-vGn"/>
                         <outlet property="backButton" destination="lrS-eg-9oL" id="oy2-iX-J4q"/>
+                        <outlet property="bottomFadeView" destination="ePI-K9-pUs" id="GLI-6x-jGr"/>
                         <outlet property="contactTableView" destination="4u7-jP-1Ow" id="oW3-D5-F2O"/>
                         <outlet property="includeSelfSwitch" destination="9xu-Gq-Plk" id="AeL-Sc-cDx"/>
                         <outlet property="nextButton" destination="FBF-Os-6MY" id="axk-Bj-Ow8"/>
                         <outlet property="phoneNumberButton" destination="X6c-O5-Wc4" id="QVk-HE-gEy"/>
+                        <outlet property="topFadeView" destination="IJH-qi-O0v" id="AzA-vn-1Id"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qye-e9-SdJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
