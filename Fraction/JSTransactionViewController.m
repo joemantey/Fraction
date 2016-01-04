@@ -406,7 +406,7 @@
         amountString       =  [NSString stringWithFormat:@"-%@", self.amountTextView.text];
     }
     
-    NSString *phoneNumberString = [self.venmoClient returnPhoneNumberStringfromArray:self.contactArray];
+    NSString *phoneNumberString = [JSVenmoAPIClient returnPhoneNumberStringfromArray:self.contactArray];
     NSString *audineceString    = self.audienceArray[self.privacySegementedControl.selectedSegmentIndex];
     
     

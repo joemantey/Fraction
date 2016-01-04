@@ -70,11 +70,25 @@ x-method create new version of charge
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self drawBorders];
     [self setUpCoreDataAndVenmo];
     [self createCharge];
     [self configureTableView];
     // Do any additional setup after loading the view.
 }
+
+- (void)drawBorders{
+
+    self.addressBookButton.layer.borderColor    = [[UIColor whiteColor]CGColor];
+    self.addressBookButton.layer.borderWidth    = 1;
+    self.addressBookButton.
+    self.addressBookButton.clipsToBounds        = YES;
+    
+    self.phoneNumberButton.layer.borderColor    = [[UIColor whiteColor]CGColor];
+    self.phoneNumberButton.layer.borderWidth    = 1;
+    self.phoneNumberButton.clipsToBounds        = YES;
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -103,10 +117,19 @@ x-method create new version of charge
     self.contactTableView.dataSource    = self;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     
+    return 86;
 }
 
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+ 
+    return self.dataStore.currentCharge.friend.count;
+}
+
+//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+//    
+//}
 
 /*
 #pragma mark - Navigation
@@ -117,12 +140,6 @@ x-method create new version of charge
     // Pass the selected object to the new view controller.
 }
 */
-
-#pragma mark - Contact Array
-
-- (void)buildContactArray{
-    
-}
 
 #pragma mark - Alert View
 
@@ -145,6 +162,8 @@ x-method create new version of charge
             JSFriend *friend    = [NSEntityDescription insertNewObjectForEntityForName:@"JSFriend" inManagedObjectContext:self.dataStore.managedObjectContext];
             
             friend.phoneNumber  = textField.text;
+            
+            [self.dataStore.currentCharge addFriendObject:friend];
         }
         [self.dataStore saveContext];
         
@@ -193,6 +212,8 @@ x-method create new version of charge
         friend.lastName     = eachContact.familyName;
         friend.phoneNumber  = [JSVenmoAPIClient returnPhoneNumberStringfromArray:eachContact.phoneNumbers ];
         
+        [self.dataStore.currentCharge addFriendObject:friend];
+
     }
     
     [self.dataStore saveContext];

@@ -7,6 +7,7 @@
 //
 
 #import "JSCoreData.h"
+#import "JSFriend.h"
 
 #import <Foundation/Foundation.h>
 
@@ -16,7 +17,6 @@
 @interface JSVenmoAPIClient : NSObject
 
 @property (nonatomic) BOOL permissionsGranted;
-@property (strong, nonatomic)  JSCoreData *dataStore;
 
 + (JSVenmoAPIClient *)sharedInstance;
 

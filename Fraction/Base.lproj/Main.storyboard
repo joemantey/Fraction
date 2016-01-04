@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="2cW-MF-LF0">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="hEu-JI-7kd">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -383,7 +383,7 @@
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
-                                                    <segue destination="W93-lg-alt" kind="presentation" id="7bn-7f-tSi"/>
+                                                    <segue destination="zX8-pi-Jxr" kind="showDetail" id="U8K-TK-8BT"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fSk-PC-94p">
@@ -467,7 +467,7 @@
                             </connections>
                         </barButtonItem>
                         <view key="titleView" contentMode="scaleToFill" id="QGh-hc-gTM">
-                            <rect key="frame" x="229" y="6" width="143" height="33"/>
+                            <rect key="frame" x="228.5" y="5.5" width="143" height="33"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gD6-Tz-9yR">
@@ -634,7 +634,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M2B-31-A72" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1542" y="-815"/>
+            <point key="canvasLocation" x="4462" y="3721"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="3ag-UW-AaV">
@@ -2194,7 +2194,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WoG-ct-4ld" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3196" y="629"/>
+            <point key="canvasLocation" x="1348" y="2581"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="rGl-PV-RsE">
@@ -2444,7 +2444,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a82-Ne-SWh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1528" y="1492"/>
+            <point key="canvasLocation" x="1528" y="2729"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="iMG-6a-6gs">
@@ -2462,7 +2462,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mon-Mg-ZVa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2384" y="629"/>
+            <point key="canvasLocation" x="496" y="2573"/>
         </scene>
         <!--Adjust Split View Controller-->
         <scene sceneID="AAS-6h-loX">
@@ -3157,7 +3157,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="srx-Xm-lMC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1420" y="1424"/>
+            <point key="canvasLocation" x="1420" y="2661"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="4u2-F7-Ujs">
@@ -3890,8 +3890,8 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9xu-Gq-Plk">
-                                                <rect key="frame" x="480" y="33" width="62" height="40"/>
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="top" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9xu-Gq-Plk">
+                                                <rect key="frame" x="480" y="33.5" width="62" height="40"/>
                                                 <connections>
                                                     <action selector="includeSelfSwitchChanged:" destination="JO2-NV-ngW" eventType="valueChanged" id="iBf-1M-UEE"/>
                                                 </connections>
@@ -3937,7 +3937,7 @@
                                                             <rect key="frame" x="30" y="13" width="540" height="60.5"/>
                                                             <subviews>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WcB-jR-0ju">
-                                                                    <rect key="frame" x="499.5" y="15" width="30.5" height="30.5"/>
+                                                                    <rect key="frame" x="499" y="15" width="30.5" height="30.5"/>
                                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" secondItem="WcB-jR-0ju" secondAttribute="height" multiplier="1:1" id="XIS-9Q-Vwn"/>
@@ -4066,7 +4066,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qye-e9-SdJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2542" y="2414"/>
+            <point key="canvasLocation" x="3206" y="639"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="8ST-0E-Mdq">
@@ -4302,7 +4302,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YnT-5P-u1f" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1730" y="2414"/>
+            <point key="canvasLocation" x="2394" y="639"/>
         </scene>
     </scenes>
     <resources>

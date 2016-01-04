@@ -8,6 +8,7 @@
 
 #import "JSVenmoAPIClient.h"
 #import "JSConstants.h"
+#import "JSCoreData.h"
 
 #import "PayCharge.h"
 #import "JSVenPerson.h"
@@ -53,10 +54,6 @@ static JSVenmoAPIClient * venmoAPIClient;
 
 #pragma mark - Process Contact Array Methods
 
-+ (NSArray *)buildContactArrayWithArrays:(NSArray *)addressBookArray and:(NSArray *)InputNumberArray{
-    
-    
-}
 
 + (NSString *)returnPhoneNumberStringfromArray:(NSArray<CNLabeledValue<CNPhoneNumber*>*> *)contactArray{
     
@@ -115,52 +112,53 @@ static JSVenmoAPIClient * venmoAPIClient;
                         andContactArray:(nonnull NSArray<CNContact *> *)contacts
                               andAmount:(NSString *)amount{
     
-    self.dataStore                  = [JSCoreData sharedDataStore];
+    JSCoreData *dataStore           = [JSCoreData sharedDataStore];
     CGFloat numberOfContacts        = [inputPhoneNumberArray count]+[contacts count];
     CGFloat percentageofContacts    = 1/numberOfContacts;
     
     for (NSString *phoneNumber in inputPhoneNumberArray) {
         
-        JSVenPerson *newVenPerson       = [NSEntityDescription insertNewObjectForEntityForName:@"JSVenPerson" inManagedObjectContext:self.dataStore.managedObjectContext];
+        JSVenPerson *newVenPerson       = [NSEntityDescription insertNewObjectForEntityForName:@"JSVenPerson" inManagedObjectContext:dataStore.managedObjectContext];
         newVenPerson.phoneNumber        = phoneNumber;
         newVenPerson.displayName        = phoneNumber;
         newVenPerson.transactionAmount  = amount;
         newVenPerson.sharePercentage    = [NSString stringWithFormat:@"%f", percentageofContacts];
         
-        [self.dataStore.currentPayCharge addPayChargeToPersonObject:newVenPerson];
+        [dataStore.currentPayCharge addPayChargeToPersonObject:newVenPerson];
     }
     
     for (CNContact *contact in contacts) {
         
-        JSVenPerson *newVenPerson       = [NSEntityDescription insertNewObjectForEntityForName:@"JSVenPerson" inManagedObjectContext:self.dataStore.managedObjectContext];
+        JSVenPerson *newVenPerson       = [NSEntityDescription insertNewObjectForEntityForName:@"JSVenPerson" inManagedObjectContext:dataStore.managedObjectContext];
         newVenPerson.phoneNumber        = [JSVenmoAPIClient returnPhoneNumberStringfromArray:contact.phoneNumbers];
         newVenPerson.displayName        = [NSString stringWithFormat:@"  %@ %@", contact.givenName, contact.familyName];
         newVenPerson.transactionAmount  = amount;
         newVenPerson.sharePercentage    = [NSString stringWithFormat:@"%f", percentageofContacts];
         
-        [self.dataStore.currentPayCharge addPayChargeToPersonObject:newVenPerson];
+        [dataStore.currentPayCharge addPayChargeToPersonObject:newVenPerson];
     }
     
-    [self.dataStore saveContext];
+    [dataStore saveContext];
 }
 
 
 - (void )buildPayChargewithAmount:(NSString *)amount{
     
-    self.dataStore          = [JSCoreData sharedDataStore];
+    JSCoreData *dataStore   = [JSCoreData sharedDataStore];
     
-    PayCharge *newCharge    = [NSEntityDescription insertNewObjectForEntityForName:@"JSPayCharge" inManagedObjectContext:self.dataStore.managedObjectContext];
+    PayCharge *newCharge    = [NSEntityDescription insertNewObjectForEntityForName:@"JSPayCharge" inManagedObjectContext:dataStore.managedObjectContext];
     newCharge.amount        = amount;
     
-    self.dataStore.currentPayCharge = newCharge;
+    dataStore.currentPayCharge = newCharge;
     
-    [self.dataStore saveContext];
+    [dataStore saveContext];
 }
 
 
 -(void )refreshSplit{
     
-    PayCharge *charge           = self.dataStore.currentPayCharge;
+    JSCoreData *dataStore       = [JSCoreData sharedDataStore];
+    PayCharge *charge           = dataStore.currentPayCharge;
     NSArray *venPersonArray     = [charge.payChargeToPerson allObjects];
     int totalFromVenPersons     = 0;
     
@@ -176,7 +174,7 @@ static JSVenmoAPIClient * venmoAPIClient;
         venPerson.sharePercentage   = [NSString stringWithFormat:@"%f", ([venPerson.transactionAmount floatValue]/totalFromVenPersons)];
     }
     
-    [self.dataStore saveContext];
+    [dataStore saveContext];
 }
 
 
