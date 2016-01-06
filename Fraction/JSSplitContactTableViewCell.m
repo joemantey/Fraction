@@ -19,7 +19,9 @@
     
     self.cellOutilineView.layer.borderColor = [[UIColor whiteColor]CGColor];
     self.cellOutilineView.layer.borderWidth = 1;
+    self.cellOutilineView.layer.cornerRadius= 8;
     self.cellOutilineView.clipsToBounds     = YES;
+    self.backgroundColor = [UIColor clearColor];
 }
 
 

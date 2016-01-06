@@ -28,6 +28,8 @@ x-method create new version of charge
 
 
 #import "JSFirstSplitViewController.h"
+#import "JSSplitContactTableViewCell.h"
+
 #import "JSCoreData.h"
 #import "JSCharge.h"
 #import "JSFriend.h"
@@ -72,8 +74,9 @@ x-method create new version of charge
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self configureBorders];
     [self configureButtons];
+    [self configureNavigationBar];
+    [self configureColors];
     [self configureCoreDataAndVenmo];
     [self createCharge];
     [self configureTableView];
@@ -82,24 +85,52 @@ x-method create new version of charge
 
 - (void)configureButtons{
     
-    self.backButton.imageInsets = UIEdgeInsetsMake(10,0,10,20);
-}
-
-- (void)configureGradients{
+    self.navigationItem.leftBarButtonItem.imageInsets = UIEdgeInsetsMake(12, 0, 12, 24);
     
-}
-
-- (void)configureBorders{
-
     self.addressBookButton.layer.borderColor    = [[UIColor whiteColor]CGColor];
+    self.addressBookButton.backgroundColor      = [UIColor greenLight];
     self.addressBookButton.layer.borderWidth    = 1;
     self.addressBookButton.layer.cornerRadius   = 8;
     self.addressBookButton.clipsToBounds        = YES;
     
     self.phoneNumberButton.layer.borderColor    = [[UIColor whiteColor]CGColor];
+    self.phoneNumberButton.backgroundColor      = [UIColor greenLight];
     self.phoneNumberButton.layer.borderWidth    = 1;
     self.phoneNumberButton.layer.cornerRadius   = 8;;
     self.phoneNumberButton.clipsToBounds        = YES;
+}
+
+- (void)configureColors{
+   
+    CAGradientLayer *backgroundGradient = [CAGradientLayer layer];
+    backgroundGradient.frame            =  self.view.bounds;
+    backgroundGradient.colors           = [NSArray arrayWithObjects:(id)[[UIColor greenLight] CGColor], (id)[[UIColor greenLight] CGColor], nil];
+    [self.view.layer insertSublayer:backgroundGradient atIndex:0];
+    
+    CAGradientLayer *topDarkGradient = [CAGradientLayer layer];
+    topDarkGradient.frame            =  self.topFadeView.bounds;
+    topDarkGradient.colors           = [NSArray arrayWithObjects:(id)[[UIColor greenLight] CGColor], (id)[[UIColor greenClear] CGColor], nil];
+    [self.topFadeView.layer insertSublayer:topDarkGradient atIndex:0];
+    
+    CAGradientLayer *bottomDarkGradient = [CAGradientLayer layer];
+    bottomDarkGradient.frame            =  self.topFadeView.bounds;
+    bottomDarkGradient.colors           = [NSArray arrayWithObjects:(id)[[UIColor greenClear] CGColor], (id)[[UIColor greenLight] CGColor], nil];
+    [self.bottomFadeView.layer insertSublayer:bottomDarkGradient atIndex:0];
+    
+    self.includeSelfSwitch.onTintColor      = [UIColor whiteColor];
+    
+    
+}
+
+
+- (void)configureNavigationBar{
+    
+    self.navigationController.navigationBar.shadowImage = [UIImage new];
+    self.navigationController.navigationBar.translucent = YES;
+    self.navigationController.view.backgroundColor      = [UIColor clearColor];
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage new]
+                                                  forBarMetrics:UIBarMetricsDefault];
+    
 }
 
 
@@ -114,6 +145,13 @@ x-method create new version of charge
     self.dataStore.inputPhoneNumberArray = [[NSMutableArray alloc]init];
     self.venmoAPIClient = [JSVenmoAPIClient sharedInstance];
     self.contactArray   = [[NSMutableArray alloc]init];
+    for (UIView *subview in self.contactTableView.subviews)
+    {
+        if ([NSStringFromClass([subview class]) isEqualToString:@"UITableViewWrapperView"])
+        {
+            subview.frame = CGRectMake(0, 0, self.contactTableView.bounds.size.width, self.contactTableView.bounds.size.height);
+        }
+    }
 }
 
 - (void)createCharge{
@@ -128,21 +166,58 @@ x-method create new version of charge
     
     self.contactTableView.delegate      = self;
     self.contactTableView.dataSource    = self;
+//    self.contactTableView.contentInset = UIEdgeInsetsMake(0, 0, 15, 0);
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    return 86;
+    return 72;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
  
-    return self.dataStore.currentCharge.friend.count;
+    [self refreshContactArray];
+    return self.contactArray.count;
 }
 
-//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-//    
-//}
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    NSString *cellIdentifier            = @"splitContactCell";
+    JSSplitContactTableViewCell *cell   = (JSSplitContactTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    
+    if (cell == nil) {
+        cell                    = [[JSSplitContactTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+    }
+    
+//    [self refreshContactArray];
+    
+    JSFriend *friend    = [self.contactArray objectAtIndex:indexPath.row];
+    NSLog(@"%@", friend.displayName);
+    cell.contactField.text = friend.displayName;
+    cell.contactField.textColor = [UIColor greenLight];
+    cell.deleteButton.tintColor = [UIColor greenLight];
+    cell.cellOutilineView.backgroundColor = [UIColor whiteColor];
+    cell.backgroundColor = [UIColor clearColor];
+    
+    return cell;
+    
+}
+
+- (void)refreshContactArray{
+    
+    NSMutableArray *contactArrayBuilder = [[NSMutableArray alloc]initWithArray:self.dataStore.currentCharge.friend.allObjects];
+    
+    if (self.includeSelfSwitch) {
+        
+        JSFriend *friend    = [NSEntityDescription insertNewObjectForEntityForName:@"JSFriend" inManagedObjectContext:self.dataStore.managedObjectContext];
+        friend.displayName  = @"Me";
+        [contactArrayBuilder insertObject:friend atIndex:0];
+        [self.dataStore saveContext];
+        
+    }
+    
+    self.contactArray = contactArrayBuilder;
+}
 
 /*
 #pragma mark - Navigation
@@ -175,11 +250,13 @@ x-method create new version of charge
             JSFriend *friend    = [NSEntityDescription insertNewObjectForEntityForName:@"JSFriend" inManagedObjectContext:self.dataStore.managedObjectContext];
             
             friend.phoneNumber  = textField.text;
+            friend.displayName  = textField.text;
             
             [self.dataStore.currentCharge addFriendObject:friend];
         }
         [self.dataStore saveContext];
-        
+        [self.contactTableView reloadData];
+
     }];
     
     [getPhoneNumberAlert addAction:okAlert];
@@ -202,7 +279,8 @@ x-method create new version of charge
     
     //CREATE CANCEL ACTION
     UIAlertAction *cancelAlert = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        [self dismissViewControllerAnimated:YES completion:nil];
+        [self.contactTableView reloadData];
+
     }];
     [getPhoneNumberAlert addAction:cancelAlert];
 }
@@ -242,6 +320,7 @@ x-method create new version of charge
     }
     
     [self.dataStore saveContext];
+    [self.contactTableView reloadData];
 
 }
 
