@@ -37,6 +37,8 @@ x-method create new version of charge
 
 #import "UIColor+Colors.h"
 #import "NSString+Formatting.h"
+#import "UIView+Shimmer.h"
+
 
 @interface JSFirstSplitViewController () <UITableViewDelegate, UITableViewDataSource, CNContactPickerDelegate>
 
@@ -49,7 +51,8 @@ x-method create new version of charge
 @property (nonatomic)         NSInteger         contactCount;
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *backButton;
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *nextButton;
+
+@property (weak, nonatomic) IBOutlet UIButton *nextButton;
 @property (weak, nonatomic) IBOutlet UISwitch *includeSelfSwitch;
 @property (weak, nonatomic) IBOutlet UIButton *addressBookButton;
 @property (weak, nonatomic) IBOutlet UIButton *phoneNumberButton;
@@ -98,14 +101,20 @@ x-method create new version of charge
     self.phoneNumberButton.layer.borderWidth    = 1;
     self.phoneNumberButton.layer.cornerRadius   = 8;;
     self.phoneNumberButton.clipsToBounds        = YES;
+    
+    self.nextButton.layer.borderColor    = [[UIColor whiteColor]CGColor];
+    self.nextButton.backgroundColor      = [UIColor greenLight];
+    self.nextButton.layer.borderWidth    = 1;
+    self.nextButton.layer.cornerRadius   = 8;;
+    self.nextButton.clipsToBounds        = YES;
+    
 }
 
 - (void)configureColors{
    
-    CAGradientLayer *backgroundGradient = [CAGradientLayer layer];
-    backgroundGradient.frame            =  self.view.bounds;
-    backgroundGradient.colors           = [NSArray arrayWithObjects:(id)[[UIColor greenLight] CGColor], (id)[[UIColor greenLight] CGColor], nil];
-    [self.view.layer insertSublayer:backgroundGradient atIndex:0];
+
+    
+    self.view.backgroundColor = [UIColor greenLight];
     
     CAGradientLayer *topDarkGradient = [CAGradientLayer layer];
     topDarkGradient.frame            =  self.topFadeView.bounds;
@@ -127,7 +136,7 @@ x-method create new version of charge
     
     self.navigationController.navigationBar.shadowImage = [UIImage new];
     self.navigationController.navigationBar.translucent = YES;
-    self.navigationController.view.backgroundColor      = [UIColor clearColor];
+    self.navigationController.view.backgroundColor      = [UIColor greenLight];
     [self.navigationController.navigationBar setBackgroundImage:[UIImage new]
                                                   forBarMetrics:UIBarMetricsDefault];
     
@@ -245,6 +254,7 @@ x-method create new version of charge
     }
     
     self.contactArray = contactArrayBuilder;
+    [self toggleNextButton];
 }
 
 /*
@@ -354,6 +364,27 @@ x-method create new version of charge
 
 
 #pragma mark - Actions
+
+- (void)toggleNextButton{
+    
+    BOOL complete =  NO;
+    
+    if (self.contactArray.count > 0 && !self.includeSelfSwitch.on) {
+        
+        complete = YES;
+    }else if (self.contactArray.count > 1 && self.includeSelfSwitch.on){
+        
+        complete = YES;
+    }
+    
+    if (complete) {
+        self.nextButton.hidden = NO;
+//        [self.nextButton startShimmering];
+    }else{
+        self.nextButton.hidden = YES;
+    }
+    
+}
 
 - (IBAction)backButtonTapped:(id)sender {
     

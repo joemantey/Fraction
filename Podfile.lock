@@ -23,6 +23,7 @@ PODS:
   - CMDQueryStringSerialization (0.2.0)
   - RHAddressBook (1.1.1)
   - SSKeychain (1.2.3)
+  - UIView+Shimmer (1.0.0)
   - VENCore (3.0.1):
     - CMDQueryStringSerialization (~> 0.2.0)
   - Venmo-iOS-SDK (1.3.0):
@@ -33,6 +34,7 @@ PODS:
 DEPENDENCIES:
   - AFNetworking (~> 2.0)
   - RHAddressBook
+  - UIView+Shimmer
   - Venmo-iOS-SDK (~> 1.3)
 
 SPEC CHECKSUMS:
@@ -40,7 +42,8 @@ SPEC CHECKSUMS:
   CMDQueryStringSerialization: 15f9004212bbc72533bb533f63df79d90a00a7d8
   RHAddressBook: 870e9e0b34cb917b9c4c600fc3b7d5b530b23b13
   SSKeychain: 3f42991739c6c60a9cf1bbd4dff6c0d3694bcf3d
+  UIView+Shimmer: ed634f95e8f4bda666b28b47bd85a4336a4117d8
   VENCore: 7adedc7c0e65e3ba922cc21c35f3d0e133d43df7
   Venmo-iOS-SDK: 456097c6df57544362719ea8db01541953aec44d
 
-COCOAPODS: 0.35.0
+COCOAPODS: 0.39.0
