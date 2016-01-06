@@ -166,13 +166,14 @@ x-method create new version of charge
     
     self.contactTableView.delegate      = self;
     self.contactTableView.dataSource    = self;
-//    self.contactTableView.contentInset = UIEdgeInsetsMake(0, 0, 15, 0);
+    self.contactTableView.contentInset = UIEdgeInsetsMake(10, 0, 10, 0);
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     return 72;
 }
+
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
  
@@ -189,17 +190,45 @@ x-method create new version of charge
         cell                    = [[JSSplitContactTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
     
-//    [self refreshContactArray];
+    [cell.deleteButton addTarget:self action:@selector(deleteRow:) forControlEvents:UIControlEventTouchUpInside];
     
     JSFriend *friend    = [self.contactArray objectAtIndex:indexPath.row];
-    NSLog(@"%@", friend.displayName);
+   
     cell.contactField.text = friend.displayName;
     cell.contactField.textColor = [UIColor greenLight];
     cell.deleteButton.tintColor = [UIColor greenLight];
     cell.cellOutilineView.backgroundColor = [UIColor whiteColor];
     cell.backgroundColor = [UIColor clearColor];
     
+    if ([friend.displayName  isEqual: @"Me"]) {
+        cell.deleteButton.tintColor                 = [UIColor clearColor];
+        cell.deleteButton.userInteractionEnabled    = NO;
+    }
+    
     return cell;
+}
+
+-(void )deleteRow:(UIButton *)sender{
+    
+    CGPoint buttonPosition = [sender convertPoint:CGPointZero toView:self.contactTableView];
+    NSIndexPath *indexPath = [self.contactTableView indexPathForRowAtPoint:buttonPosition];
+    
+    if (indexPath != nil)
+    {
+        JSFriend *thisFriend = self.contactArray[indexPath.row];
+
+        [self.contactTableView beginUpdates];
+        [self.dataStore.managedObjectContext deleteObject:thisFriend];
+
+        
+        [self.dataStore saveContext];
+        [self.contactTableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        
+        [self.contactTableView reloadData];
+        
+        [self.contactTableView endUpdates];
+        
+    }
     
 }
 
@@ -207,13 +236,12 @@ x-method create new version of charge
     
     NSMutableArray *contactArrayBuilder = [[NSMutableArray alloc]initWithArray:self.dataStore.currentCharge.friend.allObjects];
     
-    if (self.includeSelfSwitch) {
+    if (self.includeSelfSwitch.on) {
         
         JSFriend *friend    = [NSEntityDescription insertNewObjectForEntityForName:@"JSFriend" inManagedObjectContext:self.dataStore.managedObjectContext];
         friend.displayName  = @"Me";
         [contactArrayBuilder insertObject:friend atIndex:0];
         [self.dataStore saveContext];
-        
     }
     
     self.contactArray = contactArrayBuilder;
@@ -336,6 +364,9 @@ x-method create new version of charge
 }
 
 - (IBAction)includeSelfSwitchChanged:(id)sender {
+    
+    [self refreshContactArray];
+    [self.contactTableView reloadData];
 }
 
 - (IBAction)addressBookButtonTapped:(id)sender {

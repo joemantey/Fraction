@@ -34,5 +34,4 @@ NSString *const VENMO_SANDBOX_CHARGE_SETTLED        = @"-0.10";
 NSString *const VENMO_SANDBOX_CHARGE_PENDING        = @"-0.20";
 
 
-
 @end
