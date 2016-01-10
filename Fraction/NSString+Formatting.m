@@ -11,7 +11,7 @@
 @implementation NSString (Formatting)
 
 
-+(NSString*)formatNumbers:(float )inputFloat{
++(NSString*)formatNumbersToDollarString:(float )inputFloat{
     
     NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
     

@@ -196,7 +196,7 @@
         self.totalEach  = self.amountTextField.text.floatValue + self.taxEach + self.tipEach;
     }
     
-    self.postSplitAmountTextField.text  = [NSString stringWithFormat:@"%@", [NSString formatNumbers:self.totalEach] ];
+    self.postSplitAmountTextField.text  = [NSString stringWithFormat:@"%@", [NSString formatNumbersToDollarString:self.totalEach] ];
     
     if (self.amountTextField.text.floatValue > 0 && self.contactCount > 0) {
     
@@ -231,14 +231,14 @@
 - (void)getTaxEach{
     
     self.taxEach                    = self.taxSlider.value * self.amountTextField.text.floatValue;
-    self.splitTaxTextField.text     = [NSString stringWithFormat:@"%@", [NSString formatNumbers: self.taxEach]];
+    self.splitTaxTextField.text     = [NSString stringWithFormat:@"%@", [NSString formatNumbersToDollarString: self.taxEach]];
 }
 
 
 - (void)getTipEach{
     
     self.tipEach                    = self.tipSlider.value * self.amountTextField.text.floatValue;
-    self.splitTipTextField.text     = [NSString stringWithFormat:@"%@", [NSString formatNumbers: self.tipEach]];
+    self.splitTipTextField.text     = [NSString stringWithFormat:@"%@", [NSString formatNumbersToDollarString: self.tipEach]];
 }
 
 #pragma mark UISlider Methods

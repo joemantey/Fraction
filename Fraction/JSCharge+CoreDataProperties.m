@@ -2,7 +2,7 @@
 //  JSCharge+CoreDataProperties.m
 //  Fraction
 //
-//  Created by Norma Smalls-Mantey on 1/1/16.
+//  Created by Joseph Smalls-Mantey on 1/8/16.
 //  Copyright © 2016 Yosimite Labs | Joseph Smalls-Mantey. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -14,7 +14,7 @@
 @implementation JSCharge (CoreDataProperties)
 
 @dynamic amount;
-@dynamic amountPledged;
+@dynamic amountLeft;
 @dynamic audience;
 @dynamic date;
 @dynamic dateOfCharge;
@@ -23,7 +23,10 @@
 @dynamic note;
 @dynamic phoneNumbers;
 @dynamic requestURL;
-@dynamic person;
+@dynamic tip;
+@dynamic selfIncluded;
 @dynamic friend;
+@dynamic person;
+@dynamic me;
 
 @end

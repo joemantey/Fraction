@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9525" systemVersion="14F27" minimumToolsVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9525" systemVersion="15A284" minimumToolsVersion="Automatic">
     <entity name="JSCharge" representedClassName="JSCharge" syncable="YES">
         <attribute name="amount" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="amountPledged" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="amountLeft" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="audience" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="dateOfCharge" optional="YES" attributeType="Date" syncable="YES"/>
@@ -11,8 +11,11 @@
         <attribute name="note" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="phoneNumbers" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="requestURL" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="selfIncluded" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="tip" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <relationship name="friend" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="JSFriend" inverseName="charge" inverseEntity="JSFriend" syncable="YES"/>
-        <relationship name="person" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="JSPerson" inverseName="charge" inverseEntity="JSPerson" syncable="YES"/>
+        <relationship name="me" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="JSFriend" inverseName="meCharge" inverseEntity="JSFriend" syncable="YES"/>
+        <relationship name="person" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="JSPerson" inverseName="charge" inverseEntity="JSPerson" syncable="YES"/>
     </entity>
     <entity name="JSFriend" representedClassName="JSFriend" syncable="YES">
         <attribute name="about" optional="YES" attributeType="String" syncable="YES"/>
@@ -25,6 +28,7 @@
         <attribute name="userID" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="username" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="charge" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="JSCharge" inverseName="friend" inverseEntity="JSCharge" syncable="YES"/>
+        <relationship name="meCharge" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="JSCharge" inverseName="me" inverseEntity="JSCharge" syncable="YES"/>
     </entity>
     <entity name="JSPayCharge" representedClassName="PayCharge" syncable="YES">
         <attribute name="amount" optional="YES" attributeType="String" syncable="YES"/>
@@ -51,8 +55,8 @@
         <relationship name="personToCharge" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="JSPayCharge" inverseName="payChargeToPerson" inverseEntity="JSPayCharge" syncable="YES"/>
     </entity>
     <elements>
-        <element name="JSCharge" positionX="34" positionY="-405" width="128" height="225"/>
-        <element name="JSFriend" positionX="115" positionY="-150" width="128" height="195"/>
+        <element name="JSCharge" positionX="34" positionY="-405" width="128" height="270"/>
+        <element name="JSFriend" positionX="115" positionY="-150" width="128" height="210"/>
         <element name="JSPayCharge" positionX="-234" positionY="-144" width="128" height="165"/>
         <element name="JSPerson" positionX="-189" positionY="-411" width="128" height="120"/>
         <element name="JSVenPerson" positionX="-63" positionY="36" width="128" height="118"/>

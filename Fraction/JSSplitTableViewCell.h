@@ -6,7 +6,7 @@
 //  Copyright © 2015 Yosimite Labs | Joseph Smalls-Mantey. All rights reserved.
 //
 
-#import "JSVenPerson.h"
+#import "JSFriend.h"
 
 #import <UIKit/UIKit.h>
 
@@ -21,7 +21,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *percentTextView;
 @property (weak, nonatomic) IBOutlet UISlider    *slider;
 
-@property (strong, nonatomic)        JSVenPerson *cellVenPerson;
+@property (strong, nonatomic)        JSFriend *cellFriend;
 
 - (IBAction)sliderValueDidChange:(id)sender;
 

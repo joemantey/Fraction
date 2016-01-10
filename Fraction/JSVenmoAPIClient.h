@@ -32,7 +32,7 @@
 - (void )processContactArraysInputArray:(NSArray *)inputPhoneNumberArray
                         andContactArray:(nonnull NSArray<CNContact *> *)contacts
                               andAmount:(nonnull NSString *)amount;
-
+-(void)splitAmount;
 -(void )refreshSplit;
 
 @end

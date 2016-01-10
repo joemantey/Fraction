@@ -10,5 +10,5 @@
 
 @interface NSString (Formatting)
 
-+(NSString*)formatNumbers:(float )inputFloat;
++(NSString*)formatNumbersToDollarString:(float )inputFloat;
 @end

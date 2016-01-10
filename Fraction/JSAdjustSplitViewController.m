@@ -11,6 +11,7 @@
 
 #import "JSCoreData.h"
 #import "JSVenPerson.h"
+#import "JSFriend.h"
 #import "JSVenmoAPIClient.h"
 
 #import "UIColor+Colors.h"
@@ -23,7 +24,7 @@
 
 @property (strong, nonatomic) JSCoreData        *dataStore;
 @property (strong, nonatomic) JSVenmoAPIClient  *venmoAPIClient;
-@property (strong, nonatomic) NSArray           *venPersonArray;
+@property (strong, nonatomic) NSMutableArray    *friendArray;
 
 @property (weak, nonatomic) IBOutlet UIView         *blurView;
 @property (weak, nonatomic) IBOutlet UIView         *backgroundContainer;
@@ -45,7 +46,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setUpCoreData];
+    [self configureCoreData];
     [self clearNavigationBar];
     [self setOutlines];
     [self setDealText];
@@ -65,12 +66,21 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)setUpCoreData{
+- (void)configureCoreData{
     
     self.dataStore      = [JSCoreData sharedDataStore];
-    self.venPersonArray = [self.dataStore.currentPayCharge.payChargeToPerson allObjects];
-    NSLog(@"%@", self.venPersonArray);
+    self.friendArray    = [[NSMutableArray alloc]initWithArray: [self.dataStore.currentCharge.friend allObjects]];
     self.venmoAPIClient = [JSVenmoAPIClient sharedInstance];
+
+    
+    if (self.dataStore.currentCharge.selfIncluded) {
+        
+        [self.friendArray insertObject:self.dataStore.currentCharge.me atIndex:0];
+    }
+    
+    [self.venmoAPIClient splitAmount];
+    [self.dataStore saveContext];
+
 }
 
 - (void)clearNavigationBar{
@@ -133,10 +143,8 @@
 
 - (void)setDealText{
     
-    self.amountRemainingTextView.text       = [NSString stringWithFormat:@"$ %d", self.dataStore.currentPayCharge.amountLeft.integerValue];
-    self.perAmountRemainingTextView.text    = [NSString stringWithFormat:@"$ %.f", (self.dataStore.currentPayCharge.amountLeft.floatValue/[self.venPersonArray count])];
-    
-    
+    self.amountRemainingTextView.text       = [NSString stringWithFormat:@"$ %.f", self.dataStore.currentCharge.amountLeft.floatValue];
+    self.perAmountRemainingTextView.text    = [NSString stringWithFormat:@"$%.f", (self.dataStore.currentCharge.amountLeft.floatValue/self.friendArray.count)];
 }
 
 
@@ -144,7 +152,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
-    return self.venPersonArray.count;
+    return self.friendArray.count;
 }
 
 
@@ -169,14 +177,14 @@
         cell                    = [[JSSplitTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
     
-    JSVenPerson *venPerson      = [self.venPersonArray  objectAtIndex: indexPath.row];
-    cell.cellVenPerson          = venPerson;
+    JSFriend *friend            = [self.friendArray  objectAtIndex: indexPath.row];
+    cell.cellFriend             = friend;
     
-    cell.percentTextView.text   = [NSString stringWithFormat:@"%.f%%", venPerson.sharePercentage.floatValue*100];
-    cell.shareTextView.text     = [NSString stringWithFormat:@"$%d", venPerson.transactionAmount.integerValue];
-    cell.contactTextView.text   = venPerson.displayName;
-    
-    cell.slider.value           = venPerson.transactionAmount.floatValue/self.dataStore.currentPayCharge.amount.floatValue;
+    NSLog(@"PLEDGED AMOUNT %@", friend.pledgedAmount);
+//    cell.percentTextView.text   = [NSString stringWithFormat:@"%.f%%", friend.shareOfAmount.floatValue*100];
+    cell.shareTextView.text     = [NSString stringWithFormat:@"$%ld", friend.pledgedAmount.integerValue];
+    cell.contactTextView.text   = friend.displayName;
+    cell.slider.value           = friend.pledgedAmount.floatValue/self.dataStore.currentCharge.amount.floatValue;
     cell.slider.tag             = indexPath.row;
     cell.slider.maximumValue    = 1;
     cell.slider.minimumValue    = 0;
@@ -193,16 +201,14 @@
 
 -(void)sliderValueChangedwithSender:(UISlider *)sender{
     
-    JSVenPerson *venPerson      = self.venPersonArray[sender.tag];
+    JSFriend *friend      = self.friendArray[sender.tag];
     
     CGFloat sliderValue         = sender.value;
     
-//    venPerson.sharePercentage   = [NSString stringWithFormat:@"%f", sliderValue];
-    venPerson.transactionAmount = [NSString stringWithFormat:@"%f", self.dataStore.currentPayCharge.amount.floatValue * sliderValue];
-    venPerson.sharePercentage   = [NSString stringWithFormat:@"%f", venPerson.transactionAmount.floatValue/self.dataStore.currentPayCharge.amount.floatValue];
+    friend.pledgedAmount = [NSNumber numberWithFloat:(self.dataStore.currentCharge.amount.floatValue * sliderValue)];
+    friend.shareOfAmount = [NSNumber numberWithFloat:(friend.pledgedAmount.floatValue/self.dataStore.currentCharge.amount.floatValue)];
     
     [self.dataStore saveContext];
-    [self.tableView reloadData];
     [self.venmoAPIClient refreshSplit];
     [self.tableView reloadData];
     [self setDealText];

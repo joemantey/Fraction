@@ -27,6 +27,9 @@ x-method create new version of charge
  */
 
 
+
+#warning COLORS HERE https://www.typesupply.com/fonts/timonium
+
 #import "JSFirstSplitViewController.h"
 #import "JSSplitContactTableViewCell.h"
 
@@ -35,6 +38,7 @@ x-method create new version of charge
 #import "JSFriend.h"
 #import "JSVenmoAPIClient.h"
 
+#import "JSConstants.h"
 #import "UIColor+Colors.h"
 #import "NSString+Formatting.h"
 #import "UIView+Shimmer.h"
@@ -92,28 +96,26 @@ x-method create new version of charge
     
     self.addressBookButton.layer.borderColor    = [[UIColor whiteColor]CGColor];
     self.addressBookButton.backgroundColor      = [UIColor greenLight];
-    self.addressBookButton.layer.borderWidth    = 1;
-    self.addressBookButton.layer.cornerRadius   = 8;
+    self.addressBookButton.layer.borderWidth    = BORDER_WIDTH;
+    self.addressBookButton.layer.cornerRadius   = CORNER_RADIUS;
     self.addressBookButton.clipsToBounds        = YES;
     
     self.phoneNumberButton.layer.borderColor    = [[UIColor whiteColor]CGColor];
     self.phoneNumberButton.backgroundColor      = [UIColor greenLight];
-    self.phoneNumberButton.layer.borderWidth    = 1;
-    self.phoneNumberButton.layer.cornerRadius   = 8;;
+    self.phoneNumberButton.layer.borderWidth    = BORDER_WIDTH;
+    self.phoneNumberButton.layer.cornerRadius   = CORNER_RADIUS;
     self.phoneNumberButton.clipsToBounds        = YES;
     
     self.nextButton.layer.borderColor    = [[UIColor whiteColor]CGColor];
     self.nextButton.backgroundColor      = [UIColor greenLight];
-    self.nextButton.layer.borderWidth    = 1;
-    self.nextButton.layer.cornerRadius   = 8;;
+    self.nextButton.layer.borderWidth    = BORDER_WIDTH;
+    self.nextButton.layer.cornerRadius   = CORNER_RADIUS;
     self.nextButton.clipsToBounds        = YES;
     
 }
 
 - (void)configureColors{
-   
-
-    
+  
     self.view.backgroundColor = [UIColor greenLight];
     
     CAGradientLayer *topDarkGradient = [CAGradientLayer layer];
@@ -127,8 +129,6 @@ x-method create new version of charge
     [self.bottomFadeView.layer insertSublayer:bottomDarkGradient atIndex:0];
     
     self.includeSelfSwitch.onTintColor      = [UIColor whiteColor];
-    
-    
 }
 
 
@@ -139,13 +139,6 @@ x-method create new version of charge
     self.navigationController.view.backgroundColor      = [UIColor greenLight];
     [self.navigationController.navigationBar setBackgroundImage:[UIImage new]
                                                   forBarMetrics:UIBarMetricsDefault];
-    
-}
-
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (void)configureCoreDataAndVenmo{
@@ -167,6 +160,10 @@ x-method create new version of charge
     
     JSCharge *charge = [NSEntityDescription insertNewObjectForEntityForName:@"JSCharge" inManagedObjectContext:self.dataStore.managedObjectContext];
     self.dataStore.currentCharge = charge;
+    
+    JSFriend *friend    = [NSEntityDescription insertNewObjectForEntityForName:@"JSFriend" inManagedObjectContext:self.dataStore.managedObjectContext];
+    friend.displayName  = @"Me";
+    self.dataStore.currentCharge.me = friend;
 }
 
 #pragma mark - Table View
@@ -247,12 +244,16 @@ x-method create new version of charge
     
     if (self.includeSelfSwitch.on) {
         
-        JSFriend *friend    = [NSEntityDescription insertNewObjectForEntityForName:@"JSFriend" inManagedObjectContext:self.dataStore.managedObjectContext];
-        friend.displayName  = @"Me";
-        [contactArrayBuilder insertObject:friend atIndex:0];
+        self.dataStore.currentCharge.selfIncluded = [NSNumber numberWithBool:YES];
+//        JSFriend *friend    = [NSEntityDescription insertNewObjectForEntityForName:@"JSFriend" inManagedObjectContext:self.dataStore.managedObjectContext];
+//        friend.displayName  = @"Me";
+        [contactArrayBuilder insertObject:self.dataStore.currentCharge.me atIndex:0];
         [self.dataStore saveContext];
+    }else{
+        self.dataStore.currentCharge.selfIncluded = [NSNumber numberWithBool:NO];
     }
     
+    [self.dataStore saveContext];
     self.contactArray = contactArrayBuilder;
     [self toggleNextButton];
 }
@@ -299,17 +300,6 @@ x-method create new version of charge
     
     [getPhoneNumberAlert addAction:okAlert];
     
-    
-    //CREATE ENTER ANOTHER PHONE NUMBER ACTION
-//    UIAlertAction *enterAnotherPhoneNumber = [UIAlertAction actionWithTitle:@"Enter another phone number" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-//    
-//        [getPhoneNumberAlert addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
-//            textField.keyboardType = UIKeyboardTypeNumberPad;
-//        }];
-//    }];
-//         
-//    [getPhoneNumberAlert addAction:enterAnotherPhoneNumber];
-    
     [self presentViewController:getPhoneNumberAlert animated:YES completion:nil];
     
     
@@ -344,7 +334,6 @@ x-method create new version of charge
 
     //for each contact in contact, go through and create a person object for and attatch it to the current bargaing
     
-    
     for (CNContact *eachContact in contacts) {
         
         JSFriend *friend    = [NSEntityDescription insertNewObjectForEntityForName:@"JSFriend" inManagedObjectContext:self.dataStore.managedObjectContext];
@@ -370,20 +359,16 @@ x-method create new version of charge
     BOOL complete =  NO;
     
     if (self.contactArray.count > 0 && !self.includeSelfSwitch.on) {
-        
         complete = YES;
     }else if (self.contactArray.count > 1 && self.includeSelfSwitch.on){
-        
         complete = YES;
     }
     
     if (complete) {
         self.nextButton.hidden = NO;
-//        [self.nextButton startShimmering];
     }else{
         self.nextButton.hidden = YES;
     }
-    
 }
 
 - (IBAction)backButtonTapped:(id)sender {

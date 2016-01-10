@@ -16,17 +16,21 @@
 
 @property (strong, nonatomic) JSCoreData        *dataStore;
 
-@property (weak, nonatomic) IBOutlet UISegmentedControl *privacySegmentedControl;
-@property (weak, nonatomic) IBOutlet UITextView *notesTextField;
-@property (weak, nonatomic) IBOutlet UIButton *completeTransactionButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *backButton;
+@property (weak, nonatomic) IBOutlet UIButton *nextButton;
 @property (weak, nonatomic) IBOutlet UIView *totalBackgroundView;
-@property (weak, nonatomic) IBOutlet UITextField *taxTextField;
 @property (weak, nonatomic) IBOutlet UITextField *totalTextField;
+@property (weak, nonatomic) IBOutlet UITextView *notesTextField;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *privacySegmentedControl;
+@property (weak, nonatomic) IBOutlet UISlider *tipSlider;
+@property (weak, nonatomic) IBOutlet UILabel *tipLabel;
 
-- (IBAction)didTapCompletTransactionButton:(id)sender;
+@property (weak, nonatomic) IBOutlet UITextField *amountTextField;
+
+- (IBAction)amountTextValueChanged:(id)sender;
 - (IBAction)didTapBackButton:(id)sender;
 - (IBAction)segmentedControlValueChanged:(id)sender;
+- (IBAction)sliderValueChanged:(id)sender;
 
 
 @end
@@ -37,33 +41,47 @@
     
     [super viewDidLoad];
     
-    [self setUpCoreData];
-    [self clearNavigationBar];
+    [self configureCoreData];
+    [self configureNavigationBar];
+    [self configureSlider];
     [self setBackgroundColor];
     [self setOutlines];
     [self addGestureRecognizer];
     [self checkTextView];
     
+    
     self.notesTextField.delegate = self;
 
 }
 
-- (void)setUpCoreData{
+- (void)configureCoreData{
     self.dataStore              = [JSCoreData sharedDataStore];
-    self.notesTextField.text    = self.dataStore.noteString;
     
-    self.privacySegmentedControl.selectedSegmentIndex = self.dataStore.privacyPickerIndex;
-    [self setUpAmountDisplay];
+    if (self.dataStore.currentCharge.note) {
+        self.notesTextField.text = self.dataStore.currentCharge.note;
+    }
+    
+    if (self.dataStore.currentCharge.audience) {
+        self.privacySegmentedControl.selectedSegmentIndex = self.dataStore.currentCharge.audience.integerValue;
+    }
+    
+    [self configureAmountDisplay];
     
 }
 
--(void)setUpAmountDisplay{
+-(void)configureAmountDisplay{
     
-    self.totalTextField.text = [NSString formatNumbers:self.dataStore.currentPayCharge.amount.floatValue/self.dataStore.currentPayCharge.payChargeToPerson.count];
+    if (self.dataStore.currentCharge.amount) {
+       
+        self.totalTextField.text = [NSString formatNumbersToDollarString:self.dataStore.currentCharge.amount.floatValue/self.dataStore.currentCharge.friend.count];
+    }else{
+        self.totalTextField.text = [NSString formatNumbersToDollarString:0];
+    }
+   
 }
 
 
-- (void)clearNavigationBar{
+- (void)configureNavigationBar{
     
     self.navigationItem.leftBarButtonItem.imageInsets   = UIEdgeInsetsMake(12, 0, 12, 24);
     
@@ -88,44 +106,40 @@
 
 - (void)setOutlines{
     
-    self.notesTextField.layer.cornerRadius  = 8;
-    self.notesTextField.layer.borderWidth   = 1;
-    self.notesTextField.layer.borderColor   = [[UIColor whiteColor]CGColor];
-    self.notesTextField.clipsToBounds       = YES;
+ self.totalBackgroundView.layer.cornerRadius = CORNER_RADIUS;
+    self.totalBackgroundView.layer.borderWidth  = BORDER_WIDTH;
+    self.totalBackgroundView.layer.borderColor  = [[UIColor whiteColor]CGColor];
+    self.totalBackgroundView.clipsToBounds      = YES;
     
-    self.totalBackgroundView.layer.cornerRadius  = 8;
-    self.totalBackgroundView.layer.borderWidth   = 1;
-    self.totalBackgroundView.layer.borderColor   = [[UIColor whiteColor]CGColor];
-    self.totalBackgroundView.clipsToBounds       = YES;
+    self.amountTextField.layer.cornerRadius     = CORNER_RADIUS;
+    self.amountTextField.layer.borderWidth      = BORDER_WIDTH;
+    self.amountTextField.layer.borderColor      = [[UIColor whiteColor]CGColor];
+    self.amountTextField.clipsToBounds          = YES;
     
-    self.completeTransactionButton.layer.cornerRadius       = 8;
-    self.completeTransactionButton.layer.borderWidth        = 1;
-    self.completeTransactionButton.layer.borderColor        = [[UIColor clearColor]CGColor];
-    self.completeTransactionButton.clipsToBounds            = YES;
-    self.completeTransactionButton.userInteractionEnabled   = NO;
-  
+    self.notesTextField.layer.cornerRadius      = CORNER_RADIUS;
+    self.notesTextField.layer.borderWidth       = BORDER_WIDTH;
+    self.notesTextField.layer.borderColor       = [[UIColor whiteColor]CGColor];
+    self.notesTextField.clipsToBounds           = YES;
+    
+    self.nextButton.layer.cornerRadius          = CORNER_RADIUS;
+    self.nextButton.layer.borderWidth           = BORDER_WIDTH;
+    self.nextButton.layer.borderColor           = [[UIColor whiteColor]CGColor];
+    self.nextButton.clipsToBounds               = YES;
+    self.nextButton.hidden                      = YES;
 }
+
 
 - (void)checkTextView{
     
-    if (self.notesTextField.text.length > 0) {
+    if (self.notesTextField.text.length > 0 && self.amountTextField.text.length >0) {
         
-        [self.completeTransactionButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        self.completeTransactionButton.layer.borderColor          =  [[UIColor whiteColor]CGColor];
-        self.completeTransactionButton.userInteractionEnabled   = YES;
-        self.dataStore.noteString                               = self.notesTextField.text;
-        [self.completeTransactionButton setTitle:@"next: confirm splits" forState:UIControlStateNormal];
-
+        self.nextButton.hidden      = NO;
         
         [self.dataStore saveContext];
     }else{
         
-        [self.completeTransactionButton setTitleColor:[UIColor colorWithWhite:1 alpha:0.75] forState:UIControlStateNormal];
-        [self.completeTransactionButton setTitle:@"please complete all fields" forState:UIControlStateNormal];
-        self.completeTransactionButton.backgroundColor          =  [UIColor clearColor];
-        self.completeTransactionButton.userInteractionEnabled   = NO;
-        self.dataStore.noteString                               = self.notesTextField.text;
-        
+        self.nextButton.hidden      = YES;
+        self.dataStore.noteString   = self.notesTextField.text;
         [self.dataStore saveContext];
     }
     
@@ -145,6 +159,54 @@
     
     [self.view endEditing:YES];
 }
+
+
+#pragma mark - Tax Slider
+
+-(void)configureSlider{
+    
+    self.tipSlider.value = 0;
+    [self updateTipLabel];
+    
+}
+
+-(void)updateTipLabel{
+    
+    NSInteger taxPercentage     = self.tipSlider.value * 100;
+    self.tipLabel.text    = [NSString stringWithFormat:@"%ld%%", (long)taxPercentage];
+    [self updateAmounts];
+    
+}
+
+#pragma mark - Amount Text Field
+
+- (void)updateAmounts{
+    
+    if (self.amountTextField.text.floatValue > 0) {
+        
+        CGFloat amount = self.amountTextField.text.floatValue;
+        CGFloat count  = self.dataStore.currentCharge.friend.count;
+        
+        if (self.dataStore.currentCharge.selfIncluded) {
+            count =  count+1;
+        }
+        
+        CGFloat tax    = self.tipSlider.value*amount;
+        
+        self.dataStore.currentCharge.amount = [NSNumber numberWithFloat:amount];
+        [self.dataStore saveContext];
+        
+        self.totalTextField.text = [NSString formatNumbersToDollarString:((amount+tax)/count)];
+    }
+}
+
+
+- (IBAction)amountTextValueChanged:(id)sender {
+
+    [self updateAmounts];
+}
+
+#pragma mark - Note Text View
 
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
     
@@ -182,8 +244,9 @@
 }
 
 
-- (IBAction)didTapCompletTransactionButton:(id)sender {
-}
+#pragma mark - Actions
+
+
 
 - (IBAction)didTapBackButton:(id)sender {
     
@@ -193,5 +256,11 @@
 - (IBAction)segmentedControlValueChanged:(id)sender {
     
     self.dataStore.privacyPickerIndex = self.privacySegmentedControl.selectedSegmentIndex;
+}
+
+- (IBAction)sliderValueChanged:(id)sender {
+    
+    [self updateTipLabel];
+
 }
 @end

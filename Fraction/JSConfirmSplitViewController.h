@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "JSConstants.h"
 
 @interface JSConfirmSplitViewController : UIViewController
 

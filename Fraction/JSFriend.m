@@ -2,7 +2,7 @@
 //  JSFriend.m
 //  Fraction
 //
-//  Created by Norma Smalls-Mantey on 1/1/16.
+//  Created by Joseph Smalls-Mantey on 1/7/16.
 //  Copyright © 2016 Yosimite Labs | Joseph Smalls-Mantey. All rights reserved.
 //
 

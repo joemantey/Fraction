@@ -155,23 +155,49 @@ static JSVenmoAPIClient * venmoAPIClient;
 }
 
 
--(void )refreshSplit{
+-(void)splitAmount{
     
-    JSCoreData *dataStore       = [JSCoreData sharedDataStore];
-    PayCharge *charge           = dataStore.currentPayCharge;
-    NSArray *venPersonArray     = [charge.payChargeToPerson allObjects];
-    int totalFromVenPersons     = 0;
-    
-    for (JSVenPerson *venPerson in venPersonArray) {
-        
-        totalFromVenPersons = totalFromVenPersons + [venPerson.transactionAmount floatValue];
+    JSCoreData *dataStore           = [JSCoreData sharedDataStore];
+    NSMutableArray *friendArray     = [[NSMutableArray alloc]initWithArray: dataStore.currentCharge.friend.allObjects];
+
+    if (dataStore.currentCharge.selfIncluded) {
+        [friendArray insertObject:dataStore.currentCharge.me atIndex:0];
     }
     
-    charge.amountLeft       = [NSString stringWithFormat:@"%f",([charge.amount floatValue] - totalFromVenPersons )];
+    float amountEach        = dataStore.currentCharge.amount.floatValue /friendArray.count;
     
-    for (JSVenPerson *venPerson in venPersonArray) {
+    NSLog(@"amount each %f", amountEach);
+    for (JSFriend *friend in friendArray) {
+        friend.pledgedAmount    = [NSNumber numberWithFloat:amountEach];
+        friend.shareOfAmount    = [NSNumber numberWithFloat:(1/friendArray.count)];
+    }
+    
+   
+    
+    
+    [dataStore saveContext];
+}
+
+- (void)refreshSplit{
+    
+    JSCoreData *dataStore           = [JSCoreData sharedDataStore];
+    NSMutableArray *friendArray     = [[NSMutableArray alloc]initWithArray: dataStore.currentCharge.friend.allObjects];
+
+    if (dataStore.currentCharge.selfIncluded) {
+        [friendArray insertObject:dataStore.currentCharge.me atIndex:0];
+    }
+    
+    int totalFromFriends    = 0;
+    
+    for (JSFriend *friend in friendArray) {
+        totalFromFriends    = totalFromFriends + [friend.pledgedAmount floatValue];
+    }
+    
+    dataStore.currentCharge.amountLeft       = [NSNumber numberWithFloat: dataStore.currentCharge.amount.floatValue - totalFromFriends];
+    
+    for (JSFriend *friend in friendArray) {
         
-        venPerson.sharePercentage   = [NSString stringWithFormat:@"%f", ([venPerson.transactionAmount floatValue]/totalFromVenPersons)];
+        friend.shareOfAmount= [NSNumber numberWithFloat: ([friend.pledgedAmount floatValue]/dataStore.currentCharge.amount.floatValue)];
     }
     
     [dataStore saveContext];

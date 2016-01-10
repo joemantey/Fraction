@@ -2,7 +2,7 @@
 //  JSCharge+CoreDataProperties.h
 //  Fraction
 //
-//  Created by Norma Smalls-Mantey on 1/1/16.
+//  Created by Joseph Smalls-Mantey on 1/8/16.
 //  Copyright © 2016 Yosimite Labs | Joseph Smalls-Mantey. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -16,7 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface JSCharge (CoreDataProperties)
 
 @property (nullable, nonatomic, retain) NSNumber *amount;
-@property (nullable, nonatomic, retain) NSNumber *amountPledged;
+@property (nullable, nonatomic, retain) NSNumber *amountLeft;
 @property (nullable, nonatomic, retain) NSString *audience;
 @property (nullable, nonatomic, retain) NSDate *date;
 @property (nullable, nonatomic, retain) NSDate *dateOfCharge;
@@ -25,17 +25,15 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic, retain) NSString *note;
 @property (nullable, nonatomic, retain) NSString *phoneNumbers;
 @property (nullable, nonatomic, retain) NSString *requestURL;
-@property (nullable, nonatomic, retain) NSSet<NSManagedObject *> *person;
+@property (nullable, nonatomic, retain) NSNumber *tip;
+@property (nullable, nonatomic, retain) NSNumber *selfIncluded;
 @property (nullable, nonatomic, retain) NSSet<JSFriend *> *friend;
+@property (nullable, nonatomic, retain) NSManagedObject *person;
+@property (nullable, nonatomic, retain) JSFriend *me;
 
 @end
 
 @interface JSCharge (CoreDataGeneratedAccessors)
-
-- (void)addPersonObject:(NSManagedObject *)value;
-- (void)removePersonObject:(NSManagedObject *)value;
-- (void)addPerson:(NSSet<NSManagedObject *> *)values;
-- (void)removePerson:(NSSet<NSManagedObject *> *)values;
 
 - (void)addFriendObject:(JSFriend *)value;
 - (void)removeFriendObject:(JSFriend *)value;

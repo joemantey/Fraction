@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface JSConstants : NSObject
 
@@ -27,4 +28,6 @@ extern NSString *const VENMO_SANDBOX_PAYMENT_PENDING;
 extern NSString *const VENMO_SANDBOX_CHARGE_SETTLED;
 extern NSString *const VENMO_SANDBOX_CHARGE_PENDING;
 
+extern CGFloat   const CORNER_RADIUS;
+extern CGFloat   const BORDER_WIDTH;
 @end
