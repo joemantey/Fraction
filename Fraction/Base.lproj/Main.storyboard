@@ -2529,14 +2529,14 @@
                                                                     <rect key="frame" x="405" y="93" width="135" height="95"/>
                                                                     <subviews>
                                                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" text="share %" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TD1-Mg-SR2" userLabel="Bottom">
-                                                                            <rect key="frame" x="0.0" y="52" width="135" height="19"/>
+                                                                            <rect key="frame" x="0.0" y="59" width="135" height="21"/>
                                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="11"/>
                                                                             <textInputTraits key="textInputTraits"/>
                                                                         </textField>
                                                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZKE-s7-m1r">
-                                                                            <rect key="frame" x="-1" y="0.0" width="136" height="52"/>
+                                                                            <rect key="frame" x="-1" y="0.0" width="136" height="59"/>
                                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -2612,7 +2612,7 @@
                                                                 <constraint firstItem="JEx-c3-8lz" firstAttribute="leading" secondItem="rbo-5k-dda" secondAttribute="leading" id="TCZ-v1-irC"/>
                                                                 <constraint firstItem="cDj-KN-xkr" firstAttribute="leading" secondItem="rbo-5k-dda" secondAttribute="leading" id="XSM-KG-rYf"/>
                                                                 <constraint firstItem="JEx-c3-8lz" firstAttribute="top" secondItem="kkN-1u-aZ2" secondAttribute="bottom" constant="-1" id="ZTw-cr-Ts2"/>
-                                                                <constraint firstItem="kkN-1u-aZ2" firstAttribute="height" secondItem="rbo-5k-dda" secondAttribute="height" multiplier="0.6" id="bUC-Q9-qMp"/>
+                                                                <constraint firstItem="kkN-1u-aZ2" firstAttribute="height" secondItem="rbo-5k-dda" secondAttribute="height" multiplier="0.55" id="bUC-Q9-qMp"/>
                                                                 <constraint firstItem="JEx-c3-8lz" firstAttribute="leading" secondItem="cDj-KN-xkr" secondAttribute="trailing" id="eSo-iT-E16"/>
                                                                 <constraint firstAttribute="trailing" secondItem="JEx-c3-8lz" secondAttribute="trailing" id="lD7-B0-NHC"/>
                                                             </constraints>
@@ -2841,20 +2841,20 @@
                     </view>
                     <navigationItem key="navigationItem" id="R5J-ih-ZHC">
                         <nil key="title"/>
-                        <barButtonItem key="leftBarButtonItem" image="Back" id="Pzb-vg-wPS">
+                        <barButtonItem key="leftBarButtonItem" image="Back" id="uOn-hy-gXS">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
-                                <action selector="didTapBackButton:" destination="yv5-Fa-czu" id="eIP-FN-Hs4"/>
+                                <action selector="didTapBackButton:" destination="yv5-Fa-czu" id="9yd-7B-FUN"/>
                             </connections>
                         </barButtonItem>
                         <view key="titleView" contentMode="scaleToFill" id="jLq-Hu-MZt">
                             <rect key="frame" x="180" y="6" width="240" height="33"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Adjust split" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lMW-1z-KyK">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Finalize Splits" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lMW-1z-KyK">
                                     <rect key="frame" x="0.0" y="0.0" width="240" height="33"/>
                                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="20"/>
-                                    <color key="textColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
@@ -2866,7 +2866,13 @@
                                 <constraint firstItem="lMW-1z-KyK" firstAttribute="leading" secondItem="jLq-Hu-MZt" secondAttribute="leading" id="u60-ew-arv"/>
                             </constraints>
                         </view>
-                        <barButtonItem key="rightBarButtonItem" id="q38-tI-SAR"/>
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="QpN-A0-MMG">
+                            <view key="customView" contentMode="scaleToFill" id="hF8-lA-VZW">
+                                <rect key="frame" x="516" y="5" width="64" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="amountRemainingContainer" destination="e5d-pK-QT7" id="Lrn-DP-kBf"/>

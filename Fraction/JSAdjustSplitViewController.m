@@ -15,6 +15,7 @@
 #import "JSVenmoAPIClient.h"
 
 #import "UIColor+Colors.h"
+#import "JSConstants.h"
 
 
 
@@ -126,19 +127,21 @@
 
 - (void)setOutlines{
     
-    self.backgroundContainer.layer.cornerRadius         = 8;
-    self.backgroundContainer.layer.borderWidth          = 1;
+    self.backgroundContainer.layer.cornerRadius         = CORNER_RADIUS;
+    self.backgroundContainer.layer.borderWidth          = BORDER_WIDTH;
     self.backgroundContainer.layer.borderColor          = [[UIColor whiteColor]CGColor];
     self.backgroundContainer.clipsToBounds              = YES;
     
-    self.amountRemainingContainer.layer.borderWidth     = 1;
+    self.amountRemainingContainer.layer.borderWidth     = BORDER_WIDTH;
     self.amountRemainingContainer.layer.borderColor     = [[UIColor whiteColor]CGColor];
     self.amountRemainingContainer.clipsToBounds         = YES;
     
-    self.completeTransactionButton.layer.cornerRadius   = 8;
-    self.completeTransactionButton.layer.borderWidth    = 1;
+    self.completeTransactionButton.layer.cornerRadius   = CORNER_RADIUS;
+    self.completeTransactionButton.layer.borderWidth    = BORDER_WIDTH;
     self.completeTransactionButton.layer.borderColor    = [[UIColor whiteColor]CGColor];
     self.completeTransactionButton.clipsToBounds        = YES;
+    self.completeTransactionButton.backgroundColor      = [UIColor whiteColor];
+    [self.completeTransactionButton setTitleColor:[UIColor greenLight] forState:UIControlStateNormal ];
 }
 
 - (void)setDealText{
