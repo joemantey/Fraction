@@ -1207,7 +1207,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S0Z-Gt-piz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1512" y="639"/>
+            <point key="canvasLocation" x="1528" y="767"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="MaO-hj-PvI">
@@ -2254,7 +2254,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JqI-nA-tA9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3196" y="1492"/>
+            <point key="canvasLocation" x="-28" y="3516"/>
         </scene>
         <!--Add Phone Number View Controller-->
         <scene sceneID="uo2-oT-Xeq">
@@ -3069,7 +3069,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vQj-Ys-yaq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2384" y="1492"/>
+            <point key="canvasLocation" x="-840" y="3516"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="bVG-ti-HwY">
@@ -3355,7 +3355,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y0M-86-Krg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4008" y="2221"/>
+            <point key="canvasLocation" x="784" y="4245"/>
         </scene>
         <!--Confirm Split View Controller-->
         <scene sceneID="Tj2-US-SEf">
@@ -3539,12 +3539,32 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="aS0-99-GDi">
+                        <nil key="title"/>
                         <barButtonItem key="leftBarButtonItem" image="Back" id="nA8-xe-GJd">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="didTapBackButton:" destination="Qby-Kl-D3W" id="ctL-KF-H7C"/>
                             </connections>
                         </barButtonItem>
+                        <view key="titleView" contentMode="scaleToFill" id="rNT-Q5-eKs">
+                            <rect key="frame" x="200" y="6" width="200" height="33"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bxw-fr-ZHN">
+                                    <rect key="frame" x="0.0" y="0.0" width="223" height="33"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="bxw-fr-ZHN" firstAttribute="width" secondItem="rNT-Q5-eKs" secondAttribute="width" id="50z-VP-bAR"/>
+                                <constraint firstItem="bxw-fr-ZHN" firstAttribute="height" secondItem="rNT-Q5-eKs" secondAttribute="height" id="bKU-2Q-jNP"/>
+                                <constraint firstItem="bxw-fr-ZHN" firstAttribute="centerY" secondItem="rNT-Q5-eKs" secondAttribute="centerY" id="oDM-va-Sag"/>
+                                <constraint firstItem="bxw-fr-ZHN" firstAttribute="centerX" secondItem="rNT-Q5-eKs" secondAttribute="centerX" id="vVj-u4-Xhy"/>
+                            </constraints>
+                        </view>
                         <barButtonItem key="rightBarButtonItem" style="plain" id="U4u-aq-Kc6">
                             <view key="customView" contentMode="scaleToFill" id="au3-u9-o5m">
                                 <rect key="frame" x="516" y="5" width="64" height="33"/>
@@ -3579,6 +3599,7 @@
                         <outlet property="privacySegmentedControl" destination="h55-33-Zxe" id="55B-S9-bVT"/>
                         <outlet property="tipLabel" destination="EfH-RR-cVT" id="QHT-Bu-Itk"/>
                         <outlet property="tipSlider" destination="Fil-Tj-6Z4" id="Ng4-6p-iXD"/>
+                        <outlet property="titleLabel" destination="bxw-fr-ZHN" id="7jW-Xw-vu9"/>
                         <outlet property="totalBackgroundView" destination="UjG-VF-173" id="FFF-sk-R31"/>
                         <outlet property="totalTextField" destination="M2g-DX-yPL" id="Zmt-oN-pnK"/>
                     </connections>
@@ -3779,7 +3800,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g94-1s-TqS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5645" y="2226"/>
+            <point key="canvasLocation" x="2421" y="4250"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="8ST-0E-Mdq">
@@ -3797,7 +3818,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8VP-uC-Kfj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3196" y="2221"/>
+            <point key="canvasLocation" x="-28" y="4245"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="b8W-KS-vso">
@@ -3815,7 +3836,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3eD-CM-ZvM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4833" y="2226"/>
+            <point key="canvasLocation" x="1609" y="4250"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="MvI-4J-ahg">
@@ -4281,6 +4302,7 @@
                         <outlet property="includeSelfSwitch" destination="kYw-QF-Cv1" id="bcR-gj-xXV"/>
                         <outlet property="nextButton" destination="hms-X5-DmQ" id="gRB-qL-UpC"/>
                         <outlet property="phoneNumberButton" destination="78t-eQ-dA8" id="zg1-1Z-NYy"/>
+                        <outlet property="titleLabel" destination="f3f-1z-LtI" id="pKe-TM-xW1"/>
                         <outlet property="topFadeView" destination="sRi-1J-fUM" id="8DY-MW-WGN"/>
                     </connections>
                 </viewController>

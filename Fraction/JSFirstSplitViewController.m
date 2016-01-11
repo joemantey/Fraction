@@ -62,6 +62,7 @@ x-method create new version of charge
 @property (weak, nonatomic) IBOutlet UIButton *phoneNumberButton;
 @property (weak, nonatomic) IBOutlet UIView *bottomFadeView;
 @property (weak, nonatomic) IBOutlet UIView *topFadeView;
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 
 @property (weak, nonatomic) IBOutlet UITableView *contactTableView;
 
@@ -366,8 +367,11 @@ x-method create new version of charge
     
     if (complete) {
         self.nextButton.hidden = NO;
+        self.titleLabel.text = @"Add contacts";
+
     }else{
         self.nextButton.hidden = YES;
+        self.titleLabel.text = @"Next: Enter Details";
     }
 }
 

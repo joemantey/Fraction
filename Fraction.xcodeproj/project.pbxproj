@@ -67,8 +67,8 @@
 		3856DBEA1BBC6FD1005AA1E3 /* JSHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSHomeViewController.m; sourceTree = "<group>"; };
 		3869064E1BD9AA7C0012EF90 /* JSPhoneTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSPhoneTableViewCell.h; sourceTree = "<group>"; };
 		3869064F1BD9AA7C0012EF90 /* JSPhoneTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSPhoneTableViewCell.m; sourceTree = "<group>"; };
-		386906511BD9AC8B0012EF90 /* JSAddPhoneNumberViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSAddPhoneNumberViewController.h; sourceTree = "<group>"; };
-		386906521BD9AC8B0012EF90 /* JSAddPhoneNumberViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSAddPhoneNumberViewController.m; sourceTree = "<group>"; };
+		386906511BD9AC8B0012EF90 /* JSAddPhoneNumberViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSAddPhoneNumberViewController.h; path = Fraction/JSAddPhoneNumberViewController.h; sourceTree = "<group>"; };
+		386906521BD9AC8B0012EF90 /* JSAddPhoneNumberViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSAddPhoneNumberViewController.m; path = Fraction/JSAddPhoneNumberViewController.m; sourceTree = "<group>"; };
 		386906581BDADD120012EF90 /* JSSplitTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSSplitTableViewCell.h; sourceTree = "<group>"; };
 		386906591BDADD120012EF90 /* JSSplitTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSSplitTableViewCell.m; sourceTree = "<group>"; };
 		3869065B1BDAE07D0012EF90 /* JSAdjustSplitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSAdjustSplitViewController.h; sourceTree = "<group>"; };
@@ -107,8 +107,8 @@
 		38BF441B1BB9FDF200E65D71 /* JSConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSConstants.m; sourceTree = "<group>"; };
 		38C3E2971BCFDE7A00340A53 /* JSCoreData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSCoreData.h; sourceTree = "<group>"; };
 		38C3E2981BCFDE7A00340A53 /* JSCoreData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSCoreData.m; sourceTree = "<group>"; };
-		38C3E2B81BD8057F00340A53 /* JSSplitTransactionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSSplitTransactionViewController.h; sourceTree = "<group>"; };
-		38C3E2B91BD8057F00340A53 /* JSSplitTransactionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSSplitTransactionViewController.m; sourceTree = "<group>"; };
+		38C3E2B81BD8057F00340A53 /* JSSplitTransactionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSSplitTransactionViewController.h; path = Fraction/JSSplitTransactionViewController.h; sourceTree = "<group>"; };
+		38C3E2B91BD8057F00340A53 /* JSSplitTransactionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSSplitTransactionViewController.m; path = Fraction/JSSplitTransactionViewController.m; sourceTree = "<group>"; };
 		38C9000C1C3F0DAC00774710 /* JSFriend+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "JSFriend+CoreDataProperties.h"; sourceTree = "<group>"; };
 		38C9000D1C3F0DAC00774710 /* JSFriend+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "JSFriend+CoreDataProperties.m"; sourceTree = "<group>"; };
 		38C9000E1C3F0DAC00774710 /* JSFriend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSFriend.h; sourceTree = "<group>"; };
@@ -205,6 +205,7 @@
 			isa = PBXGroup;
 			children = (
 				3870E71D1BB9904D0080A2A9 /* Fraction */,
+				38C9001F1C44058F00774710 /* Obsolete  */,
 				3870E73A1BB9904D0080A2A9 /* FractionTests */,
 				3870E71C1BB9904D0080A2A9 /* Products */,
 				3865BAE3966298613DE79FF7 /* Pods */,
@@ -376,16 +377,23 @@
 			children = (
 				5D696F0F1C347062001357EE /* JSFirstSplitViewController.h */,
 				5D696F101C347062001357EE /* JSFirstSplitViewController.m */,
-				38C3E2B81BD8057F00340A53 /* JSSplitTransactionViewController.h */,
-				38C3E2B91BD8057F00340A53 /* JSSplitTransactionViewController.m */,
 				3869068C1BE009810012EF90 /* JSConfirmSplitViewController.h */,
 				3869068D1BE009820012EF90 /* JSConfirmSplitViewController.m */,
 				3869065B1BDAE07D0012EF90 /* JSAdjustSplitViewController.h */,
 				3869065C1BDAE07D0012EF90 /* JSAdjustSplitViewController.m */,
-				386906511BD9AC8B0012EF90 /* JSAddPhoneNumberViewController.h */,
-				386906521BD9AC8B0012EF90 /* JSAddPhoneNumberViewController.m */,
 			);
 			name = "Split Transaction";
+			sourceTree = "<group>";
+		};
+		38C9001F1C44058F00774710 /* Obsolete  */ = {
+			isa = PBXGroup;
+			children = (
+				386906511BD9AC8B0012EF90 /* JSAddPhoneNumberViewController.h */,
+				386906521BD9AC8B0012EF90 /* JSAddPhoneNumberViewController.m */,
+				38C3E2B81BD8057F00340A53 /* JSSplitTransactionViewController.h */,
+				38C3E2B91BD8057F00340A53 /* JSSplitTransactionViewController.m */,
+			);
+			name = "Obsolete ";
 			sourceTree = "<group>";
 		};
 		38D5B9551BBCAB94009C6245 /* RESideMenu */ = {

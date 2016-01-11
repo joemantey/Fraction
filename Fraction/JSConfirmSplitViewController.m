@@ -12,7 +12,7 @@
 #import "UIColor+Colors.h"
 #import "NSString+Formatting.h"
 
-@interface JSConfirmSplitViewController () <UITextViewDelegate>
+@interface JSConfirmSplitViewController () <UITextViewDelegate, UITextFieldDelegate>
 
 @property (strong, nonatomic) JSCoreData        *dataStore;
 
@@ -24,6 +24,7 @@
 @property (weak, nonatomic) IBOutlet UISegmentedControl *privacySegmentedControl;
 @property (weak, nonatomic) IBOutlet UISlider *tipSlider;
 @property (weak, nonatomic) IBOutlet UILabel *tipLabel;
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 
 @property (weak, nonatomic) IBOutlet UITextField *amountTextField;
 
@@ -131,6 +132,14 @@
 
 - (void)checkTextView{
     
+    if (self.amountTextField.text.length == 0) {
+        self.titleLabel.text = @"Enter an amount";
+    }else if (self.notesTextField.text.length == 0){
+        self.titleLabel.text= @"Enter a note";
+    }else{
+        self.titleLabel.text= @"Next: Confirm Split";
+    }
+    
     if (self.notesTextField.text.length > 0 && self.amountTextField.text.length >0) {
         
         self.nextButton.hidden      = NO;
@@ -204,12 +213,14 @@
 - (IBAction)amountTextValueChanged:(id)sender {
 
     [self updateAmounts];
+    [self checkTextView];
 }
 
 #pragma mark - Note Text View
 
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
     
+    [self checkTextView];
     if ([text isEqualToString:@"\n"]) {
         
         [self dismissKeyboard];
@@ -220,11 +231,15 @@
     return YES;
 }
 
+
 - (void)textViewDidEndEditing:(UITextView *)textView{
     
     [self checkTextView];
 }
 
+-(void)textViewDidBeginEditing:(UITextView *)textView{
+    [self checkTextView];
+}
 
 
 #pragma mark - Navigation
