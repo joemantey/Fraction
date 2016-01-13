@@ -4,8 +4,10 @@
         <attribute name="amount" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="amountLeft" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="audience" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="chargeProcessed" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="dateOfCharge" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="index" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="isCharge" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="isDelayedCharge" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="note" optional="YES" attributeType="String" syncable="YES"/>
@@ -19,7 +21,11 @@
     </entity>
     <entity name="JSFriend" representedClassName="JSFriend" syncable="YES">
         <attribute name="about" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="chargeExecuted" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="chargeSuccesful" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="displayName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="errorString" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="index" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="phoneNumber" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="pledgedAmount" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
@@ -55,8 +61,8 @@
         <relationship name="personToCharge" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="JSPayCharge" inverseName="payChargeToPerson" inverseEntity="JSPayCharge" syncable="YES"/>
     </entity>
     <elements>
-        <element name="JSCharge" positionX="34" positionY="-405" width="128" height="270"/>
-        <element name="JSFriend" positionX="115" positionY="-150" width="128" height="210"/>
+        <element name="JSCharge" positionX="34" positionY="-405" width="128" height="300"/>
+        <element name="JSFriend" positionX="115" positionY="-150" width="128" height="270"/>
         <element name="JSPayCharge" positionX="-234" positionY="-144" width="128" height="165"/>
         <element name="JSPerson" positionX="-189" positionY="-411" width="128" height="120"/>
         <element name="JSVenPerson" positionX="-63" positionY="36" width="128" height="118"/>

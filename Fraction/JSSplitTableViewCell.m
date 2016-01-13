@@ -7,6 +7,7 @@
 //
 
 #import "JSSplitTableViewCell.h"
+#import "JSConstants.h"
 
 
 
@@ -28,17 +29,17 @@
 - (void)setUpBorders{
     
     self.cellBackgroundView.layer.borderColor   = [[UIColor colorWithWhite:1 alpha:1]CGColor];
-    self.cellBackgroundView.layer.borderWidth   = 1;
-    self.cellBackgroundView.layer.cornerRadius  = 8;
+    self.cellBackgroundView.layer.borderWidth   = BORDER_WIDTH;
+    self.cellBackgroundView.layer.cornerRadius  = CORNER_RADIUS;
     self.cellBackgroundView.clipsToBounds       = YES;
     self.cellBackgroundView.backgroundColor     = [UIColor colorWithWhite:1 alpha:0.15];
     
     self.sliderContainerView.layer.borderColor  = [[UIColor clearColor]CGColor];
-    self.sliderContainerView.layer.borderWidth  = 1;
+    self.sliderContainerView.layer.borderWidth  = BORDER_WIDTH;
     self.sliderContainerView.clipsToBounds      = YES;
     
     self.shareContainerView.layer.borderColor   = [[UIColor clearColor]CGColor];
-    self.shareContainerView.layer.borderWidth   = 1;
+    self.shareContainerView.layer.borderWidth   = BORDER_WIDTH;
     self.shareContainerView.clipsToBounds       = YES;
    
 }

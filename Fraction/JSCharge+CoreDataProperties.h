@@ -2,7 +2,7 @@
 //  JSCharge+CoreDataProperties.h
 //  Fraction
 //
-//  Created by Joseph Smalls-Mantey on 1/8/16.
+//  Created by Joseph Smalls-Mantey on 1/13/16.
 //  Copyright © 2016 Yosimite Labs | Joseph Smalls-Mantey. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -25,11 +25,13 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic, retain) NSString *note;
 @property (nullable, nonatomic, retain) NSString *phoneNumbers;
 @property (nullable, nonatomic, retain) NSString *requestURL;
-@property (nullable, nonatomic, retain) NSNumber *tip;
 @property (nullable, nonatomic, retain) NSNumber *selfIncluded;
+@property (nullable, nonatomic, retain) NSNumber *tip;
+@property (nullable, nonatomic, retain) NSNumber *chargeProcessed;
+@property (nullable, nonatomic, retain) NSNumber *index;
 @property (nullable, nonatomic, retain) NSSet<JSFriend *> *friend;
-@property (nullable, nonatomic, retain) NSManagedObject *person;
 @property (nullable, nonatomic, retain) JSFriend *me;
+@property (nullable, nonatomic, retain) NSManagedObject *person;
 
 @end
 

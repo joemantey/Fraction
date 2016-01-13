@@ -11,6 +11,7 @@
 #import "JSCoreData.h"
 
 #import "PayCharge.h"
+#import "JSCharge.h"
 #import "JSVenPerson.h"
 
 #import <Venmo-iOS-SDK/Venmo.h>
@@ -51,6 +52,99 @@ static JSVenmoAPIClient * venmoAPIClient;
                         }];
 }
 
+-(void)executeCharge:(JSCharge *)charge{
+    
+    NSArray *friendArray    = charge.friend.allObjects;
+    
+    //on the first run of the method, go through and assign all of the friend objects an index
+    if (charge.index == 0) {
+        
+        NSNumber *chargeIndex = charge.index;
+        charge.index = [NSNumber numberWithFloat:( charge.index.floatValue + 1)];
+        
+        int  i = 0;
+        for (i = 0; i < friendArray.count; i++) {
+            
+            JSFriend *friend    = friendArray[i];
+            friend.index        = [NSNumber numberWithInt: i];
+        }
+        
+       JSFriend *friendToCharge = [self returnFriendFromArray:friendArray forIndex:chargeIndex];
+    
+    }
+    
+    
+    
+    
+    /*
+     -execute charges until they are done
+        -first run (charge.index = 0)
+            -assign all of the friends an index
+            -increment charge index to 1
+            -run the friend.index = 0
+                -that query calls the method again if the count of friends is =< charge index
+        -subsequent runs (charge.index > 0)
+            -increment the charge index +1 (so 2 on the third run)
+            -run the friend.index = charge.index
+            -that query calls the method again if the count of friends is =< charge index
+
+    */
+    
+    
+}
+
+
+-(JSFriend *)returnFriendFromArray:(NSArray *)friendArray forIndex:(NSNumber *)index{
+    
+    
+    NSMutableArray *returnArray = [NSMutableArray array];
+    for (JSFriend *friend in friendArray) {
+        if (friend.index == index){
+            [returnArray addObject:friend];
+        }
+    }
+    
+    return returnArray.firstObject;
+}
+
+-(void)executeAPIChargeWithFriend:(JSFriend *)friend{
+    
+    [[Venmo sharedInstance] sendPaymentTo:friend.phoneNumber
+                                   amount:friend.pledgedAmount.integerValue
+                                     note:friend.charge.note
+                        completionHandler:^(VENTransaction *transaction, BOOL success, NSError *error) {
+                            if (success) {
+                                
+                                friend.chargeExecuted   = [NSNumber numberWithBool:YES];
+                                friend.chargeSuccesful  = [NSNumber numberWithBool:YES];
+                                if ([self shouldRunCharge:friend.charge]) {
+                                    [self executeCharge:friend.charge];
+                                }
+                            
+                            }
+                            else {
+                                friend.chargeExecuted   = [NSNumber numberWithBool:YES];
+                                friend.chargeSuccesful  = [NSNumber numberWithBool:NO];
+                                friend.errorString      = [error localizedDescription];
+                                if ([self shouldRunCharge:friend.charge]) {
+                                    [self executeCharge:friend.charge];
+                                }
+                                NSLog(@"Transaction failed with error: %@", [error localizedDescription]);
+                            }
+                        }];
+}
+
+-(BOOL)shouldRunCharge:(JSCharge *)charge{
+    
+    if (charge.friend.count > charge.index.integerValue ) {
+        
+        return YES;
+    }else{
+        
+        return NO;
+    }
+    
+}
 
 #pragma mark - Process Contact Array Methods
 

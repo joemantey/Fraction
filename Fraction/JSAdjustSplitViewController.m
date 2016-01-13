@@ -26,6 +26,8 @@
 @property (strong, nonatomic) JSCoreData        *dataStore;
 @property (strong, nonatomic) JSVenmoAPIClient  *venmoAPIClient;
 @property (strong, nonatomic) NSMutableArray    *friendArray;
+@property (nonatomic) CGPoint                   *center;
+
 
 @property (weak, nonatomic) IBOutlet UIView         *blurView;
 @property (weak, nonatomic) IBOutlet UIView         *backgroundContainer;
@@ -48,15 +50,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self configureCoreData];
-    [self clearNavigationBar];
-    [self setOutlines];
-    [self setDealText];
-    
+    [self configureNavigationBar];
+    [self configureOutlines];
+    [self configureDealText];
+    [self configureBackgroundColor];
+
     self.tableView.delegate     = self;
     self.tableView.dataSource   = self;
     [self.tableView setContentInset:UIEdgeInsetsMake(-20,0, self.view.frame.size.height*.17,0)];
     
-    [self setBackgroundColor];
 
     // Do any additional setup after loading the view.
     [self.tableView reloadData];
@@ -84,7 +86,7 @@
 
 }
 
-- (void)clearNavigationBar{
+- (void)configureNavigationBar{
     self.navigationItem.leftBarButtonItem.imageInsets = UIEdgeInsetsMake(12, 0, 12, 24);
     
     [self.navigationController.navigationBar setBackgroundImage:[UIImage new]
@@ -96,7 +98,7 @@
 }
 
 
-- (void)setBackgroundColor{
+- (void)configureBackgroundColor{
     
     UIColor *startColor         = [UIColor greenLight];
     UIColor *endColor           = [UIColor greenLight];
@@ -125,7 +127,7 @@
 }
 
 
-- (void)setOutlines{
+- (void)configureOutlines{
     
     self.backgroundContainer.layer.cornerRadius         = CORNER_RADIUS;
     self.backgroundContainer.layer.borderWidth          = BORDER_WIDTH;
@@ -144,7 +146,7 @@
     [self.completeTransactionButton setTitleColor:[UIColor greenLight] forState:UIControlStateNormal ];
 }
 
-- (void)setDealText{
+- (void)configureDealText{
     
     self.amountRemainingTextView.text       = [NSString stringWithFormat:@"$ %.f", self.dataStore.currentCharge.amountLeft.floatValue];
     self.perAmountRemainingTextView.text    = [NSString stringWithFormat:@"$%.f", (self.dataStore.currentCharge.amountLeft.floatValue/self.friendArray.count)];
@@ -214,7 +216,7 @@
     [self.dataStore saveContext];
     [self.venmoAPIClient refreshSplit];
     [self.tableView reloadData];
-    [self setDealText];
+    [self configureDealText];
 }
 
 
